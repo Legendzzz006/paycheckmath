@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Calculator from '@/components/Calculator';
 import InternalLinks from '@/components/InternalLinks';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Salary to Hourly Calculator | Convert Annual Salary to Hourly Wage',
@@ -126,35 +127,7 @@ export default function SalaryToHourlyPage() {
         </section>
       </main>
 
-      <footer className="border-t border-gray-200 mt-16">
-        <div className="max-w-4xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Calculators</h4>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="/" className="text-gray-600 hover:text-gray-900">Salary Calculator</Link></li>
-                <li><Link href="/salary-to-hourly" className="text-gray-600 hover:text-gray-900">Salary to Hourly</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Resources</h4>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link></li>
-                <li><Link href="/contact" className="text-gray-600 hover:text-gray-900">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-2">Legal</h4>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="/disclaimer" className="text-gray-600 hover:text-gray-900">Disclaimer</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="text-sm text-gray-600 text-center pt-6 border-t border-gray-200">
-            © {new Date().getFullYear()} PaycheckMath.com. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

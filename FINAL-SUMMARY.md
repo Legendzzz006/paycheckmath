@@ -7,7 +7,7 @@ Your salary calculator website is **100% ready** for Cloudflare Pages deployment
 ### 🌐 Site Details
 - **Domain**: paycheckmath.com
 - **Brand Name**: PaycheckMath
-- **Contact Email**: contact@paycheckmath.com
+- **Contact Email**: paycheckmath@gmail.com
 
 ## 📊 What's Been Built
 

@@ -35,7 +35,7 @@ Your site is now **100% production-ready** with:
 - ✅ Clean, professional copy
 - ✅ Realistic feature set
 - ✅ Proper branding (PaycheckMath.com)
-- ✅ Real contact email (contact@paycheckmath.com)
+- ✅ Real contact email (paycheckmath@gmail.com)
 
 ## 📦 Ready to Deploy!
 
