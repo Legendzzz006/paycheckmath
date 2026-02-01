@@ -47,14 +47,14 @@ export default function RaiseCalculatorPage() {
               <p className="text-sm text-gray-600">Convert annual salary to all pay periods</p>
             </Link>
             <Link
-              href="/salary-comparison-calculator"
+              href="/salary-comparison-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Salary Comparison</h3>
               <p className="text-sm text-gray-600">Compare two job offers</p>
             </Link>
             <Link
-              href="/take-home-pay-calculator"
+              href="/take-home-pay-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Take-Home Pay</h3>

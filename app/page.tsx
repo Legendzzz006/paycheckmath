@@ -60,7 +60,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/salary-to-hourly"
+                href="/salary-to-hourly/"
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -71,7 +71,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/overtime-calculator"
+                href="/overtime-calculator/"
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -82,7 +82,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/biweekly-paycheck-calculator"
+                href="/biweekly-paycheck-calculator/"
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -93,7 +93,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/take-home-pay-calculator"
+                href="/take-home-pay-calculator/"
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -104,7 +104,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/monthly-income-calculator"
+                href="/monthly-income-calculator/"
                 className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
@@ -120,7 +120,7 @@ export default function HomePage() {
             <h3 className="text-lg font-semibold text-gray-700 mb-4">Comparison & Planning</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <Link
-                href="/salary-comparison-calculator"
+                href="/salary-comparison-calculator/"
                 className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
@@ -131,7 +131,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/part-time-salary-calculator"
+                href="/part-time-salary-calculator/"
                 className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
@@ -142,7 +142,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/raise-calculator"
+                href="/raise-calculator/"
                 className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
@@ -237,34 +237,34 @@ export default function HomePage() {
               <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Calculators</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Calculator</Link></li>
-                <li><Link href="/salary-to-hourly" className="text-gray-600 hover:text-blue-600 transition-colors">Salary to Hourly</Link></li>
-                <li><Link href="/overtime-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Overtime Calculator</Link></li>
-                <li><Link href="/biweekly-paycheck-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Bi-Weekly Paycheck</Link></li>
-                <li><Link href="/take-home-pay-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Take-Home Pay</Link></li>
+                <li><Link href="/salary-to-hourly/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary to Hourly</Link></li>
+                <li><Link href="/overtime-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Overtime Calculator</Link></li>
+                <li><Link href="/biweekly-paycheck-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Bi-Weekly Paycheck</Link></li>
+                <li><Link href="/take-home-pay-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Take-Home Pay</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">More Tools</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                <li><Link href="/monthly-income-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Monthly Income</Link></li>
-                <li><Link href="/part-time-salary-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Part-Time Income</Link></li>
-                <li><Link href="/salary-comparison-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Comparison</Link></li>
-                <li><Link href="/raise-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Raise Calculator</Link></li>
+                <li><Link href="/monthly-income-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Monthly Income</Link></li>
+                <li><Link href="/part-time-salary-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Part-Time Income</Link></li>
+                <li><Link href="/salary-comparison-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Comparison</Link></li>
+                <li><Link href="/raise-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Raise Calculator</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Resources</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                <li><Link href="/about" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link></li>
-                <li><Link href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</Link></li>
+                <li><Link href="/about/" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link></li>
+                <li><Link href="/contact/" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Legal</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                <li><Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</Link></li>
-                <li><Link href="/disclaimer" className="text-gray-600 hover:text-blue-600 transition-colors">Disclaimer</Link></li>
+                <li><Link href="/privacy-policy/" className="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms-of-service/" className="text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+                <li><Link href="/disclaimer/" className="text-gray-600 hover:text-blue-600 transition-colors">Disclaimer</Link></li>
               </ul>
             </div>
           </div>

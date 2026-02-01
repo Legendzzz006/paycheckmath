@@ -47,7 +47,7 @@ export default function OvertimeCalculatorPage() {
               <p className="text-sm text-gray-600">Convert annual salary to hourly, daily, weekly, and monthly pay</p>
             </Link>
             <Link
-              href="/salary-to-hourly"
+              href="/salary-to-hourly/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Salary to Hourly</h3>
@@ -55,14 +55,14 @@ export default function OvertimeCalculatorPage() {
             </Link>
             
             <Link
-              href="/biweekly-paycheck-calculator"
+              href="/biweekly-paycheck-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Bi-Weekly Calculator</h3>
               <p className="text-sm text-gray-600">Calculate your bi-weekly paycheck amount</p>
             </Link>
             <Link
-              href="/take-home-pay-calculator"
+              href="/take-home-pay-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Take-Home Pay</h3>

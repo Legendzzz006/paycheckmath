@@ -100,7 +100,7 @@ export default function AboutPage() {
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
             Have questions, suggestions, or feedback? We'd love to hear from you. Visit our{' '}
-            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/contact/" className="text-blue-600 hover:text-blue-800 underline">
               contact page
             </Link>{' '}
             to get in touch.

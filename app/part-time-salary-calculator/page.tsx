@@ -47,14 +47,14 @@ export default function PartTimeCalculatorPage() {
               <p className="text-sm text-gray-600">Convert annual salary to hourly</p>
             </Link>
             <Link
-              href="/monthly-income-calculator"
+              href="/monthly-income-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Monthly Income</h3>
               <p className="text-sm text-gray-600">Calculate monthly income</p>
             </Link>
             <Link
-              href="/overtime-calculator"
+              href="/overtime-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Overtime Calculator</h3>

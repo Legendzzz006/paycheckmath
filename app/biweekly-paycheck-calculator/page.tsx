@@ -47,14 +47,14 @@ export default function BiweeklyCalculatorPage() {
               <p className="text-sm text-gray-600">Convert annual salary to hourly, daily, weekly, and monthly pay</p>
             </Link>
             <Link
-              href="/salary-to-hourly"
+              href="/salary-to-hourly/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Salary to Hourly</h3>
               <p className="text-sm text-gray-600">Convert any annual salary to its hourly equivalent</p>
             </Link>
             <Link
-              href="/overtime-calculator"
+              href="/overtime-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Overtime Calculator</h3>
@@ -62,7 +62,7 @@ export default function BiweeklyCalculatorPage() {
             </Link>
             
             <Link
-              href="/take-home-pay-calculator"
+              href="/take-home-pay-calculator/"
               className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
             >
               <h3 className="font-bold text-gray-900 mb-2">Take-Home Pay</h3>

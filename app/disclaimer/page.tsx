@@ -134,7 +134,7 @@ export default function DisclaimerPage() {
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
             If you have any questions about this disclaimer, please{' '}
-            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/contact/" className="text-blue-600 hover:text-blue-800 underline">
               contact us
             </Link>.
           </p>

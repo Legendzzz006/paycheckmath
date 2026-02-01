@@ -180,7 +180,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
             You can also visit our{' '}
-            <Link href="/contact" className="text-blue-600 hover:text-blue-800 underline">
+            <Link href="/contact/" className="text-blue-600 hover:text-blue-800 underline">
               contact page
             </Link>{' '}
             for more information.
