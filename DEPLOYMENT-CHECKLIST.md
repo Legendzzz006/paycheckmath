@@ -57,7 +57,7 @@ git push -u origin main
 4. Click **Connect to Git**
 5. Select your repository
 6. Configure build settings:
-   - **Project name**: paycalculator (or your choice)
+   - **Project name**: paycheckmath
    - **Production branch**: main
    - **Framework preset**: Next.js
    - **Build command**: `npm run build`

@@ -10,6 +10,18 @@ export default function Footer() {
             <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
               <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Calculator</Link></li>
               <li><Link href="/salary-to-hourly" className="text-gray-600 hover:text-blue-600 transition-colors">Salary to Hourly</Link></li>
+              <li><Link href="/overtime-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Overtime Calculator</Link></li>
+              <li><Link href="/biweekly-paycheck-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Bi-Weekly Paycheck</Link></li>
+              <li><Link href="/take-home-pay-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Take-Home Pay</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">More Tools</h4>
+            <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+              <li><Link href="/monthly-income-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Monthly Income</Link></li>
+              <li><Link href="/part-time-salary-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Part-Time Income</Link></li>
+              <li><Link href="/salary-comparison-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Comparison</Link></li>
+              <li><Link href="/raise-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Raise Calculator</Link></li>
             </ul>
           </div>
           <div>

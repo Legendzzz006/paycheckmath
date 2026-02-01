@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { calculateSalaryBreakdown, formatCurrency, type CalculatorInputs } from '@/lib/salaryCalculations';
-import { usStates } from '@/lib/salaryData';
 
 interface CalculatorProps {
   initialSalary?: number;
@@ -16,7 +15,6 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
     paidTimeOffWeeks: 0,
   });
 
-  const [selectedState, setSelectedState] = useState('');
   const breakdown = calculateSalaryBreakdown(inputs);
 
   useEffect(() => {
@@ -105,24 +103,6 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
             placeholder="0"
             aria-label="Paid time off in weeks"
           />
-        </div>
-
-        <div>
-          <label htmlFor="state" className="block text-sm font-semibold text-gray-700 mb-2">
-            State <span className="text-gray-400 font-normal">(for future tax calculations)</span>
-          </label>
-          <select
-            id="state"
-            value={selectedState}
-            onChange={(e) => setSelectedState(e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white transition-colors"
-            aria-label="Select your state"
-          >
-            <option value="">Select a state</option>
-            {usStates.map(state => (
-              <option key={state} value={state}>{state}</option>
-            ))}
-          </select>
         </div>
       </div>
 

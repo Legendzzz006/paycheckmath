@@ -18,7 +18,7 @@ export default function HomePage() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white text-lg font-bold">$</span>
             </div>
-            PayCalculator.us
+            PaycheckMath.com
           </Link>
         </div>
       </header>
@@ -39,6 +39,121 @@ export default function HomePage() {
         <div className="mb-12">
           <Calculator />
         </div>
+
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+            All Calculators
+          </h2>
+          
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Essential Calculators</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link
+                href="/"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-2xl font-bold">$</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Salary Calculator</h3>
+                <p className="text-gray-600">Convert annual salary to hourly, daily, weekly, and monthly pay</p>
+              </Link>
+
+              <Link
+                href="/salary-to-hourly"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">⏱️</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Salary to Hourly</h3>
+                <p className="text-gray-600">Quick conversion from annual salary to hourly wage</p>
+              </Link>
+
+              <Link
+                href="/overtime-calculator"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">⏰</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Overtime Calculator</h3>
+                <p className="text-gray-600">Calculate overtime pay with time and a half or double time rates</p>
+              </Link>
+
+              <Link
+                href="/biweekly-paycheck-calculator"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">📅</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Bi-Weekly Paycheck</h3>
+                <p className="text-gray-600">Calculate your bi-weekly paycheck from salary or hourly rate</p>
+              </Link>
+
+              <Link
+                href="/take-home-pay-calculator"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">💰</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Take-Home Pay</h3>
+                <p className="text-gray-600">Calculate net pay after federal taxes, state taxes, and deductions</p>
+              </Link>
+
+              <Link
+                href="/monthly-income-calculator"
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">📊</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Monthly Income</h3>
+                <p className="text-gray-600">Calculate monthly income from any pay period</p>
+              </Link>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-gray-700 mb-4">Comparison & Planning</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link
+                href="/salary-comparison-calculator"
+                className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">⚖️</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Salary Comparison</h3>
+                <p className="text-gray-600">Compare salary vs hourly job offers side by side</p>
+              </Link>
+
+              <Link
+                href="/part-time-salary-calculator"
+                className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">👥</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Part-Time Income</h3>
+                <p className="text-gray-600">Calculate income from multiple part-time jobs</p>
+              </Link>
+
+              <Link
+                href="/raise-calculator"
+                className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6 hover:border-purple-500 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">📈</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Raise Calculator</h3>
+                <p className="text-gray-600">Calculate your new salary after a raise or promotion</p>
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <section className="mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
@@ -62,7 +177,7 @@ export default function HomePage() {
             </p>
             <p>
               If you have paid time off, enter the number of weeks to get a more accurate hourly 
-              rate calculation. The state selector is available for future tax calculation features.
+              rate calculation.
             </p>
           </div>
         </section>
@@ -115,32 +230,44 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="bg-white border-t border-gray-200 mt-24">
-        <div className="max-w-5xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      <footer className="bg-white border-t border-gray-200 mt-16 sm:mt-24">
+        <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
             <div>
-              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Calculators</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Calculators</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Calculator</Link></li>
                 <li><Link href="/salary-to-hourly" className="text-gray-600 hover:text-blue-600 transition-colors">Salary to Hourly</Link></li>
+                <li><Link href="/overtime-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Overtime Calculator</Link></li>
+                <li><Link href="/biweekly-paycheck-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Bi-Weekly Paycheck</Link></li>
+                <li><Link href="/take-home-pay-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Take-Home Pay</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Resources</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">More Tools</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                <li><Link href="/monthly-income-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Monthly Income</Link></li>
+                <li><Link href="/part-time-salary-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Part-Time Income</Link></li>
+                <li><Link href="/salary-comparison-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Comparison</Link></li>
+                <li><Link href="/raise-calculator" className="text-gray-600 hover:text-blue-600 transition-colors">Raise Calculator</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Resources</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li><Link href="/about" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link></li>
                 <li><Link href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Legal</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Legal</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                 <li><Link href="/disclaimer" className="text-gray-600 hover:text-blue-600 transition-colors">Disclaimer</Link></li>
               </ul>
             </div>
           </div>
-          <div className="text-sm text-gray-500 text-center pt-8 border-t border-gray-200">
-            © {new Date().getFullYear()} PayCalculator.us. All rights reserved.
+          <div className="text-xs sm:text-sm text-gray-500 text-center pt-6 sm:pt-8 border-t border-gray-200">
+            © {new Date().getFullYear()} PaycheckMath.com. All rights reserved.
           </div>
         </div>
       </footer>

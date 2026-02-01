@@ -82,7 +82,7 @@ export default async function SalaryPage({ params }: PageProps) {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white text-lg font-bold">$</span>
               </div>
-              PayCalculator.us
+              PaycheckMath.com
             </Link>
           </div>
         </header>
@@ -199,7 +199,7 @@ export default async function SalaryPage({ params }: PageProps) {
               </div>
             </div>
             <div className="text-sm text-gray-600 text-center pt-6 border-t border-gray-200">
-              © {new Date().getFullYear()} PayCalculator.us. All rights reserved.
+              © {new Date().getFullYear()} PaycheckMath.com. All rights reserved.
             </div>
           </div>
         </footer>

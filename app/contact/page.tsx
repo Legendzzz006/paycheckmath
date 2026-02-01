@@ -9,10 +9,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="border-b border-gray-200">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-6">
-          <Link href="/" className="text-xl font-bold text-gray-900">
-            PayCalculator.us
+          <Link href="/" className="inline-flex items-center gap-2 text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white text-lg font-bold">$</span>
+            </div>
+            PaycheckMath.com
           </Link>
         </div>
       </header>
@@ -62,9 +65,10 @@ export default function ContactPage() {
                 Do you account for taxes?
               </h3>
               <p className="text-gray-700">
-                Currently, our calculators show gross pay before taxes and deductions. We're working 
-                on adding tax calculation features in the future. The state selector in our calculator 
-                is a placeholder for this upcoming functionality.
+                Currently, our calculators show gross pay before taxes and deductions. Your actual 
+                take-home pay will be lower after federal taxes, state taxes, FICA taxes, and other 
+                deductions. We recommend consulting with a tax professional or using a dedicated tax 
+                calculator for accurate after-tax estimates.
               </p>
             </div>
 
@@ -126,7 +130,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="text-sm text-gray-600 text-center pt-6 border-t border-gray-200">
-            © {new Date().getFullYear()} PayCalculator.us. All rights reserved.
+            © {new Date().getFullYear()} PaycheckMath.com. All rights reserved.
           </div>
         </div>
       </footer>
