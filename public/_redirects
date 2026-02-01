@@ -1,0 +1,50 @@
+# Cloudflare Pages Redirects
+# Force trailing slashes for all routes
+
+# Main calculators
+/salary-to-hourly              /salary-to-hourly/              301
+/overtime-calculator           /overtime-calculator/           301
+/biweekly-paycheck-calculator  /biweekly-paycheck-calculator/  301
+/take-home-pay-calculator      /take-home-pay-calculator/      301
+
+# Additional calculators
+/monthly-income-calculator     /monthly-income-calculator/     301
+/part-time-salary-calculator   /part-time-salary-calculator/   301
+/salary-comparison-calculator  /salary-comparison-calculator/  301
+/raise-calculator              /raise-calculator/              301
+
+# Info pages
+/about                         /about/                         301
+/contact                       /contact/                       301
+/privacy-policy                /privacy-policy/                301
+/terms-of-service              /terms-of-service/              301
+/disclaimer                    /disclaimer/                    301
+
+# Salary pages (popular ones)
+/30000-a-year-is-how-much-an-hour   /30000-a-year-is-how-much-an-hour/   301
+/35000-a-year-is-how-much-an-hour   /35000-a-year-is-how-much-an-hour/   301
+/40000-a-year-is-how-much-an-hour   /40000-a-year-is-how-much-an-hour/   301
+/45000-a-year-is-how-much-an-hour   /45000-a-year-is-how-much-an-hour/   301
+/50000-a-year-is-how-much-an-hour   /50000-a-year-is-how-much-an-hour/   301
+/55000-a-year-is-how-much-an-hour   /55000-a-year-is-how-much-an-hour/   301
+/60000-a-year-is-how-much-an-hour   /60000-a-year-is-how-much-an-hour/   301
+/65000-a-year-is-how-much-an-hour   /65000-a-year-is-how-much-an-hour/   301
+/70000-a-year-is-how-much-an-hour   /70000-a-year-is-how-much-an-hour/   301
+/75000-a-year-is-how-much-an-hour   /75000-a-year-is-how-much-an-hour/   301
+/80000-a-year-is-how-much-an-hour   /80000-a-year-is-how-much-an-hour/   301
+/85000-a-year-is-how-much-an-hour   /85000-a-year-is-how-much-an-hour/   301
+/90000-a-year-is-how-much-an-hour   /90000-a-year-is-how-much-an-hour/   301
+/95000-a-year-is-how-much-an-hour   /95000-a-year-is-how-much-an-hour/   301
+/100000-a-year-is-how-much-an-hour  /100000-a-year-is-how-much-an-hour/  301
+/110000-a-year-is-how-much-an-hour  /110000-a-year-is-how-much-an-hour/  301
+/120000-a-year-is-how-much-an-hour  /120000-a-year-is-how-much-an-hour/  301
+/130000-a-year-is-how-much-an-hour  /130000-a-year-is-how-much-an-hour/  301
+/140000-a-year-is-how-much-an-hour  /140000-a-year-is-how-much-an-hour/  301
+/150000-a-year-is-how-much-an-hour  /150000-a-year-is-how-much-an-hour/  301
+/160000-a-year-is-how-much-an-hour  /160000-a-year-is-how-much-an-hour/  301
+/170000-a-year-is-how-much-an-hour  /170000-a-year-is-how-much-an-hour/  301
+/180000-a-year-is-how-much-an-hour  /180000-a-year-is-how-much-an-hour/  301
+/190000-a-year-is-how-much-an-hour  /190000-a-year-is-how-much-an-hour/  301
+/200000-a-year-is-how-much-an-hour  /200000-a-year-is-how-much-an-hour/  301
+/250000-a-year-is-how-much-an-hour  /250000-a-year-is-how-much-an-hour/  301
+/300000-a-year-is-how-much-an-hour  /300000-a-year-is-how-much-an-hour/  301
