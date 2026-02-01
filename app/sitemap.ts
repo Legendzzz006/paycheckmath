@@ -8,85 +8,85 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   const staticPages = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/salary-to-hourly`,
+      url: `${baseUrl}/salary-to-hourly/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/overtime-calculator`,
+      url: `${baseUrl}/overtime-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/biweekly-paycheck-calculator`,
+      url: `${baseUrl}/biweekly-paycheck-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/take-home-pay-calculator`,
+      url: `${baseUrl}/take-home-pay-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/monthly-income-calculator`,
+      url: `${baseUrl}/monthly-income-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/part-time-salary-calculator`,
+      url: `${baseUrl}/part-time-salary-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/salary-comparison-calculator`,
+      url: `${baseUrl}/salary-comparison-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/raise-calculator`,
+      url: `${baseUrl}/raise-calculator/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/about/`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/contact/`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/disclaimer`,
+      url: `${baseUrl}/disclaimer/`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/privacy-policy`,
+      url: `${baseUrl}/privacy-policy/`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/terms-of-service`,
+      url: `${baseUrl}/terms-of-service/`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
@@ -94,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const salaryPages = popularSalaries.map((salary) => ({
-    url: `${baseUrl}/${salary}-a-year-is-how-much-an-hour`,
+    url: `${baseUrl}/${salary}-a-year-is-how-much-an-hour/`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
