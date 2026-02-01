@@ -1,7 +1,7 @@
 # Cloudflare Pages Redirects
 
 # Force www → non-www (CRITICAL FOR SEO)
-https://www.paycheckmath.com/*   https://paycheckmath.com/:splat   301
+/*   https://paycheckmath.com/:splat   301
 
 # Force trailing slashes for all routes
 
