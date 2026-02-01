@@ -40,6 +40,12 @@ export default function AboutPage() {
             career decisions. Whether you're comparing job offers, negotiating salary, or simply 
             curious about your hourly rate, our calculators provide quick, accurate answers.
           </p>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Our goal is to empower workers across the United States with the tools and knowledge 
+            they need to understand their true earning potential. We've built a comprehensive suite 
+            of calculators that go beyond simple conversions, helping you plan for raises, compare 
+            job offers, and understand your take-home pay.
+          </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
             Why We Built This
@@ -47,8 +53,29 @@ export default function AboutPage() {
           <p className="text-gray-700 mb-4 leading-relaxed">
             Many workers struggle to compare salaries across different pay structures. A job 
             offering $75,000 per year might sound great, but how does it compare to a position 
-            paying $38 per hour? Our tools make these comparisons simple and transparent.
+            paying $38 per hour? What about benefits, overtime potential, or part-time work? 
+            Our tools make these comparisons simple and transparent.
           </p>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            We created PaycheckMath because we saw a need for straightforward, honest salary 
+            calculators that don't require sign-ups, don't sell your data, and don't hide behind 
+            paywalls. Just clean, accurate calculations when you need them.
+          </p>
+
+          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
+            What Makes Us Different
+          </h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Unlike other salary calculators, we offer a complete suite of tools:
+          </p>
+          <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+            <li><strong>9 Specialized Calculators:</strong> From basic salary conversions to advanced comparison tools</li>
+            <li><strong>No Registration Required:</strong> Use all our tools instantly without creating an account</li>
+            <li><strong>Mobile-Optimized:</strong> Calculate on any device, anywhere</li>
+            <li><strong>Real-Time Results:</strong> See your calculations update as you type</li>
+            <li><strong>Educational Content:</strong> Learn about salary structures, not just numbers</li>
+            <li><strong>Completely Free:</strong> All features available to everyone at no cost</li>
+          </ul>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
             Accuracy and Transparency
