@@ -1,65 +1,149 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
+import Calculator from '@/components/Calculator';
+import InternalLinks from '@/components/InternalLinks';
+import Link from 'next/link';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Salary & Pay Calculators for the US | Convert Annual Salary to Hourly',
+  description: 'Free salary calculator to convert annual salary to hourly, monthly, weekly, and daily pay. Calculate your exact take-home pay with our accurate US salary tools.',
+  keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter',
+};
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-white">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 py-5">
+          <Link href="/" className="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white text-lg font-bold">$</span>
+            </div>
+            PayCalculator.us
+          </Link>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12 md:py-16">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            Salary & Pay Calculators for the US
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Calculate your hourly, daily, weekly, and monthly pay from your annual salary. 
+            Our free salary calculator helps you understand your true earning potential and 
+            compare job offers with confidence.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="mb-12">
+          <Calculator />
         </div>
+
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Popular Salary Conversions
+          </h2>
+          <p className="text-gray-600 mb-6 sm:mb-8 text-base sm:text-lg">
+            Quickly find out how much common US salaries are worth per hour:
+          </p>
+          <InternalLinks limit={24} />
+        </section>
+
+        <section className="mb-16 bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            How to Use This Calculator
+          </h2>
+          <div className="text-gray-700 space-y-4 leading-relaxed">
+            <p>
+              Enter your annual salary to instantly see your hourly wage, daily pay, weekly income, 
+              and monthly earnings. The calculator uses standard US work hours (40 hours per week, 
+              52 weeks per year) but you can adjust these values to match your specific situation.
+            </p>
+            <p>
+              If you have paid time off, enter the number of weeks to get a more accurate hourly 
+              rate calculation. The state selector is available for future tax calculation features.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Understanding Your Salary
+          </h2>
+          <div className="prose prose-lg max-w-none space-y-6 text-gray-700 leading-relaxed">
+            <p>
+              When evaluating a job offer or comparing salaries, it's essential to understand how 
+              your annual compensation translates to different pay periods. A salary that seems 
+              high annually might be less impressive when broken down to an hourly rate, especially 
+              if the position requires long hours or extensive overtime.
+            </p>
+            <p>
+              The standard calculation assumes 2,080 working hours per year (40 hours × 52 weeks). 
+              However, most employees don't actually work every single week due to holidays, 
+              vacation time, and sick days. This is why understanding your effective hourly rate 
+              after accounting for paid time off is valuable.
+            </p>
+            <p>
+              Remember that the figures shown are gross pay before taxes and deductions. Your 
+              actual take-home pay will be lower after federal income tax, state income tax, 
+              Social Security, Medicare, and any other deductions like health insurance or 
+              retirement contributions.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-8 mb-16">
+          <div className="flex gap-4">
+            <div className="flex-shrink-0">
+              <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Important Disclaimer
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                This calculator provides estimates based on the information you enter. Actual take-home 
+                pay will vary based on federal and state taxes, deductions, and other factors. This tool 
+                is for informational purposes only and should not be considered financial or tax advice. 
+                Consult with a qualified professional for personalized guidance.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer className="bg-white border-t border-gray-200 mt-24">
+        <div className="max-w-5xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Calculators</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Calculator</Link></li>
+                <li><Link href="/salary-to-hourly" className="text-gray-600 hover:text-blue-600 transition-colors">Salary to Hourly</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Resources</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/about" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link></li>
+                <li><Link href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/disclaimer" className="text-gray-600 hover:text-blue-600 transition-colors">Disclaimer</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-sm text-gray-500 text-center pt-8 border-t border-gray-200">
+            © {new Date().getFullYear()} PayCalculator.us. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

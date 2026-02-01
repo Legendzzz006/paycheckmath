@@ -1,36 +1,176 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PaycheckMath.com - US Salary Calculator
 
-## Getting Started
+A production-ready, SEO-optimized salary calculator website built with Next.js. Converts annual salaries to hourly, daily, weekly, and monthly pay.
 
-First, run the development server:
+## 🚀 Features
+
+- **Fast & Lightweight**: Static site generation for optimal performance
+- **SEO-Optimized**: 27 programmatic salary pages with proper meta tags and structured data
+- **Mobile-First Design**: Clean, editorial-style UI that works on all devices
+- **Accessible**: ARIA labels and semantic HTML throughout
+- **Scalable Architecture**: Easy to add new calculators and features
+- **Zero Cost Hosting**: Optimized for Cloudflare Pages (free tier)
+
+## 📊 Pages Generated
+
+- Homepage with interactive calculator
+- 27 salary-specific pages ($30k - $300k)
+- Salary to Hourly converter
+- About, Contact, Disclaimer pages
+- Sitemap and robots.txt
+
+## 🛠 Tech Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS 4
+- Static Site Generation (SSG)
+
+## 🏗 Getting Started
+
+### Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+This generates a static export in the `/out` directory, ready for deployment.
 
-To learn more about Next.js, take a look at the following resources:
+### Generate Salary Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you need to regenerate the salary pages:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+node scripts/generate-salary-pages.js
+```
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+/app
+  /page.tsx                                    # Homepage
+  /salary-to-hourly/page.tsx                   # Salary to hourly converter
+  /[salary]-a-year-is-how-much-an-hour/page.tsx # Dynamic fallback
+  /30000-a-year-is-how-much-an-hour/page.tsx  # Static salary pages (x27)
+  /about/page.tsx                              # About page
+  /contact/page.tsx                            # Contact page
+  /disclaimer/page.tsx                         # Disclaimer page
+  /layout.tsx                                  # Root layout
+  /globals.css                                 # Global styles
+  /sitemap.ts                                  # Sitemap generation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/components
+  /Calculator.tsx                              # Main salary calculator
+  /SalaryBreakdownTable.tsx                    # Pay breakdown table
+  /FAQ.tsx                                     # FAQ component
+  /InternalLinks.tsx                           # Internal linking component
+  /Header.tsx                                  # Site header
+  /Footer.tsx                                  # Site footer
+
+/lib
+  /salaryCalculations.ts                       # Calculation logic
+  /salaryData.ts                               # Salary data and content generation
+
+/scripts
+  /generate-salary-pages.js                    # Script to generate static pages
+
+/public
+  /_headers                                    # Cloudflare headers config
+  /robots.txt                                  # SEO robots file
+```
+
+## 🌐 Deployment
+
+### Cloudflare Pages (Recommended)
+
+1. Push code to GitHub
+2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+3. Navigate to **Pages** → **Create a project**
+4. Connect your GitHub repository
+5. Configure build settings:
+   - **Framework preset**: Next.js
+   - **Build command**: `npm run build`
+   - **Build output directory**: `out`
+6. Click **Save and Deploy**
+
+See [CLOUDFLARE-DEPLOYMENT.md](./CLOUDFLARE-DEPLOYMENT.md) for detailed instructions.
+
+### Other Static Hosts
+
+The site exports to static HTML and can be deployed to:
+- Netlify
+- Vercel
+- AWS S3 + CloudFront
+- GitHub Pages
+
+Simply upload the contents of the `/out` directory after running `npm run build`.
+
+## 🎯 SEO Features
+
+- Semantic HTML structure
+- Proper heading hierarchy
+- Meta descriptions for all pages
+- Open Graph tags
+- Structured data (FAQ schema)
+- Internal linking strategy
+- Fast page loads
+- Mobile-responsive
+- Sitemap.xml
+- Robots.txt
+
+## 📈 Performance
+
+Expected scores:
+- Performance: 95-100
+- Accessibility: 95-100
+- Best Practices: 95-100
+- SEO: 95-100
+
+## 💰 Monetization Ready
+
+Layout prepared for:
+- Google AdSense blocks
+- Affiliate sections
+- Sponsored content
+
+Ad placement areas:
+- Below calculator
+- After breakdown table
+- End of content
+- Sidebar (desktop)
+
+## 🔄 Adding More Salary Pages
+
+1. Edit `lib/salaryData.ts` and add salaries to the `popularSalaries` array
+2. Run `node scripts/generate-salary-pages.js`
+3. Build and deploy
+
+## 🚀 Future Enhancements
+
+- Tax calculations by state
+- Overtime calculator
+- Bi-weekly paycheck calculator
+- Inflation adjustment tool
+- Cost of living comparisons
+- Retirement savings calculator
+
+## 📱 Mobile Testing
+
+See [MOBILE-TESTING.md](./MOBILE-TESTING.md) for instructions on testing the site on your phone.
+
+## 📄 License
+
+All rights reserved.
+
+## 🆘 Support
+
+For issues or questions, see [CLOUDFLARE-DEPLOYMENT.md](./CLOUDFLARE-DEPLOYMENT.md) troubleshooting section.
