@@ -1,8 +1,5 @@
 # Cloudflare Pages Redirects
 
-# Force www → non-www (CRITICAL FOR SEO)
-/*   https://paycheckmath.com/:splat   301
-
 # Force trailing slashes for all routes
 
 # Main calculators
