@@ -60,10 +60,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'PaycheckMath',
+    alternateName: 'Paycheck Math',
     url: 'https://paycheckmath.com',
     description: 'Free salary and pay calculators for the US. Convert annual salary to hourly, calculate overtime, take-home pay, and more.',
     publisher: {
@@ -82,6 +83,17 @@ export default function RootLayout({
     },
   };
 
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'PaycheckMath',
+    url: 'https://paycheckmath.com',
+    logo: 'https://paycheckmath.com/icon.svg',
+    sameAs: [
+      'https://paycheckmath.com',
+    ],
+  };
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -97,10 +109,15 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Structured Data */}
+        {/* Structured Data - Website */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        {/* Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body className="font-sans antialiased">
