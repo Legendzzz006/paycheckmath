@@ -97,6 +97,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Favicon - Explicit links to ensure consistency */}
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+        <link rel="shortcut icon" href="/icon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWX479KPBR"></script>
         <script
