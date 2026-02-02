@@ -21,8 +21,12 @@ export const metadata: Metadata = {
   publisher: 'PaycheckMath',
   applicationName: 'PaycheckMath',
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.svg',
     apple: '/favicon.svg',
+    other: [],
   },
   robots: {
     index: true,
