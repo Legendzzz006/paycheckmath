@@ -101,9 +101,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWX479KPBR"></script>
         <script
