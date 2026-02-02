@@ -11,14 +11,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://paycheckmath.com'),
   title: {
-    default: 'Salary & Pay Calculators for the US | PaycheckMath',
+    default: 'PaycheckMath - Free Salary & Pay Calculators for the US',
     template: '%s | PaycheckMath',
   },
-  description: 'Free salary calculator to convert annual salary to hourly, monthly, weekly, and daily pay. Calculate your exact take-home pay with our accurate US salary tools.',
-  keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter, salary to hourly',
+  description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for overtime, take-home pay, raises, and more. Accurate US wage conversion tools.',
+  keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter, salary to hourly, overtime calculator, paycheck calculator',
   authors: [{ name: 'PaycheckMath' }],
   creator: 'PaycheckMath',
   publisher: 'PaycheckMath',
+  applicationName: 'PaycheckMath',
   robots: {
     index: true,
     follow: true,
@@ -35,13 +36,22 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://paycheckmath.com',
     siteName: 'PaycheckMath',
-    title: 'Salary & Pay Calculators for the US',
-    description: 'Free salary calculator to convert annual salary to hourly, monthly, weekly, and daily pay.',
+    title: 'PaycheckMath - Free Salary & Pay Calculators',
+    description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for overtime, take-home pay, raises, and more.',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'PaycheckMath - Salary & Pay Calculators',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Salary & Pay Calculators for the US',
-    description: 'Free salary calculator to convert annual salary to hourly, monthly, weekly, and daily pay.',
+    title: 'PaycheckMath - Free Salary & Pay Calculators',
+    description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for the US.',
+    images: ['/og-image.svg'],
   },
 };
 
@@ -50,6 +60,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'PaycheckMath',
+    url: 'https://paycheckmath.com',
+    description: 'Free salary and pay calculators for the US. Convert annual salary to hourly, calculate overtime, take-home pay, and more.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'PaycheckMath',
+      url: 'https://paycheckmath.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://paycheckmath.com/icon.svg',
+      },
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://paycheckmath.com/?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -64,6 +96,11 @@ export default function RootLayout({
               gtag('config', 'G-SWX479KPBR');
             `,
           }}
+        />
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="font-sans antialiased">

@@ -5,9 +5,9 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Salary to Hourly Calculator | Convert Annual Salary to Hourly Wage',
-  description: 'Convert your annual salary to an hourly wage instantly. Free calculator shows your hourly rate based on standard 40-hour work weeks or custom hours.',
-  keywords: 'salary to hourly, annual to hourly, salary converter, hourly wage calculator',
+  title: 'Salary to Hourly Calculator - Convert Annual Salary to Hourly Wage',
+  description: 'Convert your annual salary to hourly wage instantly. Free calculator shows your exact hourly rate based on 40-hour work weeks or custom hours. Fast and accurate.',
+  keywords: 'salary to hourly, annual to hourly, salary converter, hourly wage calculator, wage conversion',
 };
 
 export default function SalaryToHourlyPage() {

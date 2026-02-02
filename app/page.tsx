@@ -4,9 +4,9 @@ import InternalLinks from '@/components/InternalLinks';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Salary & Pay Calculators for the US | Convert Annual Salary to Hourly',
-  description: 'Free salary calculator to convert annual salary to hourly, monthly, weekly, and daily pay. Calculate your exact take-home pay with our accurate US salary tools.',
-  keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter',
+  title: 'PaycheckMath - Free Salary & Pay Calculators for the US',
+  description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for overtime, take-home pay, raises, and more. Accurate US wage conversion tools.',
+  keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter, overtime calculator, paycheck calculator',
 };
 
 export default function HomePage() {
