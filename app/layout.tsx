@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   creator: 'PaycheckMath',
   publisher: 'PaycheckMath',
   applicationName: 'PaycheckMath',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   robots: {
     index: true,
     follow: true,
@@ -73,7 +77,7 @@ export default function RootLayout({
       url: 'https://paycheckmath.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://paycheckmath.com/icon.svg',
+        url: 'https://paycheckmath.com/favicon.svg',
       },
     },
     potentialAction: {
@@ -88,7 +92,7 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'PaycheckMath',
     url: 'https://paycheckmath.com',
-    logo: 'https://paycheckmath.com/icon.svg',
+    logo: 'https://paycheckmath.com/favicon.svg',
     sameAs: [
       'https://paycheckmath.com',
     ],
@@ -97,6 +101,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWX479KPBR"></script>
         <script
