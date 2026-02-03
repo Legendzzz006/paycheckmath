@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import { calculateBiweekly, type BiweeklyInputs } from '@/lib/biweeklyCalculations';
 import { formatCurrency } from '@/lib/salaryCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import CurrencySelector from './CurrencySelector';
 
 export default function BiweeklyCalculator() {
+  const { currency } = useCurrency();
   const [inputType, setInputType] = useState<'salary' | 'hourly'>('salary');
   const [inputs, setInputs] = useState<BiweeklyInputs>({
     annualSalary: 60000,
@@ -25,13 +28,16 @@ export default function BiweeklyCalculator() {
 
   return (
     <div className="calculator-card border border-gray-200 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Bi-Weekly Paycheck Calculator</h2>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Bi-Weekly Paycheck Calculator</h2>
+        <CurrencySelector />
       </div>
       
       <div className="mb-6">
@@ -66,7 +72,7 @@ export default function BiweeklyCalculator() {
               Annual Salary
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-3.5 text-gray-500 font-medium">$</span>
+              <span className="absolute left-4 top-3.5 text-gray-500 font-medium">{currency.symbol}</span>
               <input
                 type="number"
                 id="annualSalary"
@@ -84,7 +90,7 @@ export default function BiweeklyCalculator() {
                 Hourly Rate
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-3.5 text-gray-500 font-medium">$</span>
+                <span className="absolute left-4 top-3.5 text-gray-500 font-medium">{currency.symbol}</span>
                 <input
                   type="number"
                   id="hourlyRate"
@@ -118,19 +124,19 @@ export default function BiweeklyCalculator() {
         <div className="grid grid-cols-2 gap-4">
           <div className="result-card p-5 rounded-xl col-span-2">
             <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Bi-Weekly Paycheck</div>
-            <div className="text-3xl font-bold text-gray-900">{formatCurrency(breakdown.biweeklyGross)}</div>
+            <div className="text-3xl font-bold text-gray-900">{formatCurrency(breakdown.biweeklyGross, currency)}</div>
           </div>
           <div className="bg-gray-50 p-4 rounded-xl">
             <div className="text-xs text-gray-600 mb-1">Weekly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(breakdown.weeklyPay)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(breakdown.weeklyPay, currency)}</div>
           </div>
           <div className="bg-gray-50 p-4 rounded-xl">
             <div className="text-xs text-gray-600 mb-1">Monthly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(breakdown.monthlyEquivalent)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(breakdown.monthlyEquivalent, currency)}</div>
           </div>
           <div className="bg-gray-50 p-4 rounded-xl col-span-2">
             <div className="text-xs text-gray-600 mb-1">Annual</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(breakdown.annualEquivalent)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(breakdown.annualEquivalent, currency)}</div>
           </div>
         </div>
       </div>

@@ -1,10 +1,15 @@
+'use client';
+
 import { formatCurrency } from '@/lib/salaryCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
 
 interface SalaryBreakdownTableProps {
   salary: number;
 }
 
 export default function SalaryBreakdownTable({ salary }: SalaryBreakdownTableProps) {
+  const { currency } = useCurrency();
+  
   const hourly = salary / 2080;
   const daily = salary / 260;
   const weekly = salary / 52;
@@ -43,7 +48,7 @@ export default function SalaryBreakdownTable({ salary }: SalaryBreakdownTablePro
                 {row.period}
               </td>
               <td className="px-6 py-4 text-sm text-gray-900 text-right font-bold">
-                {formatCurrency(row.amount)}
+                {formatCurrency(row.amount, currency)}
               </td>
               <td className="px-6 py-4 text-sm text-gray-600 text-right">
                 {row.hours.toFixed(2)}

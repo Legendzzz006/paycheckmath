@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import { calculateComparison, ComparisonInputs } from '@/lib/comparisonCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { formatCurrency } from '@/lib/salaryCalculations';
+import CurrencySelector from './CurrencySelector';
 
 export default function ComparisonCalculator() {
+  const { currency } = useCurrency();
   const [salaryAmount, setSalaryAmount] = useState<string>('75000');
   const [hourlyRate, setHourlyRate] = useState<string>('36');
   const [hoursPerWeek, setHoursPerWeek] = useState<string>('40');
@@ -22,19 +26,13 @@ export default function ComparisonCalculator() {
 
   const results = calculateComparison(inputs);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
-
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Compare Salary vs Hourly</h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Compare Salary vs Hourly</h2>
+          <CurrencySelector />
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Salary Job */}
@@ -47,7 +45,7 @@ export default function ComparisonCalculator() {
                   Annual Salary
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{currency.symbol}</span>
                   <input
                     type="number"
                     value={salaryAmount}
@@ -63,7 +61,7 @@ export default function ComparisonCalculator() {
                   Annual Benefits Value
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{currency.symbol}</span>
                   <input
                     type="number"
                     value={salaryBenefits}
@@ -87,7 +85,7 @@ export default function ComparisonCalculator() {
                   Hourly Rate
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{currency.symbol}</span>
                   <input
                     type="number"
                     value={hourlyRate}
@@ -104,7 +102,7 @@ export default function ComparisonCalculator() {
                   Annual Benefits Value
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{currency.symbol}</span>
                   <input
                     type="number"
                     value={hourlyBenefits}
@@ -168,7 +166,7 @@ export default function ComparisonCalculator() {
           <p className="text-gray-700">
             {results.difference.betterOption === 'equal' 
               ? 'Both positions offer essentially the same total compensation.'
-              : `The ${results.difference.betterOption} position pays ${formatCurrency(Math.abs(results.difference.annual))} more per year (${Math.abs(results.difference.percentage).toFixed(1)}%).`}
+              : `The ${results.difference.betterOption} position pays ${formatCurrency(Math.abs(results.difference.annual), currency)} more per year (${Math.abs(results.difference.percentage).toFixed(1)}%).`}
           </p>
         </div>
 
@@ -180,19 +178,19 @@ export default function ComparisonCalculator() {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="text-gray-700">Base Salary:</span>
-                <span className="font-bold">{formatCurrency(results.salary.annual)}</span>
+                <span className="font-bold">{formatCurrency(results.salary.annual, currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-700">With Benefits:</span>
-                <span className="font-bold text-blue-600">{formatCurrency(results.salary.withBenefits)}</span>
+                <span className="font-bold text-blue-600">{formatCurrency(results.salary.withBenefits, currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-700">Effective Hourly:</span>
-                <span className="font-bold">{formatCurrency(results.salary.effectiveHourly)}</span>
+                <span className="font-bold">{formatCurrency(results.salary.effectiveHourly, currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-700">Monthly:</span>
-                <span className="font-bold">{formatCurrency(results.salary.monthly)}</span>
+                <span className="font-bold">{formatCurrency(results.salary.monthly, currency)}</span>
               </div>
             </div>
           </div>
@@ -203,19 +201,19 @@ export default function ComparisonCalculator() {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="text-gray-700">Annual Earnings:</span>
-                <span className="font-bold">{formatCurrency(results.hourly.annual)}</span>
+                <span className="font-bold">{formatCurrency(results.hourly.annual, currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-700">With Benefits:</span>
-                <span className="font-bold text-green-600">{formatCurrency(results.hourly.withBenefits)}</span>
+                <span className="font-bold text-green-600">{formatCurrency(results.hourly.withBenefits, currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-700">Effective Hourly:</span>
-                <span className="font-bold">{formatCurrency(results.hourly.effectiveHourly)}</span>
+                <span className="font-bold">{formatCurrency(results.hourly.effectiveHourly, currency)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-700">Monthly:</span>
-                <span className="font-bold">{formatCurrency(results.hourly.monthly)}</span>
+                <span className="font-bold">{formatCurrency(results.hourly.monthly, currency)}</span>
               </div>
             </div>
           </div>

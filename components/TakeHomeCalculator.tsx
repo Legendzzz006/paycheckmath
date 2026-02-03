@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import { calculateTakeHome, type TakeHomeInputs } from '@/lib/takeHomeCalculations';
 import { formatCurrency } from '@/lib/salaryCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import CurrencySelector from './CurrencySelector';
 
 export default function TakeHomeCalculator() {
+  const { currency } = useCurrency();
   const [inputs, setInputs] = useState<TakeHomeInputs>({
     grossPay: 5000,
     payFrequency: 'monthly',
@@ -26,13 +29,16 @@ export default function TakeHomeCalculator() {
 
   return (
     <div className="calculator-card border border-gray-200 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Take-Home Pay Calculator</h2>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Take-Home Pay Calculator</h2>
+        <CurrencySelector />
       </div>
       
       <div className="space-y-5">
@@ -41,7 +47,7 @@ export default function TakeHomeCalculator() {
             Gross Pay
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-3.5 text-gray-500 font-medium">$</span>
+            <span className="absolute left-4 top-3.5 text-gray-500 font-medium">{currency.symbol}</span>
             <input
               type="number"
               id="grossPay"
@@ -108,7 +114,7 @@ export default function TakeHomeCalculator() {
             Other Deductions (401k, Insurance, etc.)
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-3.5 text-gray-500 font-medium">$</span>
+            <span className="absolute left-4 top-3.5 text-gray-500 font-medium">{currency.symbol}</span>
             <input
               type="number"
               id="otherDeductions"
@@ -129,30 +135,30 @@ export default function TakeHomeCalculator() {
               <span className="text-sm font-semibold text-gray-600">Net Pay</span>
               <span className="text-sm font-semibold text-green-600">{breakdown.takeHomePercentage}% of gross</span>
             </div>
-            <div className="text-4xl font-bold text-gray-900">{formatCurrency(breakdown.netPay)}</div>
+            <div className="text-4xl font-bold text-gray-900">{formatCurrency(breakdown.netPay, currency)}</div>
           </div>
 
           <div className="bg-white border border-gray-200 rounded-xl p-5 space-y-3">
             <h4 className="font-semibold text-gray-900 mb-3">Deductions Breakdown</h4>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Federal Tax</span>
-              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.federalTax)}</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.federalTax, currency)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">State Tax</span>
-              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.stateTax)}</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.stateTax, currency)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">FICA (Social Security + Medicare)</span>
-              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.ficaTax)}</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.ficaTax, currency)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Other Deductions</span>
-              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.otherDeductions)}</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.otherDeductions, currency)}</span>
             </div>
             <div className="flex justify-between text-sm pt-3 border-t border-gray-200">
               <span className="font-semibold text-gray-900">Total Deductions</span>
-              <span className="font-bold text-red-600">{formatCurrency(breakdown.totalDeductions)}</span>
+              <span className="font-bold text-red-600">{formatCurrency(breakdown.totalDeductions, currency)}</span>
             </div>
           </div>
         </div>

@@ -2,22 +2,17 @@
 
 import { useState } from 'react';
 import { calculateMultipleJobs, PartTimeJob } from '@/lib/partTimeCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { formatCurrency } from '@/lib/salaryCalculations';
+import CurrencySelector from './CurrencySelector';
 
 export default function PartTimeCalculator() {
+  const { currency } = useCurrency();
   const [jobs, setJobs] = useState<PartTimeJob[]>([
     { hourlyRate: 15, hoursPerWeek: 20, weeksPerYear: 52 },
   ]);
 
   const results = calculateMultipleJobs({ jobs });
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
 
   const addJob = () => {
     setJobs([...jobs, { hourlyRate: 15, hoursPerWeek: 20, weeksPerYear: 52 }]);
@@ -38,7 +33,10 @@ export default function PartTimeCalculator() {
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Part-Time Income Calculator</h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Part-Time Income Calculator</h2>
+          <CurrencySelector />
+        </div>
         
         <div className="space-y-6">
           {jobs.map((job, index) => (
@@ -63,7 +61,7 @@ export default function PartTimeCalculator() {
                     Hourly Rate
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">{currency.symbol}</span>
                     <input
                       type="number"
                       value={job.hourlyRate}
@@ -107,13 +105,13 @@ export default function PartTimeCalculator() {
                   <div>
                     <span className="text-gray-600">Annual:</span>
                     <span className="ml-2 font-bold text-gray-900">
-                      {formatCurrency(results.jobBreakdown[index]?.annual || 0)}
+                      {formatCurrency(results.jobBreakdown[index]?.annual || 0, currency)}
                     </span>
                   </div>
                   <div>
                     <span className="text-gray-600">Monthly:</span>
                     <span className="ml-2 font-bold text-gray-900">
-                      {formatCurrency(results.jobBreakdown[index]?.monthly || 0)}
+                      {formatCurrency(results.jobBreakdown[index]?.monthly || 0, currency)}
                     </span>
                   </div>
                 </div>
@@ -136,22 +134,22 @@ export default function PartTimeCalculator() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Total Annual</div>
-            <div className="text-2xl font-bold text-blue-600">{formatCurrency(results.totalAnnual)}</div>
+            <div className="text-2xl font-bold text-blue-600">{formatCurrency(results.totalAnnual, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Total Monthly</div>
-            <div className="text-2xl font-bold text-gray-900">{formatCurrency(results.totalMonthly)}</div>
+            <div className="text-2xl font-bold text-gray-900">{formatCurrency(results.totalMonthly, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Total Weekly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.totalWeekly)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.totalWeekly, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Total Bi-Weekly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.totalBiweekly)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.totalBiweekly, currency)}</div>
           </div>
         </div>
 
@@ -163,7 +161,7 @@ export default function PartTimeCalculator() {
             </div>
             <div>
               <div className="text-gray-700 mb-1">Average Hourly Rate</div>
-              <div className="text-lg font-bold text-gray-900">{formatCurrency(results.averageHourlyRate)}</div>
+              <div className="text-lg font-bold text-gray-900">{formatCurrency(results.averageHourlyRate, currency)}</div>
             </div>
           </div>
         </div>

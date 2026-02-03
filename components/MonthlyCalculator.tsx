@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import { calculateMonthly, MonthlyInputs } from '@/lib/monthlyCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { formatCurrency } from '@/lib/salaryCalculations';
+import CurrencySelector from './CurrencySelector';
 
 export default function MonthlyCalculator() {
+  const { currency } = useCurrency();
   const [inputType, setInputType] = useState<'annual' | 'monthly' | 'weekly' | 'hourly'>('annual');
   const [amount, setAmount] = useState<string>('60000');
   const [hoursPerWeek, setHoursPerWeek] = useState<string>('40');
@@ -18,19 +22,13 @@ export default function MonthlyCalculator() {
 
   const results = calculateMonthly(inputs);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
-
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Calculate Monthly Income</h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Calculate Monthly Income</h2>
+          <CurrencySelector />
+        </div>
         
         <div className="space-y-6">
           <div>
@@ -62,7 +60,7 @@ export default function MonthlyCalculator() {
               {inputType === 'hourly' && 'Hourly Rate'}
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">{currency.symbol}</span>
               <input
                 type="number"
                 id="amount"
@@ -114,32 +112,32 @@ export default function MonthlyCalculator() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Monthly</div>
-            <div className="text-2xl font-bold text-blue-600">{formatCurrency(results.monthly)}</div>
+            <div className="text-2xl font-bold text-blue-600">{formatCurrency(results.monthly, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Annual</div>
-            <div className="text-2xl font-bold text-gray-900">{formatCurrency(results.annual)}</div>
+            <div className="text-2xl font-bold text-gray-900">{formatCurrency(results.annual, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Bi-Weekly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.biweekly)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.biweekly, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Weekly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.weekly)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.weekly, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Daily</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.daily)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.daily, currency)}</div>
           </div>
 
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <div className="text-sm text-gray-600 mb-1">Hourly</div>
-            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.hourly)}</div>
+            <div className="text-xl font-bold text-gray-900">{formatCurrency(results.hourly, currency)}</div>
           </div>
         </div>
       </div>

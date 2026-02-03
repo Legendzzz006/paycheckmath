@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import { calculateRaise, RaiseInputs } from '@/lib/raiseCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import { formatCurrency } from '@/lib/salaryCalculations';
+import CurrencySelector from './CurrencySelector';
 
 export default function RaiseCalculator() {
+  const { currency } = useCurrency();
   const [currentSalary, setCurrentSalary] = useState<string>('60000');
   const [raiseType, setRaiseType] = useState<'percentage' | 'amount'>('percentage');
   const [raiseValue, setRaiseValue] = useState<string>('5');
@@ -16,19 +20,13 @@ export default function RaiseCalculator() {
 
   const results = calculateRaise(inputs);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(value);
-  };
-
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Raise Calculator</h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Raise Calculator</h2>
+          <CurrencySelector />
+        </div>
         
         <div className="space-y-6">
           <div>
@@ -36,7 +34,7 @@ export default function RaiseCalculator() {
               Current Salary
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">{currency.symbol}</span>
               <input
                 type="number"
                 value={currentSalary}
@@ -70,7 +68,7 @@ export default function RaiseCalculator() {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                Dollar Amount ($)
+                Dollar Amount ({currency.symbol})
               </button>
             </div>
           </div>
@@ -81,7 +79,7 @@ export default function RaiseCalculator() {
             </label>
             <div className="relative">
               {raiseType === 'amount' && (
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">$</span>
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg">{currency.symbol}</span>
               )}
               <input
                 type="number"
@@ -104,10 +102,10 @@ export default function RaiseCalculator() {
         <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
           <h3 className="text-lg font-bold text-gray-900 mb-4">Your New Salary</h3>
           <div className="text-4xl font-bold text-green-600 mb-2">
-            {formatCurrency(results.newSalary)}
+            {formatCurrency(results.newSalary, currency)}
           </div>
           <div className="text-gray-700">
-            <span className="font-semibold">Increase:</span> {formatCurrency(results.raiseAmount)} ({results.raisePercentage.toFixed(2)}%)
+            <span className="font-semibold">Increase:</span> {formatCurrency(results.raiseAmount, currency)} ({results.raisePercentage.toFixed(2)}%)
           </div>
         </div>
 
@@ -128,33 +126,33 @@ export default function RaiseCalculator() {
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="py-3 text-gray-700">Annual</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.annual)}</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.annual)}</td>
-                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.annual)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.annual, currency)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.annual, currency)}</td>
+                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.annual, currency)}</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-gray-700">Monthly</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.monthly)}</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.monthly)}</td>
-                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.monthly)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.monthly, currency)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.monthly, currency)}</td>
+                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.monthly, currency)}</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-gray-700">Bi-Weekly</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.biweekly)}</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.biweekly)}</td>
-                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.biweekly)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.biweekly, currency)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.biweekly, currency)}</td>
+                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.biweekly, currency)}</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-gray-700">Weekly</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.weekly)}</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.weekly)}</td>
-                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.weekly)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.weekly, currency)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.weekly, currency)}</td>
+                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.weekly, currency)}</td>
                 </tr>
                 <tr>
                   <td className="py-3 text-gray-700">Hourly</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.hourly)}</td>
-                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.hourly)}</td>
-                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.hourly)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.current.hourly, currency)}</td>
+                  <td className="py-3 text-right font-medium">{formatCurrency(results.breakdown.new.hourly, currency)}</td>
+                  <td className="py-3 text-right font-bold text-green-600">{formatCurrency(results.breakdown.increase.hourly, currency)}</td>
                 </tr>
               </tbody>
             </table>

@@ -3,8 +3,11 @@
 import { useState } from 'react';
 import { calculateOvertime, type OvertimeInputs } from '@/lib/overtimeCalculations';
 import { formatCurrency } from '@/lib/salaryCalculations';
+import { useCurrency } from '@/contexts/CurrencyContext';
+import CurrencySelector from './CurrencySelector';
 
 export default function OvertimeCalculator() {
+  const { currency } = useCurrency();
   const [inputs, setInputs] = useState<OvertimeInputs>({
     hourlyRate: 20,
     regularHours: 40,
@@ -21,13 +24,16 @@ export default function OvertimeCalculator() {
 
   return (
     <div className="calculator-card border border-gray-200 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Overtime Calculator</h2>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Overtime Calculator</h2>
+        <CurrencySelector />
       </div>
       
       <div className="space-y-5">
@@ -36,7 +42,7 @@ export default function OvertimeCalculator() {
             Hourly Rate
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-3.5 text-gray-500 font-medium">$</span>
+            <span className="absolute left-4 top-3.5 text-gray-500 font-medium">{currency.symbol}</span>
             <input
               type="number"
               id="hourlyRate"
@@ -101,19 +107,19 @@ export default function OvertimeCalculator() {
         <div className="space-y-4">
           <div className="bg-white border-2 border-gray-200 p-5 rounded-xl">
             <div className="text-sm text-gray-600 mb-1">Regular Pay</div>
-            <div className="text-2xl font-bold text-gray-900">{formatCurrency(breakdown.regularPay)}</div>
+            <div className="text-2xl font-bold text-gray-900">{formatCurrency(breakdown.regularPay, currency)}</div>
           </div>
           <div className="bg-blue-50 border-2 border-blue-200 p-5 rounded-xl">
             <div className="text-sm text-blue-700 font-semibold mb-1">Overtime Pay</div>
-            <div className="text-2xl font-bold text-blue-900">{formatCurrency(breakdown.overtimePay)}</div>
+            <div className="text-2xl font-bold text-blue-900">{formatCurrency(breakdown.overtimePay, currency)}</div>
           </div>
           <div className="result-card p-5 rounded-xl">
             <div className="text-sm text-gray-600 mb-1">Total Pay</div>
-            <div className="text-3xl font-bold text-gray-900">{formatCurrency(breakdown.totalPay)}</div>
+            <div className="text-3xl font-bold text-gray-900">{formatCurrency(breakdown.totalPay, currency)}</div>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg">
             <div className="text-xs text-gray-600 mb-1">Effective Hourly Rate</div>
-            <div className="text-lg font-semibold text-gray-900">{formatCurrency(breakdown.effectiveHourlyRate)}/hour</div>
+            <div className="text-lg font-semibold text-gray-900">{formatCurrency(breakdown.effectiveHourlyRate, currency)}/hour</div>
           </div>
         </div>
       </div>

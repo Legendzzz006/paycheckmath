@@ -1,3 +1,5 @@
+import { CurrencyConfig, formatCurrencyWithConfig, formatNumberWithLocale } from './currencyConfig';
+
 export interface SalaryBreakdown {
   annual: number;
   hourly: number;
@@ -33,7 +35,11 @@ export function calculateSalaryBreakdown(inputs: CalculatorInputs): SalaryBreakd
   };
 }
 
-export function formatCurrency(amount: number): string {
+// Legacy functions for backward compatibility
+export function formatCurrency(amount: number, currencyConfig?: CurrencyConfig): string {
+  if (currencyConfig) {
+    return formatCurrencyWithConfig(amount, currencyConfig);
+  }
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -42,6 +48,9 @@ export function formatCurrency(amount: number): string {
   }).format(amount);
 }
 
-export function formatNumber(num: number): string {
+export function formatNumber(num: number, locale?: string): string {
+  if (locale) {
+    return formatNumberWithLocale(num, locale);
+  }
   return new Intl.NumberFormat('en-US').format(num);
 }
