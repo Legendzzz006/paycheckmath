@@ -6,7 +6,7 @@
 **Complexity**: Medium  
 **Pages Generated**: 500 (10 salaries × 50 states)
 
---
+---
 
 ## Implementation Summary
 
