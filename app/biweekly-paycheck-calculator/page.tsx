@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import BiweeklyCalculator from '@/components/BiweeklyCalculator';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -38,37 +39,7 @@ export default function BiweeklyCalculatorPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
             Related Calculators
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <Link
-              href="/"
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
-            >
-              <h3 className="font-bold text-gray-900 mb-2">Salary Calculator</h3>
-              <p className="text-sm text-gray-600">Convert annual salary to hourly, daily, weekly, and monthly pay</p>
-            </Link>
-            <Link
-              href="/salary-to-hourly/"
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
-            >
-              <h3 className="font-bold text-gray-900 mb-2">Salary to Hourly</h3>
-              <p className="text-sm text-gray-600">Convert any annual salary to its hourly equivalent</p>
-            </Link>
-            <Link
-              href="/overtime-calculator/"
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
-            >
-              <h3 className="font-bold text-gray-900 mb-2">Overtime Calculator</h3>
-              <p className="text-sm text-gray-600">Calculate overtime pay with time and a half or double time</p>
-            </Link>
-            
-            <Link
-              href="/take-home-pay-calculator/"
-              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-lg transition-all"
-            >
-              <h3 className="font-bold text-gray-900 mb-2">Take-Home Pay</h3>
-              <p className="text-sm text-gray-600">Calculate net pay after taxes and deductions</p>
-            </Link>
-          </div>
+          <RelatedCalculators currentPage="/biweekly-paycheck-calculator/" />
         </section>
       </main>
 

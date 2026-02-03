@@ -4,6 +4,8 @@ import Calculator from '@/components/Calculator';
 import SalaryBreakdownTable from '@/components/SalaryBreakdownTable';
 import FAQ from '@/components/FAQ';
 import InternalLinks from '@/components/InternalLinks';
+import RelatedCalculators from '@/components/RelatedCalculators';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import Footer from '@/components/Footer';
 import { generateSalaryPageContent, popularSalaries } from '@/lib/salaryData';
 import Link from 'next/link';
@@ -79,11 +81,61 @@ export default async function SalaryPage({ params }: PageProps) {
     })),
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://paycheckmath.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: `$${salary.toLocaleString()} a Year`,
+        item: `https://paycheckmath.com/${salary}-a-year-is-how-much-an-hour`,
+      },
+    ],
+  };
+
+  const calculatorJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: `${salary.toLocaleString()} Salary to Hourly Calculator`,
+    description: `Free calculator to convert $${salary.toLocaleString()} annual salary to hourly, monthly, weekly, and daily pay rates.`,
+    url: `https://paycheckmath.com/${salary}-a-year-is-how-much-an-hour`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Annual to hourly conversion',
+      'Monthly income calculation',
+      'Weekly pay calculation',
+      'Daily wage calculation',
+      'Customizable work hours',
+      'Paid time off adjustment',
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
       />
       
       <div className="min-h-screen bg-white">
@@ -110,7 +162,9 @@ export default async function SalaryPage({ params }: PageProps) {
           </div>
 
           <div className="mb-12">
-            <Calculator initialSalary={salary} />
+            <ErrorBoundary>
+              <Calculator initialSalary={salary} />
+            </ErrorBoundary>
           </div>
 
           <section className="mb-16">
@@ -160,6 +214,16 @@ export default async function SalaryPage({ params }: PageProps) {
               See how other annual salaries convert to hourly wages:
             </p>
             <InternalLinks currentSalary={salary} limit={20} />
+          </section>
+
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Related Calculators
+            </h2>
+            <p className="text-gray-600 mb-8 text-lg">
+              Explore our other salary and pay calculators:
+            </p>
+            <RelatedCalculators currentPage={`/${salary}-a-year-is-how-much-an-hour/`} />
           </section>
 
           <aside className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-8">

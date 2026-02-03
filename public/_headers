@@ -1,12 +1,49 @@
-/*
-  Cache-Control: public, max-age=31536000, immutable
+# Cloudflare Pages Cache Headers
+
+# HTML pages - short cache with revalidation
+/*.html
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
 
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+# JavaScript and CSS - long cache (immutable)
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
 
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images - long cache
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sitemap - moderate cache
 /sitemap.xml
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=3600, s-maxage=86400, must-revalidate
+
+# Robots.txt - moderate cache
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# Manifest - moderate cache
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+# Default for all other files
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://ipapi.co;

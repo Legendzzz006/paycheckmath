@@ -6,7 +6,6 @@ import { CurrencyConfig, CURRENCIES, getCurrencyByCountry } from '@/lib/currency
 interface CurrencyContextType {
   currency: CurrencyConfig;
   setCurrency: (currency: CurrencyConfig) => void;
-  isLoading: boolean;
   detectedCountry: string | null;
 }
 
@@ -14,39 +13,39 @@ const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined
 
 export function CurrencyProvider({ children }: { children: ReactNode }) {
   const [currency, setCurrencyState] = useState<CurrencyConfig>(CURRENCIES.USD);
-  const [isLoading, setIsLoading] = useState(true);
   const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if user has a saved preference
+    // Check if user has a saved preference first
     const savedCurrency = localStorage.getItem('preferredCurrency');
     if (savedCurrency && CURRENCIES[savedCurrency]) {
       setCurrencyState(CURRENCIES[savedCurrency]);
-      setIsLoading(false);
       return;
     }
 
-    // Detect location using multiple methods
-    detectUserLocation();
+    // Detect location in background (non-blocking)
+    detectUserLocationInBackground();
   }, []);
 
-  const detectUserLocation = async () => {
+  const detectUserLocationInBackground = async () => {
     try {
-      // Method 1: Try timezone-based detection first (fastest)
+      // Method 1: Try timezone-based detection first (fastest, synchronous)
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       const countryFromTimezone = getCountryFromTimezone(timezone);
       
       if (countryFromTimezone) {
         const detectedCurrency = getCurrencyByCountry(countryFromTimezone);
         setDetectedCountry(countryFromTimezone);
-        setCurrencyState(detectedCurrency);
-        setIsLoading(false);
+        // Only auto-switch if user hasn't manually selected a currency
+        if (!localStorage.getItem('preferredCurrency')) {
+          setCurrencyState(detectedCurrency);
+        }
         return;
       }
 
-      // Method 2: Try IP-based geolocation API
+      // Method 2: Try IP-based geolocation API (background only, don't block)
       const response = await fetch('https://ipapi.co/json/', {
-        signal: AbortSignal.timeout(3000),
+        signal: AbortSignal.timeout(2000),
       });
       
       if (response.ok) {
@@ -54,17 +53,16 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
         if (data.country_code) {
           const detectedCurrency = getCurrencyByCountry(data.country_code);
           setDetectedCountry(data.country_code);
-          setCurrencyState(detectedCurrency);
-          setIsLoading(false);
-          return;
+          // Only auto-switch if user hasn't manually selected a currency
+          if (!localStorage.getItem('preferredCurrency')) {
+            setCurrencyState(detectedCurrency);
+          }
         }
       }
     } catch (error) {
-      console.log('Location detection failed, using default USD');
+      // Silent fail - user already has USD default
+      console.log('Background location detection failed, using USD');
     }
-    
-    // Fallback to USD
-    setIsLoading(false);
   };
 
   const setCurrency = (newCurrency: CurrencyConfig) => {
@@ -73,7 +71,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <CurrencyContext.Provider value={{ currency, setCurrency, isLoading, detectedCountry }}>
+    <CurrencyContext.Provider value={{ currency, setCurrency, detectedCountry }}>
       {children}
     </CurrencyContext.Provider>
   );
@@ -85,6 +83,11 @@ export function useCurrency() {
     throw new Error('useCurrency must be used within a CurrencyProvider');
   }
   return context;
+}
+
+// Validate localStorage values before using
+function isValidCurrencyCode(code: string): boolean {
+  return code in CURRENCIES;
 }
 
 // Helper function to map timezone to country

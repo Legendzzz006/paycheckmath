@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { calculateSalaryBreakdown, formatCurrency, type CalculatorInputs } from '@/lib/salaryCalculations';
 import { useCurrency } from '@/contexts/CurrencyContext';
+import { trackCalculatorUsage, trackCalculatorInteraction, trackTimeOnCalculator } from '@/lib/analytics';
 import CurrencySelector from './CurrencySelector';
 
 interface CalculatorProps {
@@ -10,7 +11,9 @@ interface CalculatorProps {
 }
 
 export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
-  const { currency, isLoading } = useCurrency();
+  const { currency } = useCurrency();
+  const startTimeRef = useRef<number>(Date.now());
+  const hasTrackedUsage = useRef<boolean>(false);
   
   const [inputs, setInputs] = useState<CalculatorInputs>({
     annualSalary: initialSalary,
@@ -20,6 +23,24 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
   });
 
   const breakdown = calculateSalaryBreakdown(inputs);
+
+  // Track calculator usage on mount
+  useEffect(() => {
+    if (!hasTrackedUsage.current) {
+      trackCalculatorUsage('salary_calculator', initialSalary);
+      hasTrackedUsage.current = true;
+    }
+  }, [initialSalary]);
+
+  // Track time spent on calculator
+  useEffect(() => {
+    return () => {
+      const timeSpent = Math.floor((Date.now() - startTimeRef.current) / 1000);
+      if (timeSpent > 5) { // Only track if spent more than 5 seconds
+        trackTimeOnCalculator('salary_calculator', timeSpent);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (initialSalary && initialSalary !== inputs.annualSalary) {
@@ -39,18 +60,26 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
 
   const handleInputChange = (field: keyof CalculatorInputs, value: string) => {
     const numValue = parseFloat(value) || 0;
+    
+    // Input validation
+    if (field === 'annualSalary' && (numValue < 0 || numValue > 10000000)) {
+      return; // Don't update if out of range
+    }
+    if (field === 'hoursPerWeek' && (numValue < 0 || numValue > 168)) {
+      return; // Max 168 hours in a week
+    }
+    if (field === 'weeksPerYear' && (numValue < 0 || numValue > 52)) {
+      return;
+    }
+    if (field === 'paidTimeOffWeeks' && (numValue < 0 || numValue > 52)) {
+      return;
+    }
+    
     setInputs(prev => ({ ...prev, [field]: numValue }));
+    
+    // Track interaction
+    trackCalculatorInteraction('salary_calculator', `changed_${field}`);
   };
-
-  if (isLoading) {
-    return (
-      <div className="calculator-card border border-gray-200 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">
-        <div className="flex items-center justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="calculator-card border border-gray-200 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">

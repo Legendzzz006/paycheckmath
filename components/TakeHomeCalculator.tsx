@@ -23,6 +23,18 @@ export default function TakeHomeCalculator() {
       setInputs(prev => ({ ...prev, [field]: value as TakeHomeInputs['payFrequency'] }));
     } else {
       const numValue = typeof value === 'string' ? parseFloat(value) || 0 : value;
+      
+      // Input validation
+      if (field === 'grossPay' && (numValue < 0 || numValue > 100000000)) {
+        return;
+      }
+      if ((field === 'federalTaxRate' || field === 'stateTaxRate') && (numValue < 0 || numValue > 100)) {
+        return;
+      }
+      if (field === 'otherDeductions' && numValue < 0) {
+        return;
+      }
+      
       setInputs(prev => ({ ...prev, [field]: numValue }));
     }
   };
@@ -149,8 +161,12 @@ export default function TakeHomeCalculator() {
               <span className="font-semibold text-gray-900">{formatCurrency(breakdown.stateTax, currency)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-gray-600">FICA (Social Security + Medicare)</span>
-              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.ficaTax, currency)}</span>
+              <span className="text-gray-600">Social Security Tax</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.socialSecurityTax, currency)}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-600">Medicare Tax</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(breakdown.medicareTax, currency)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Other Deductions</span>

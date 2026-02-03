@@ -22,22 +22,64 @@ export function generateSalaryPageContent(salary: number) {
   const monthly = Math.round((salary / 12) * 100) / 100;
   const weekly = Math.round((salary / 52) * 100) / 100;
   const daily = Math.round((salary / 260) * 100) / 100;
+  const insights = getSalaryInsights(salary);
 
   return {
     title: `$${salary.toLocaleString()} a Year is How Much an Hour?`,
     metaDescription: `Convert $${salary.toLocaleString()} annual salary to hourly, monthly, weekly, and daily pay. See your exact take-home pay breakdown with our free salary calculator.`,
     h1: `$${salary.toLocaleString()} a Year is How Much an Hour?`,
-    intro: `If you earn $${salary.toLocaleString()} per year, your hourly wage is approximately $${hourly.toFixed(2)}. This calculation is based on a standard 40-hour work week and 52 weeks per year, totaling 2,080 working hours annually.`,
-    content: generateArticleContent(salary, hourly, monthly, weekly, daily),
+    intro: `If you earn $${salary.toLocaleString()} per year, your hourly wage is approximately $${hourly.toFixed(2)}. This calculation is based on a standard 40-hour work week and 52 weeks per year, totaling 2,080 working hours annually. ${insights.intro}`,
+    content: generateArticleContent(salary, hourly, monthly, weekly, daily, insights),
     faqs: generateFAQs(salary, hourly, monthly, weekly, daily),
   };
 }
 
-function generateArticleContent(salary: number, hourly: number, monthly: number, weekly: number, daily: number): string {
+function getSalaryInsights(salary: number) {
+  if (salary < 35000) {
+    return {
+      intro: 'This salary is below the US median household income.',
+      context: 'At this income level, budgeting carefully is essential. Consider exploring opportunities for career advancement, additional training, or side income to increase your earning potential.',
+    };
+  } else if (salary >= 35000 && salary < 50000) {
+    return {
+      intro: 'This salary is approaching the US median individual income.',
+      context: 'This income level is common for early-career professionals and skilled trades. With careful budgeting, you can maintain a modest lifestyle in most US cities.',
+    };
+  } else if (salary >= 50000 && salary < 75000) {
+    return {
+      intro: 'This salary is above the US median individual income.',
+      context: 'At this income level, you have more flexibility for savings and discretionary spending. This range is typical for mid-level professionals and experienced workers.',
+    };
+  } else if (salary >= 75000 && salary < 100000) {
+    return {
+      intro: 'This salary is well above the US median household income.',
+      context: 'This income level provides financial comfort in most US cities and allows for significant savings and investment opportunities.',
+    };
+  } else if (salary >= 100000 && salary < 150000) {
+    return {
+      intro: 'This salary places you in the top 20% of US earners.',
+      context: 'At this income level, you have substantial financial flexibility. This is typical for senior professionals, managers, and specialized roles in high-demand fields.',
+    };
+  } else if (salary >= 150000 && salary < 200000) {
+    return {
+      intro: 'This salary places you in the top 10% of US earners.',
+      context: 'This is a high income level that provides substantial financial freedom. Common in senior management, specialized technical roles, and high-demand professions.',
+    };
+  } else {
+    return {
+      intro: 'This salary places you in the top 5% of US earners.',
+      context: 'This is an exceptional income level that provides significant financial freedom and wealth-building opportunities.',
+    };
+  }
+}
+
+function generateArticleContent(salary: number, hourly: number, monthly: number, weekly: number, daily: number, insights: ReturnType<typeof getSalaryInsights>): string {
   return `
 ## Understanding Your $${salary.toLocaleString()} Annual Salary
 
 When you earn $${salary.toLocaleString()} per year, it's helpful to understand how this breaks down into different pay periods. This knowledge helps with budgeting, comparing job offers, and understanding your true earning potential.
+
+${insights.context}
 
 ### Hourly Wage Breakdown
 
@@ -118,7 +160,7 @@ Understanding the nuances of your salary helps you make informed financial decis
 `;
 }
 
-function generateFAQs(salary: number, hourly: number, monthly: number, weekly: number, daily: number) {
+function generateFAQs(salary: number, hourly: number, monthly: number, weekly: number, _daily: number) {
   return [
     {
       question: `How much is $${salary.toLocaleString()} a year per hour?`,

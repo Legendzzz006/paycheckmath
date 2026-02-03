@@ -2,6 +2,7 @@
 
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { CURRENCIES } from '@/lib/currencyConfig';
+import { trackCurrencyChange } from '@/lib/analytics';
 import { useState } from 'react';
 
 export default function CurrencySelector() {
@@ -9,8 +10,12 @@ export default function CurrencySelector() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCurrencyChange = (currencyCode: string) => {
+    const previousCurrency = currency.code;
     setCurrency(CURRENCIES[currencyCode]);
     setIsOpen(false);
+    
+    // Track currency change
+    trackCurrencyChange(previousCurrency, currencyCode);
   };
 
   return (

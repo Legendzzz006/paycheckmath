@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { CurrencyProvider } from '@/contexts/CurrencyContext';
 
@@ -128,18 +129,6 @@ export default function RootLayout({
         {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
-        {/* Google Analytics */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}`}></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}');
-            `,
-          }}
-        />
         {/* Structured Data - Website */}
         <script
           type="application/ld+json"
@@ -152,6 +141,20 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        {/* Google Analytics - Loaded after interactive */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}');
+          `}
+        </Script>
+        
         <CurrencyProvider>
           {children}
         </CurrencyProvider>
