@@ -20,6 +20,7 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamic = 'force-static';
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
