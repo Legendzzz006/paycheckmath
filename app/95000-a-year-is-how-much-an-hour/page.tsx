@@ -13,10 +13,19 @@ const content = generateSalaryPageContent(salary);
 export const metadata: Metadata = {
   title: content.title,
   description: content.metaDescription,
+  alternates: {
+    canonical: 'https://paycheckmath.com/95000-a-year-is-how-much-an-hour',
+  },
   openGraph: {
     title: content.title,
     description: content.metaDescription,
     type: 'website',
+    url: 'https://paycheckmath.com/95000-a-year-is-how-much-an-hour',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: content.title,
+    description: content.metaDescription,
   },
 };
 

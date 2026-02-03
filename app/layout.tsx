@@ -24,10 +24,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    apple: [
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
     other: [],
   },
   robots: {
@@ -83,7 +87,9 @@ export default function RootLayout({
       url: 'https://paycheckmath.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://paycheckmath.com/favicon.svg',
+        url: 'https://paycheckmath.com/logo-1200x627.png',
+        width: 1200,
+        height: 627,
       },
     },
     potentialAction: {
@@ -98,7 +104,12 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'PaycheckMath',
     url: 'https://paycheckmath.com',
-    logo: 'https://paycheckmath.com/favicon.svg',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://paycheckmath.com/logo-1200x627.png',
+      width: 1200,
+      height: 627,
+    },
     sameAs: [
       'https://paycheckmath.com',
     ],
@@ -107,15 +118,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Essential Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0b5cff" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Apple Touch Icons */}
+        <link rel="apple-touch-icon" href="/icon-192.png" />
+        
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWX479KPBR"></script>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}`}></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-SWX479KPBR');
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}');
             `,
           }}
         />

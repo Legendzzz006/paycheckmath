@@ -31,14 +31,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const content = generateSalaryPageContent(salary);
+  const canonical = `https://paycheckmath.com/${salary}-a-year-is-how-much-an-hour`;
   
   return {
     title: content.title,
     description: content.metaDescription,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title: content.title,
       description: content.metaDescription,
       type: 'website',
+      url: canonical,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: content.title,
+      description: content.metaDescription,
     },
   };
 }
