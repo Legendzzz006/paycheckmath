@@ -1,18 +1,18 @@
-# Cloudflare Pages Cache Headers
+# Cloudflare Pages Headers Configuration
 
-# HTML pages - short cache with revalidation
+# HTML pages - SEO and security headers
 /*.html
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
   X-Robots-Tag: index, follow
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
 
-# JavaScript and CSS - long cache (immutable)
+# JavaScript - long cache (immutable)
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 
+# CSS - long cache (immutable)
 /*.css
   Cache-Control: public, max-age=31536000, immutable
 
@@ -29,7 +29,7 @@
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
 
-# Sitemap - moderate cache
+# Sitemap - moderate cache with SEO headers
 /sitemap.xml
   Cache-Control: public, max-age=3600, s-maxage=86400, must-revalidate
   X-Robots-Tag: index, follow
@@ -42,11 +42,9 @@
 /manifest.json
   Cache-Control: public, max-age=86400
 
-# Default for all other files
+# Default for all pages - Basic security without strict CSP
 /*
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
   X-Robots-Tag: index, follow
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://ipapi.co;
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
