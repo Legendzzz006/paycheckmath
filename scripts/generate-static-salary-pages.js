@@ -99,7 +99,25 @@ export default function SalaryPage() {
 
         <section className="mb-16">
           <div className="prose prose-lg max-w-none text-gray-700">
-            <div dangerouslySetInnerHTML={{ __html: content.content.replace(/\\\\n/g, '<br />') }} />
+            {content.content.split('\\n\\n').map((paragraph, index) => {
+              if (paragraph.startsWith('## ')) {
+                return <h2 key={index} className="text-3xl font-bold text-gray-900 mb-6 mt-12">{paragraph.replace('## ', '')}</h2>;
+              } else if (paragraph.startsWith('### ')) {
+                return <h3 key={index} className="text-2xl font-bold text-gray-900 mb-4 mt-8">{paragraph.replace('### ', '')}</h3>;
+              } else if (paragraph.trim().startsWith('- ')) {
+                const items = paragraph.split('\\n').filter(line => line.trim().startsWith('- '));
+                return (
+                  <ul key={index} className="list-disc pl-6 space-y-2 mb-6">
+                    {items.map((item, i) => (
+                      <li key={i}>{item.replace(/^- /, '')}</li>
+                    ))}
+                  </ul>
+                );
+              } else if (paragraph.trim()) {
+                return <p key={index} className="mb-6 leading-relaxed">{paragraph}</p>;
+              }
+              return null;
+            })}
           </div>
         </section>
 
