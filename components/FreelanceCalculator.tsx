@@ -9,7 +9,7 @@ import {
   calculateTypicalExpenses,
   type FreelanceInput,
 } from '@/lib/freelanceCalculations';
-import { trackCalculatorUsage, trackCalculatorInteraction } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 
 export default function FreelanceCalculator() {
   const { currency } = useCurrency();
@@ -30,7 +30,7 @@ export default function FreelanceCalculator() {
   const [w2Salary, setW2Salary] = useState(75000);
 
   useEffect(() => {
-    trackCalculatorUsage('freelance_calculator');
+    trackEvent('calculator_used', 'Calculator', 'freelance_calculator');
   }, []);
 
   const result = calculateFreelanceRate(input);
@@ -43,7 +43,7 @@ export default function FreelanceCalculator() {
 
   const updateInput = (field: keyof FreelanceInput, value: string | number) => {
     setInput(prev => ({ ...prev, [field]: typeof value === 'string' ? parseFloat(value) || 0 : value }));
-    trackCalculatorInteraction('freelance_calculator', `updated_${field}`);
+    trackEvent('calculator_interaction', 'Engagement', `freelance_calculator:updated_${field}`);
   };
 
   return (

@@ -2,7 +2,7 @@
 
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { CURRENCIES } from '@/lib/currencyConfig';
-import { trackCurrencyChange } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 import { useState } from 'react';
 
 export default function CurrencySelector() {
@@ -15,7 +15,7 @@ export default function CurrencySelector() {
     setIsOpen(false);
     
     // Track currency change
-    trackCurrencyChange(previousCurrency, currencyCode);
+    trackEvent('currency_changed', 'Currency', `${previousCurrency}_to_${currencyCode}`);
   };
 
   return (

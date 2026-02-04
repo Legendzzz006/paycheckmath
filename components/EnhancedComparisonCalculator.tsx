@@ -10,7 +10,7 @@ import {
   generateShareableUrl,
   decodeComparison 
 } from '@/lib/comparisonUtils';
-import { trackCalculatorUsage, trackCalculatorInteraction } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 
 interface Props {
   initialData?: string; // Encoded comparison data from URL
@@ -34,7 +34,7 @@ export default function EnhancedComparisonCalculator({ initialData }: Props) {
         setJobs(decoded);
       }
     }
-    trackCalculatorUsage('enhanced_comparison_calculator');
+    trackEvent('calculator_used', 'Calculator', 'enhanced_comparison_calculator');
   }, [initialData]);
 
   const updateJob = (index: number, field: keyof JobOffer, value: string | number) => {
@@ -46,20 +46,20 @@ export default function EnhancedComparisonCalculator({ initialData }: Props) {
       newJobs[index] = { ...newJobs[index], [field]: value };
     }
     setJobs(newJobs);
-    trackCalculatorInteraction('comparison_calculator', `updated_${field}`);
+    trackEvent('calculator_interaction', 'Engagement', `comparison_calculator:updated_${field}`);
   };
 
   const addJob = () => {
     if (jobs.length < 3) {
       setJobs([...jobs, createDefaultJob(`job${jobs.length + 1}`, `Job Offer ${String.fromCharCode(65 + jobs.length)}`)]);
-      trackCalculatorInteraction('comparison_calculator', 'added_job');
+      trackEvent('calculator_interaction', 'Engagement', 'comparison_calculator:added_job');
     }
   };
 
   const removeJob = (index: number) => {
     if (jobs.length > 2) {
       setJobs(jobs.filter((_, i) => i !== index));
-      trackCalculatorInteraction('comparison_calculator', 'removed_job');
+      trackEvent('calculator_interaction', 'Engagement', 'comparison_calculator:removed_job');
     }
   };
 
@@ -67,7 +67,7 @@ export default function EnhancedComparisonCalculator({ initialData }: Props) {
     const url = generateShareableUrl(jobs);
     setShareUrl(url);
     setShowShareModal(true);
-    trackCalculatorInteraction('comparison_calculator', 'opened_share');
+    trackEvent('calculator_interaction', 'Engagement', 'comparison_calculator:opened_share');
   };
 
   const copyToClipboard = async () => {
@@ -75,7 +75,7 @@ export default function EnhancedComparisonCalculator({ initialData }: Props) {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-      trackCalculatorInteraction('comparison_calculator', 'copied_link');
+      trackEvent('calculator_interaction', 'Engagement', 'comparison_calculator:copied_link');
     } catch (err) {
       console.error('Failed to copy:', err);
     }

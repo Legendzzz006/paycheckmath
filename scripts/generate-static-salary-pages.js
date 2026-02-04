@@ -63,7 +63,7 @@ export default function SalaryPage() {
   return (
     <div className="min-h-screen bg-white">
       <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-5">
+        <div className="max-w-5xl mx-auto px-4 py-5">
           <Link href="/" className="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white text-lg font-bold">$</span>
@@ -73,7 +73,7 @@ export default function SalaryPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-8 sm:py-12 md:py-16">
+      <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12 md:py-16">
         <div className="mb-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
             {content.h1}

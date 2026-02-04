@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { calculateSalaryBreakdown, formatCurrency, type CalculatorInputs } from '@/lib/salaryCalculations';
 import { useCurrency } from '@/contexts/CurrencyContext';
-import { trackCalculatorUsage, trackCalculatorInteraction, trackTimeOnCalculator } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 import CurrencySelector from './CurrencySelector';
 
 interface CalculatorProps {
@@ -27,7 +27,7 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
   // Track calculator usage on mount
   useEffect(() => {
     if (!hasTrackedUsage.current) {
-      trackCalculatorUsage('salary_calculator', initialSalary);
+      trackEvent('calculator_used', 'Calculator', 'salary_calculator', initialSalary);
       hasTrackedUsage.current = true;
     }
   }, [initialSalary]);
@@ -37,7 +37,7 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
     return () => {
       const timeSpent = Math.floor((Date.now() - startTimeRef.current) / 1000);
       if (timeSpent > 5) { // Only track if spent more than 5 seconds
-        trackTimeOnCalculator('salary_calculator', timeSpent);
+        trackEvent('time_on_calculator', 'Engagement', 'salary_calculator', timeSpent);
       }
     };
   }, []);
@@ -78,7 +78,7 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
     setInputs(prev => ({ ...prev, [field]: numValue }));
     
     // Track interaction
-    trackCalculatorInteraction('salary_calculator', `changed_${field}`);
+    trackEvent('calculator_interaction', 'Engagement', `salary_calculator:changed_${field}`);
   };
 
   return (

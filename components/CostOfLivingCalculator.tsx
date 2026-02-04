@@ -12,7 +12,7 @@ import {
   shouldRelocate,
   type CityData,
 } from '@/lib/costOfLivingData';
-import { trackCalculatorUsage, trackCalculatorInteraction } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 
 export default function CostOfLivingCalculator() {
   const { currency } = useCurrency();
@@ -23,7 +23,7 @@ export default function CostOfLivingCalculator() {
   const [useEquivalent, setUseEquivalent] = useState(true);
 
   useEffect(() => {
-    trackCalculatorUsage('cost_of_living_calculator');
+    trackEvent('calculator_used', 'Calculator', 'cost_of_living_calculator');
   }, []);
 
   const fromCity = getCityBySlug(fromCitySlug);
@@ -41,12 +41,12 @@ export default function CostOfLivingCalculator() {
 
   const handleFromCityChange = (slug: string) => {
     setFromCitySlug(slug);
-    trackCalculatorInteraction('col_calculator', 'changed_from_city');
+    trackEvent('calculator_interaction', 'Engagement', 'col_calculator:changed_from_city');
   };
 
   const handleToCityChange = (slug: string) => {
     setToCitySlug(slug);
-    trackCalculatorInteraction('col_calculator', 'changed_to_city');
+    trackEvent('calculator_interaction', 'Engagement', 'col_calculator:changed_to_city');
   };
 
   const getRecommendationColor = (rec: 'yes' | 'no' | 'maybe') => {

@@ -14,7 +14,7 @@ import {
   calculateStatistics,
   type SalaryEntry,
 } from '@/lib/salaryHistoryStorage';
-import { trackCalculatorUsage, trackCalculatorInteraction } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 
 export default function SalaryHistoryTracker() {
   const { currency } = useCurrency();
@@ -32,7 +32,7 @@ export default function SalaryHistoryTracker() {
   useEffect(() => {
     const history = getSalaryHistory();
     setEntries(history.entries);
-    trackCalculatorUsage('salary_history_tracker');
+    trackEvent('calculator_used', 'Calculator', 'salary_history_tracker');
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -46,7 +46,7 @@ export default function SalaryHistoryTracker() {
         company: formData.company,
         notes: formData.notes,
       });
-      trackCalculatorInteraction('salary_history', 'updated_entry');
+      trackEvent('calculator_interaction', 'Engagement', 'salary_history:updated_entry');
     } else {
       addSalaryEntry({
         date: formData.date,
@@ -55,7 +55,7 @@ export default function SalaryHistoryTracker() {
         company: formData.company,
         notes: formData.notes,
       });
-      trackCalculatorInteraction('salary_history', 'added_entry');
+      trackEvent('calculator_interaction', 'Engagement', 'salary_history:added_entry');
     }
 
     const history = getSalaryHistory();
@@ -80,7 +80,7 @@ export default function SalaryHistoryTracker() {
       deleteSalaryEntry(id);
       const history = getSalaryHistory();
       setEntries(history.entries);
-      trackCalculatorInteraction('salary_history', 'deleted_entry');
+      trackEvent('calculator_interaction', 'Engagement', 'salary_history:deleted_entry');
     }
   };
 
@@ -88,7 +88,7 @@ export default function SalaryHistoryTracker() {
     if (confirm('Are you sure you want to delete all salary history? This cannot be undone.')) {
       clearSalaryHistory();
       setEntries([]);
-      trackCalculatorInteraction('salary_history', 'cleared_all');
+      trackEvent('calculator_interaction', 'Engagement', 'salary_history:cleared_all');
     }
   };
 
@@ -101,7 +101,7 @@ export default function SalaryHistoryTracker() {
     a.download = `salary-history-${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     URL.revokeObjectURL(url);
-    trackCalculatorInteraction('salary_history', 'exported_csv');
+    trackEvent('calculator_interaction', 'Engagement', 'salary_history:exported_csv');
   };
 
   const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -126,7 +126,7 @@ export default function SalaryHistoryTracker() {
         
         const updatedHistory = getSalaryHistory();
         setEntries(updatedHistory.entries);
-        trackCalculatorInteraction('salary_history', 'imported_csv');
+        trackEvent('calculator_interaction', 'Engagement', 'salary_history:imported_csv');
         alert(`Imported ${importedEntries.length} entries successfully!`);
       }
     };

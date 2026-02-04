@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { formatCurrency } from '@/lib/salaryCalculations';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { calculateNegotiation, type NegotiationInput, type CounterOffer } from '@/lib/negotiationCalculations';
-import { trackCalculatorUsage, trackCalculatorInteraction } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 
 export default function NegotiationCalculator() {
   const { currency } = useCurrency();
@@ -19,14 +19,14 @@ export default function NegotiationCalculator() {
   const [copiedScript, setCopiedScript] = useState<'email' | 'phone' | null>(null);
 
   useEffect(() => {
-    trackCalculatorUsage('negotiation_calculator');
+    trackEvent('calculator_used', 'Calculator', 'negotiation_calculator');
   }, []);
 
   const result = calculateNegotiation(input);
 
   const updateInput = (field: keyof NegotiationInput, value: string | number | boolean) => {
     setInput(prev => ({ ...prev, [field]: value }));
-    trackCalculatorInteraction('negotiation_calculator', `updated_${field}`);
+    trackEvent('calculator_interaction', 'Engagement', `negotiation_calculator:updated_${field}`);
   };
 
   const copyScript = async (type: 'email' | 'phone') => {
@@ -34,7 +34,7 @@ export default function NegotiationCalculator() {
       await navigator.clipboard.writeText(result.scripts[type]);
       setCopiedScript(type);
       setTimeout(() => setCopiedScript(null), 2000);
-      trackCalculatorInteraction('negotiation_calculator', `copied_${type}_script`);
+      trackEvent('calculator_interaction', 'Engagement', `negotiation_calculator:copied_${type}_script`);
     } catch (err) {
       console.error('Failed to copy:', err);
     }

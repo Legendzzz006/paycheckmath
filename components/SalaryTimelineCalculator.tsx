@@ -9,7 +9,7 @@ import {
   typicalRaiseScenarios,
   type TimelineInput,
 } from '@/lib/salaryTimelineCalculations';
-import { trackCalculatorUsage, trackCalculatorInteraction } from '@/lib/analytics';
+import { trackEvent } from '@/lib/analytics';
 
 export default function SalaryTimelineCalculator() {
   const { currency } = useCurrency();
@@ -22,7 +22,7 @@ export default function SalaryTimelineCalculator() {
   const [showComparison, setShowComparison] = useState(false);
 
   useEffect(() => {
-    trackCalculatorUsage('salary_timeline_calculator');
+    trackEvent('calculator_used', 'Calculator', 'salary_timeline_calculator');
   }, []);
 
   const result = calculateSalaryTimeline(input);
@@ -35,7 +35,7 @@ export default function SalaryTimelineCalculator() {
 
   const updateInput = (field: keyof TimelineInput, value: string | number) => {
     setInput(prev => ({ ...prev, [field]: typeof value === 'string' ? parseFloat(value) || 0 : value }));
-    trackCalculatorInteraction('timeline_calculator', `updated_${field}`);
+    trackEvent('calculator_interaction', 'Engagement', `timeline_calculator:updated_${field}`);
   };
 
   const beatsInflation = input.annualRaisePercent > input.inflationRate;
