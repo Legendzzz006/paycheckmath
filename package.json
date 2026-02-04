@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/generate-salary-pages.js",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate-pages": "node scripts/generate-static-salary-pages.js"
   },
   "dependencies": {
     "next": "16.1.6",
