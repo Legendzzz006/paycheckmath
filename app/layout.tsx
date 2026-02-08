@@ -130,6 +130,9 @@ export default function RootLayout({
         {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" href="/icon-192.png" />
         
+        {/* Google AdSense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8628108609340604" crossOrigin="anonymous"></script>
+        
         {/* Structured Data - Website */}
         <script
           type="application/ld+json"
