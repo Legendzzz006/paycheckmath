@@ -123,6 +123,7 @@ export default function RootLayout({
         {/* Essential Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0b5cff" />
+        <meta name="google-adsense-account" content="ca-pub-8628108609340604" />
         
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
