@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Salary to Hourly Calculator - Convert Annual Salary to Hourly Wage',
   description: 'Convert your annual salary to hourly wage instantly. Free calculator shows your exact hourly rate based on 40-hour work weeks or custom hours. Fast and accurate.',
   keywords: 'salary to hourly, annual to hourly, salary converter, hourly wage calculator, wage conversion',
+  alternates: {
+    canonical: '/salary-to-hourly',
+  },
 };
 
 export default function SalaryToHourlyPage() {
@@ -28,10 +31,10 @@ export default function SalaryToHourlyPage() {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Salary to Hourly Calculator
         </h1>
-        
+
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          Convert any annual salary to its equivalent hourly wage. Whether you're comparing job 
-          offers, negotiating pay, or simply curious about your hourly rate, this calculator 
+          Convert any annual salary to its equivalent hourly wage. Whether you're comparing job
+          offers, negotiating pay, or simply curious about your hourly rate, this calculator
           provides accurate conversions based on your work schedule.
         </p>
 
@@ -45,8 +48,8 @@ export default function SalaryToHourlyPage() {
           </h2>
           <div className="prose prose-gray max-w-none text-gray-700 space-y-4">
             <p>
-              The basic formula to convert an annual salary to an hourly wage is straightforward: 
-              divide your annual salary by the number of hours you work in a year. For a standard 
+              The basic formula to convert an annual salary to an hourly wage is straightforward:
+              divide your annual salary by the number of hours you work in a year. For a standard
               full-time position, this is typically 2,080 hours (40 hours per week × 52 weeks).
             </p>
             <p>
@@ -56,8 +59,8 @@ export default function SalaryToHourlyPage() {
               For example, if you earn $60,000 per year: $60,000 ÷ 2,080 = $28.85 per hour
             </p>
             <p>
-              However, this calculation assumes you work every single week of the year. If you 
-              receive paid vacation, holidays, or sick time, your effective hourly rate is actually 
+              However, this calculation assumes you work every single week of the year. If you
+              receive paid vacation, holidays, or sick time, your effective hourly rate is actually
               higher because you're being paid for hours you don't work.
             </p>
           </div>
@@ -71,21 +74,21 @@ export default function SalaryToHourlyPage() {
             <div className="border-l-4 border-blue-500 pl-4">
               <h3 className="font-semibold text-gray-900 mb-1">Comparing Job Offers</h3>
               <p>
-                When one job offers an hourly rate and another offers a salary, converting both 
+                When one job offers an hourly rate and another offers a salary, converting both
                 to the same format makes comparison easier and more accurate.
               </p>
             </div>
             <div className="border-l-4 border-blue-500 pl-4">
               <h3 className="font-semibold text-gray-900 mb-1">Understanding Your Worth</h3>
               <p>
-                Knowing your hourly rate helps you understand the true value of your time and 
+                Knowing your hourly rate helps you understand the true value of your time and
                 can inform decisions about overtime, side projects, or freelance work.
               </p>
             </div>
             <div className="border-l-4 border-blue-500 pl-4">
               <h3 className="font-semibold text-gray-900 mb-1">Budgeting and Planning</h3>
               <p>
-                Breaking down your salary to an hourly rate can make budgeting more tangible 
+                Breaking down your salary to an hourly rate can make budgeting more tangible
                 and help you make informed spending decisions.
               </p>
             </div>

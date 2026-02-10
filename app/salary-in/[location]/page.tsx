@@ -15,19 +15,19 @@ interface PageProps {
 function parseLocation(location: string): { salary: number; state: string } | null {
   const parts = location.split('-');
   if (parts.length < 2) return null;
-  
+
   const salary = parseInt(parts[0]);
   const state = parts.slice(1).join('-');
-  
+
   if (isNaN(salary) || !STATE_SLUGS.includes(state)) return null;
-  
+
   return { salary, state };
 }
 
 export async function generateStaticParams() {
   // Generate top 10 salaries × all 50 states = 500 pages
   const topSalaries = [50000, 60000, 70000, 75000, 80000, 90000, 100000, 120000, 150000, 200000];
-  
+
   return topSalaries.flatMap((salary) =>
     STATE_SLUGS.map((state) => ({
       location: `${salary}-${state}`,
@@ -40,14 +40,14 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { location } = await params;
   const parsed = parseLocation(location);
-  
+
   if (!parsed) return { title: 'Salary Not Found' };
-  
+
   const content = generateStatePageContent(parsed.salary, parsed.state);
   if (!content) return { title: 'Salary Not Found' };
 
-  const canonical = `https://paycheckmath.com/salary-in/${location}`;
-  
+  const canonical = `/salary-in/${location}`;
+
   return {
     title: content.title,
     description: content.metaDescription,
@@ -64,16 +64,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function StateSalaryPage({ params }: PageProps) {
   const { location } = await params;
   const parsed = parseLocation(location);
-  
+
   if (!parsed) notFound();
-  
+
   const { salary, state: stateParam } = parsed;
   const content = generateStatePageContent(salary, stateParam);
-  
+
   if (!content) notFound();
 
   const { state, hourly, monthly, takeHome, takeHomeMonthly, nationalAvgSalary } = content;
-  
+
   // Calculate equivalent salaries in other states
   const comparisonStates = ['california', 'texas', 'new-york', 'florida']
     .filter(s => s !== stateParam)
@@ -96,7 +96,7 @@ export default async function StateSalaryPage({ params }: PageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      
+
       <div className="min-h-screen bg-white">
         <header className="bg-white border-b border-gray-200 shadow-sm">
           <div className="max-w-5xl mx-auto px-4 py-5">
@@ -114,15 +114,15 @@ export default async function StateSalaryPage({ params }: PageProps) {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               {content.h1}
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-4">
-              A ${salary.toLocaleString()} annual salary in {state.name} equals <strong>${hourly.toFixed(2)} per hour</strong>. 
-              {state.stateTaxRate > 0 
+              A ${salary.toLocaleString()} annual salary in {state.name} equals <strong>${hourly.toFixed(2)} per hour</strong>.
+              {state.stateTaxRate > 0
                 ? ` After ${state.stateTaxRate}% state income tax and federal taxes, your take-home pay is approximately $${takeHomeMonthly.toLocaleString()}/month.`
                 : ` ${state.name} has no state income tax, so your take-home pay is approximately $${takeHomeMonthly.toLocaleString()}/month after federal taxes.`
               }
             </p>
-            
+
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-6">
               <div className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,7 +131,7 @@ export default async function StateSalaryPage({ params }: PageProps) {
                 <div>
                   <h3 className="font-bold text-gray-900 mb-2">Cost of Living Context</h3>
                   <p className="text-gray-700">
-                    {state.name}'s cost of living is {state.costOfLivingIndex > 100 ? `${Math.round(state.costOfLivingIndex - 100)}% higher` : `${Math.round(100 - state.costOfLivingIndex)}% lower`} than the national average. 
+                    {state.name}'s cost of living is {state.costOfLivingIndex > 100 ? `${Math.round(state.costOfLivingIndex - 100)}% higher` : `${Math.round(100 - state.costOfLivingIndex)}% lower`} than the national average.
                     A ${salary.toLocaleString()} salary here is equivalent to approximately ${nationalAvgSalary.toLocaleString()} in an average-cost state.
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export default async function StateSalaryPage({ params }: PageProps) {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Take-Home Pay Breakdown for {state.name}
             </h2>
-            
+
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -179,7 +179,7 @@ export default async function StateSalaryPage({ params }: PageProps) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Monthly Take-Home</h3>
                   <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200">
@@ -196,20 +196,20 @@ export default async function StateSalaryPage({ params }: PageProps) {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Cost of Living in {state.name}
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white border border-gray-200 rounded-xl p-6">
                 <div className="text-sm font-semibold text-gray-600 mb-2">Cost of Living Index</div>
                 <div className="text-3xl font-bold text-gray-900">{state.costOfLivingIndex}</div>
                 <div className="text-sm text-gray-600 mt-1">National average = 100</div>
               </div>
-              
+
               <div className="bg-white border border-gray-200 rounded-xl p-6">
                 <div className="text-sm font-semibold text-gray-600 mb-2">State Median Income</div>
                 <div className="text-3xl font-bold text-gray-900">${(state.medianIncome / 1000).toFixed(0)}k</div>
                 <div className="text-sm text-gray-600 mt-1">Per household</div>
               </div>
-              
+
               <div className="bg-white border border-gray-200 rounded-xl p-6">
                 <div className="text-sm font-semibold text-gray-600 mb-2">State Income Tax</div>
                 <div className="text-3xl font-bold text-gray-900">{state.stateTaxRate}%</div>
@@ -237,7 +237,7 @@ export default async function StateSalaryPage({ params }: PageProps) {
               <p className="text-gray-600 mb-6">
                 To maintain the same standard of living, here's what you'd need to earn in other states:
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {comparisonStates.map(({ slug, state: compareState, equivalentSalary }) => (
                   <Link

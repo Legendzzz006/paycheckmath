@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'About PaycheckMath | Free Salary & Wage Calculators',
   description: 'Learn about PaycheckMath and our mission to provide accurate, free salary and wage conversion tools for US workers.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {
@@ -28,7 +31,7 @@ export default function AboutPage() {
 
         <div className="prose prose-gray max-w-none">
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            PaycheckMath is a free resource designed to help US workers understand their 
+            PaycheckMath is a free resource designed to help US workers understand their
             compensation by converting annual salaries to hourly, daily, weekly, and monthly pay.
           </p>
 
@@ -36,14 +39,14 @@ export default function AboutPage() {
             Our Mission
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We believe that understanding your compensation is fundamental to making informed 
-            career decisions. Whether you're comparing job offers, negotiating salary, or simply 
+            We believe that understanding your compensation is fundamental to making informed
+            career decisions. Whether you're comparing job offers, negotiating salary, or simply
             curious about your hourly rate, our calculators provide quick, accurate answers.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Our goal is to empower workers across the United States with the tools and knowledge 
-            they need to understand their true earning potential. We've built a comprehensive suite 
-            of calculators that go beyond simple conversions, helping you plan for raises, compare 
+            Our goal is to empower workers across the United States with the tools and knowledge
+            they need to understand their true earning potential. We've built a comprehensive suite
+            of calculators that go beyond simple conversions, helping you plan for raises, compare
             job offers, and understand your take-home pay.
           </p>
 
@@ -51,14 +54,14 @@ export default function AboutPage() {
             Why We Built This
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Many workers struggle to compare salaries across different pay structures. A job 
-            offering $75,000 per year might sound great, but how does it compare to a position 
-            paying $38 per hour? What about benefits, overtime potential, or part-time work? 
+            Many workers struggle to compare salaries across different pay structures. A job
+            offering $75,000 per year might sound great, but how does it compare to a position
+            paying $38 per hour? What about benefits, overtime potential, or part-time work?
             Our tools make these comparisons simple and transparent.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We created PaycheckMath because we saw a need for straightforward, honest salary 
-            calculators that don't require sign-ups, don't sell your data, and don't hide behind 
+            We created PaycheckMath because we saw a need for straightforward, honest salary
+            calculators that don't require sign-ups, don't sell your data, and don't hide behind
             paywalls. Just clean, accurate calculations when you need them.
           </p>
 
@@ -81,8 +84,8 @@ export default function AboutPage() {
             Accuracy and Transparency
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            All calculations are based on standard US work hours and clearly explained formulas. 
-            We use 2,080 hours per year as the baseline (40 hours per week × 52 weeks), but our 
+            All calculations are based on standard US work hours and clearly explained formulas.
+            We use 2,080 hours per year as the baseline (40 hours per week × 52 weeks), but our
             calculators allow you to adjust these values to match your specific situation.
           </p>
 
@@ -90,8 +93,8 @@ export default function AboutPage() {
             Free and Accessible
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            PaycheckMath is completely free to use with no registration required. We believe 
-            financial tools should be accessible to everyone, and we're committed to keeping our 
+            PaycheckMath is completely free to use with no registration required. We believe
+            financial tools should be accessible to everyone, and we're committed to keeping our
             calculators free and ad-light.
           </p>
 

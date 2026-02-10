@@ -8,6 +8,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Bi-Weekly Paycheck Calculator | Convert Salary to Bi-Weekly Pay',
   description: 'Calculate your bi-weekly paycheck from annual salary or hourly rate. See your pay every two weeks, monthly equivalent, and annual total.',
+  alternates: {
+    canonical: '/biweekly-paycheck-calculator',
+  },
   openGraph: {
     title: 'Bi-Weekly Paycheck Calculator | Convert Salary to Bi-Weekly Pay',
     description: 'Calculate your bi-weekly paycheck from annual salary or hourly rate. See your pay every two weeks, monthly equivalent, and annual total.',
@@ -25,7 +28,7 @@ export default function BiweeklyCalculatorPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight">
             Bi-Weekly Paycheck Calculator
           </h1>
-          
+
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
             Convert your annual salary or hourly rate to bi-weekly pay. Perfect for understanding your paycheck when you're paid every two weeks (26 pay periods per year).
           </p>

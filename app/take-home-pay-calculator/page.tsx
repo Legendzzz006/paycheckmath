@@ -8,6 +8,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Take-Home Pay Calculator | Calculate Net Pay After Taxes',
   description: 'Calculate your take-home pay after federal taxes, state taxes, FICA, and other deductions. See your net pay and understand where your money goes.',
+  alternates: {
+    canonical: '/take-home-pay-calculator',
+  },
   openGraph: {
     title: 'Take-Home Pay Calculator | Calculate Net Pay After Taxes',
     description: 'Calculate your take-home pay after federal taxes, state taxes, FICA, and other deductions. See your net pay and understand where your money goes.',
@@ -25,7 +28,7 @@ export default function TakeHomeCalculatorPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight">
             Take-Home Pay Calculator
           </h1>
-          
+
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
             Calculate your actual take-home pay after all deductions. Enter your gross pay and tax rates to see your net pay and understand how much you actually keep from your paycheck.
           </p>

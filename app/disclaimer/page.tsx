@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Disclaimer | PaycheckMath',
   description: 'Important disclaimer and terms of use for PaycheckMath salary and wage calculators.',
+  alternates: {
+    canonical: '/disclaimer',
+  },
 };
 
 export default function DisclaimerPage() {
@@ -35,10 +38,10 @@ export default function DisclaimerPage() {
             General Information
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            The information provided by PaycheckMath is for general informational and 
-            educational purposes only. All calculations, estimates, and information on this 
-            website are provided in good faith, however we make no representation or warranty 
-            of any kind, express or implied, regarding the accuracy, adequacy, validity, 
+            The information provided by PaycheckMath is for general informational and
+            educational purposes only. All calculations, estimates, and information on this
+            website are provided in good faith, however we make no representation or warranty
+            of any kind, express or implied, regarding the accuracy, adequacy, validity,
             reliability, availability, or completeness of any information on the site.
           </p>
 
@@ -46,14 +49,14 @@ export default function DisclaimerPage() {
             Not Financial or Tax Advice
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            The calculators and information on PaycheckMath are not intended to provide 
-            financial, tax, legal, or accounting advice. The calculations are based on standard 
-            assumptions and do not account for individual circumstances, tax situations, or 
+            The calculators and information on PaycheckMath are not intended to provide
+            financial, tax, legal, or accounting advice. The calculations are based on standard
+            assumptions and do not account for individual circumstances, tax situations, or
             specific employment agreements.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            You should consult with qualified professionals (such as certified public accountants, 
-            financial advisors, or tax attorneys) for advice specific to your situation before 
+            You should consult with qualified professionals (such as certified public accountants,
+            financial advisors, or tax attorneys) for advice specific to your situation before
             making any financial decisions.
           </p>
 
@@ -69,8 +72,8 @@ export default function DisclaimerPage() {
             <li>2,080 total working hours per year (40 × 52)</li>
           </ul>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Actual pay may vary based on your specific employment situation, including but not 
-            limited to: actual hours worked, overtime, bonuses, commissions, paid time off, 
+            Actual pay may vary based on your specific employment situation, including but not
+            limited to: actual hours worked, overtime, bonuses, commissions, paid time off,
             holidays, sick leave, and other factors.
           </p>
 
@@ -78,7 +81,7 @@ export default function DisclaimerPage() {
             Gross vs. Net Pay
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            All calculations on this website show gross pay (before taxes and deductions). Your 
+            All calculations on this website show gross pay (before taxes and deductions). Your
             actual take-home pay (net pay) will be lower after accounting for:
           </p>
           <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
@@ -95,9 +98,9 @@ export default function DisclaimerPage() {
             No Guarantee of Accuracy
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            While we strive to provide accurate calculations, we do not guarantee that the 
-            information on this website is correct, complete, or up-to-date. Tax laws, 
-            regulations, and standard practices change frequently, and we may not immediately 
+            While we strive to provide accurate calculations, we do not guarantee that the
+            information on this website is correct, complete, or up-to-date. Tax laws,
+            regulations, and standard practices change frequently, and we may not immediately
             reflect these changes on our website.
           </p>
 
@@ -105,9 +108,9 @@ export default function DisclaimerPage() {
             Limitation of Liability
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Under no circumstance shall PaycheckMath have any liability to you for any loss 
-            or damage of any kind incurred as a result of the use of the site or reliance on any 
-            information provided on the site. Your use of the site and your reliance on any 
+            Under no circumstance shall PaycheckMath have any liability to you for any loss
+            or damage of any kind incurred as a result of the use of the site or reliance on any
+            information provided on the site. Your use of the site and your reliance on any
             information on the site is solely at your own risk.
           </p>
 
@@ -115,8 +118,8 @@ export default function DisclaimerPage() {
             External Links
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            This website may contain links to external websites that are not provided or 
-            maintained by us. We do not guarantee the accuracy, relevance, timeliness, or 
+            This website may contain links to external websites that are not provided or
+            maintained by us. We do not guarantee the accuracy, relevance, timeliness, or
             completeness of any information on these external websites.
           </p>
 
@@ -124,8 +127,8 @@ export default function DisclaimerPage() {
             Changes to This Disclaimer
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We reserve the right to modify this disclaimer at any time. Changes will be effective 
-            immediately upon posting to the website. Your continued use of the website following 
+            We reserve the right to modify this disclaimer at any time. Changes will be effective
+            immediately upon posting to the website. Your continued use of the website following
             the posting of changes constitutes your acceptance of such changes.
           </p>
 

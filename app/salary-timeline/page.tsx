@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Calculate your future salary with annual raises over time. See the compound effect of raises and compare against inflation. Plan your career growth.',
   keywords: 'salary timeline calculator, future salary calculator, raise calculator, salary projection, compound raises, inflation calculator',
   alternates: {
-    canonical: 'https://paycheckmath.com/salary-timeline',
+    canonical: '/salary-timeline',
   },
   openGraph: {
     title: 'Salary Timeline Calculator - Project Your Future Earnings',
@@ -85,15 +85,15 @@ export default function SalaryTimelinePage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               Salary Increase Timeline Calculator
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mb-6">
-              Project your future salary with annual raises and see how they compound over time. Compare your 
+              Project your future salary with annual raises and see how they compound over time. Compare your
               growth against inflation and understand the real value of your earnings.
             </p>
 
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-4 max-w-3xl">
               <p className="text-blue-900 font-semibold">
-                💡 A 3% annual raise on a $75,000 salary grows to $100,793 in 10 years. But with 2.5% inflation, 
+                💡 A 3% annual raise on a $75,000 salary grows to $100,793 in 10 years. But with 2.5% inflation,
                 the real value is only $78,500 - barely above where you started!
               </p>
             </div>
@@ -115,32 +115,32 @@ export default function SalaryTimelinePage() {
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">The Power of Compound Raises</h3>
               <p>
-                Annual raises compound over time, meaning each raise is calculated on your new, higher salary. 
-                A 3% raise on $75,000 is $2,250, but a 3% raise on $100,000 is $3,000. This compounding effect 
+                Annual raises compound over time, meaning each raise is calculated on your new, higher salary.
+                A 3% raise on $75,000 is $2,250, but a 3% raise on $100,000 is $3,000. This compounding effect
                 means small differences in raise percentages lead to large differences over time.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">The Inflation Problem</h3>
               <p>
-                Inflation erodes the purchasing power of your salary. If you get a 3% raise but inflation is 3%, 
-                you haven't actually gained any purchasing power - you're just keeping up. To truly grow your 
-                wealth, your raises must exceed inflation. Historical inflation averages 2-3% annually, but can 
+                Inflation erodes the purchasing power of your salary. If you get a 3% raise but inflation is 3%,
+                you haven't actually gained any purchasing power - you're just keeping up. To truly grow your
+                wealth, your raises must exceed inflation. Historical inflation averages 2-3% annually, but can
                 spike higher during economic uncertainty.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Real vs Nominal Growth</h3>
               <p>
-                <strong>Nominal growth</strong> is the actual dollar increase in your salary. <strong>Real growth</strong> 
-                is your salary increase adjusted for inflation - what your salary is actually worth in today's dollars. 
-                Real growth is what matters for your standard of living. A 5% nominal raise with 2% inflation equals 
+                <strong>Nominal growth</strong> is the actual dollar increase in your salary. <strong>Real growth</strong>
+                is your salary increase adjusted for inflation - what your salary is actually worth in today's dollars.
+                Real growth is what matters for your standard of living. A 5% nominal raise with 2% inflation equals
                 3% real growth.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Career Planning Strategy</h3>
               <p>
-                Use this calculator to set realistic salary goals and evaluate job offers. If a new job offers 
-                higher raises (even with a similar starting salary), it could be worth significantly more over 
-                5-10 years. Similarly, if your current raises aren't beating inflation, it's time to negotiate 
+                Use this calculator to set realistic salary goals and evaluate job offers. If a new job offers
+                higher raises (even with a similar starting salary), it could be worth significantly more over
+                5-10 years. Similarly, if your current raises aren't beating inflation, it's time to negotiate
                 or look for new opportunities.
               </p>
             </div>
@@ -275,7 +275,7 @@ export default function SalaryTimelinePage() {
 
                 <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-4">
                   <p className="text-blue-900 font-semibold">
-                    💡 Pro Tip: The biggest salary jumps come from changing companies, not internal promotions. 
+                    💡 Pro Tip: The biggest salary jumps come from changing companies, not internal promotions.
                     Consider external opportunities every 2-3 years to maximize your earning potential.
                   </p>
                 </div>
@@ -294,8 +294,8 @@ export default function SalaryTimelinePage() {
                   What's a good annual raise percentage?
                 </h3>
                 <p className="text-gray-700">
-                  At minimum, your raise should match inflation (2-3%) to maintain purchasing power. A good raise 
-                  is 4-6%, which provides 1-3% real growth. Excellent raises are 7%+ or come from promotions (10-15%) 
+                  At minimum, your raise should match inflation (2-3%) to maintain purchasing power. A good raise
+                  is 4-6%, which provides 1-3% real growth. Excellent raises are 7%+ or come from promotions (10-15%)
                   or job changes (15-25%).
                 </p>
               </div>
@@ -305,8 +305,8 @@ export default function SalaryTimelinePage() {
                   How does inflation affect my salary?
                 </h3>
                 <p className="text-gray-700">
-                  Inflation reduces the purchasing power of your salary. If inflation is 3% and you get a 3% raise, 
-                  you can buy the same amount of goods as last year - you haven't actually gained anything. To grow 
+                  Inflation reduces the purchasing power of your salary. If inflation is 3% and you get a 3% raise,
+                  you can buy the same amount of goods as last year - you haven't actually gained anything. To grow
                   your wealth, your raises must exceed inflation.
                 </p>
               </div>
@@ -316,8 +316,8 @@ export default function SalaryTimelinePage() {
                   Should I stay at a company with small raises?
                 </h3>
                 <p className="text-gray-700">
-                  If your raises consistently lag inflation or market rates, you're losing money by staying. 
-                  Consider negotiating harder, or look for external opportunities. Loyalty doesn't pay as well 
+                  If your raises consistently lag inflation or market rates, you're losing money by staying.
+                  Consider negotiating harder, or look for external opportunities. Loyalty doesn't pay as well
                   as strategic job changes - the average job change results in a 10-20% salary increase.
                 </p>
               </div>
@@ -327,8 +327,8 @@ export default function SalaryTimelinePage() {
                   How often should I get a raise?
                 </h3>
                 <p className="text-gray-700">
-                  Most companies do annual reviews and raises. If you're not getting annual raises, that's a red 
-                  flag. High performers might negotiate mid-year raises or bonuses. If you get a promotion or 
+                  Most companies do annual reviews and raises. If you're not getting annual raises, that's a red
+                  flag. High performers might negotiate mid-year raises or bonuses. If you get a promotion or
                   significantly expand your responsibilities, don't wait for the annual review - negotiate immediately.
                 </p>
               </div>

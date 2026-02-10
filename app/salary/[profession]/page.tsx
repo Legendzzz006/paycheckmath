@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ professio
     description,
     keywords: `${profession.title} salary, ${profession.title} pay, ${profession.title} hourly rate, ${profession.title} income, ${profession.category.toLowerCase()} salary`,
     alternates: {
-      canonical: `https://paycheckmath.com/salary/${professionSlug}`,
+      canonical: `/salary/${professionSlug}`,
     },
     openGraph: {
       title,
@@ -214,8 +214,8 @@ export default async function ProfessionPage({ params }: { params: Promise<{ pro
             </div>
 
             <p className="text-gray-600">
-              The salary distribution shows that 25% of {profession.title.toLowerCase()}s earn less than {formatCurrency(profession.percentile25, CURRENCY)}, 
-              while the top 10% earn more than {formatCurrency(profession.percentile90, CURRENCY)} annually. The median salary of {formatCurrency(profession.medianSalary, CURRENCY)} represents 
+              The salary distribution shows that 25% of {profession.title.toLowerCase()}s earn less than {formatCurrency(profession.percentile25, CURRENCY)},
+              while the top 10% earn more than {formatCurrency(profession.percentile90, CURRENCY)} annually. The median salary of {formatCurrency(profession.medianSalary, CURRENCY)} represents
               the midpoint where half earn more and half earn less.
             </p>
           </section>
@@ -269,9 +269,9 @@ export default async function ProfessionPage({ params }: { params: Promise<{ pro
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">Salary Breakdown</h3>
               <p>
-                As a {profession.title.toLowerCase()}, your total compensation typically includes base salary, and may include bonuses, 
-                benefits, and other perks depending on your employer and experience level. The median annual salary of {formatCurrency(profession.medianSalary, CURRENCY)} translates 
-                to approximately {formatCurrency(profession.medianSalary / 12, CURRENCY)} per month or {formatCurrency(profession.hourlyMedian, CURRENCY)} per hour based on a standard 
+                As a {profession.title.toLowerCase()}, your total compensation typically includes base salary, and may include bonuses,
+                benefits, and other perks depending on your employer and experience level. The median annual salary of {formatCurrency(profession.medianSalary, CURRENCY)} translates
+                to approximately {formatCurrency(profession.medianSalary / 12, CURRENCY)} per month or {formatCurrency(profession.hourlyMedian, CURRENCY)} per hour based on a standard
                 2,080-hour work year.
               </p>
 
@@ -280,8 +280,8 @@ export default async function ProfessionPage({ params }: { params: Promise<{ pro
                 Several factors influence {profession.title.toLowerCase()} salaries:
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Experience Level:</strong> Entry-level positions typically start near the 25th percentile ({formatCurrency(profession.percentile25, CURRENCY)}), 
-                while senior professionals can earn in the 75th-90th percentile range ({formatCurrency(profession.percentile75, CURRENCY)}-{formatCurrency(profession.percentile90, CURRENCY)}).</li>
+                <li><strong>Experience Level:</strong> Entry-level positions typically start near the 25th percentile ({formatCurrency(profession.percentile25, CURRENCY)}),
+                  while senior professionals can earn in the 75th-90th percentile range ({formatCurrency(profession.percentile75, CURRENCY)}-{formatCurrency(profession.percentile90, CURRENCY)}).</li>
                 <li><strong>Location:</strong> Salaries vary significantly by geographic location, with major metropolitan areas typically offering 20-40% higher compensation.</li>
                 <li><strong>Company Size:</strong> Larger organizations often provide higher base salaries and more comprehensive benefits packages.</li>
                 <li><strong>Industry:</strong> Different industries value {profession.title.toLowerCase()} skills differently, leading to salary variations.</li>
@@ -290,7 +290,7 @@ export default async function ProfessionPage({ params }: { params: Promise<{ pro
 
               <h3 className="text-2xl font-bold text-gray-900">Career Growth Potential</h3>
               <p>
-                The career outlook for {profession.title.toLowerCase()}s is {profession.outlook.toLowerCase()}. This profession offers strong opportunities 
+                The career outlook for {profession.title.toLowerCase()}s is {profession.outlook.toLowerCase()}. This profession offers strong opportunities
                 for advancement, with experienced professionals often moving into senior or specialized roles that command salaries in the top percentiles.
               </p>
 

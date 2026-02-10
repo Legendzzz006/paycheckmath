@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Compare multiple job offers side-by-side including salary, bonuses, equity, PTO, 401k match, and benefits. Share your comparison or save it for later.',
   keywords: 'job offer comparison, salary comparison, compare job offers, total compensation calculator, benefits comparison',
   alternates: {
-    canonical: 'https://paycheckmath.com/compare',
+    canonical: '/compare',
   },
   openGraph: {
     title: 'Compare Job Offers - Total Compensation Calculator',
@@ -44,7 +44,7 @@ export default function ComparePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      
+
       <div className="min-h-screen bg-white">
         <header className="bg-white border-b border-gray-200 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-5">

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Compare cost of living between cities and calculate equivalent salaries. See housing, groceries, transport costs and get relocation recommendations.',
   keywords: 'cost of living calculator, city comparison, salary equivalence, relocation calculator, cost of living comparison',
   alternates: {
-    canonical: 'https://paycheckmath.com/cost-of-living-calculator',
+    canonical: '/cost-of-living-calculator',
   },
   openGraph: {
     title: 'Cost of Living Calculator - Compare Cities',
@@ -85,15 +85,15 @@ export default function CostOfLivingCalculatorPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               Cost of Living Calculator
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mb-6">
-              Compare living costs between cities and calculate equivalent salaries. See exactly how far your money 
+              Compare living costs between cities and calculate equivalent salaries. See exactly how far your money
               goes in different locations and make informed relocation decisions.
             </p>
 
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-4 max-w-3xl">
               <p className="text-blue-900 font-semibold">
-                💡 A $100,000 salary in New York City has the same buying power as $63,000 in Austin, Texas. 
+                💡 A $100,000 salary in New York City has the same buying power as $63,000 in Austin, Texas.
                 Location matters more than you think!
               </p>
             </div>
@@ -115,32 +115,32 @@ export default function CostOfLivingCalculatorPage() {
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">What is Cost of Living?</h3>
               <p>
-                Cost of living refers to the amount of money needed to maintain a certain standard of living in a 
-                specific location. It includes housing, food, transportation, healthcare, utilities, and other 
-                essential expenses. The cost of living index compares these expenses across different cities, with 
+                Cost of living refers to the amount of money needed to maintain a certain standard of living in a
+                specific location. It includes housing, food, transportation, healthcare, utilities, and other
+                essential expenses. The cost of living index compares these expenses across different cities, with
                 100 representing the national average.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Why It Matters for Your Career</h3>
               <p>
-                A higher salary doesn't always mean more money in your pocket. A $120,000 job in San Francisco 
-                might leave you with less disposable income than a $90,000 job in Dallas. When evaluating job 
-                offers or considering relocation, you need to look at real purchasing power, not just the number 
+                A higher salary doesn't always mean more money in your pocket. A $120,000 job in San Francisco
+                might leave you with less disposable income than a $90,000 job in Dallas. When evaluating job
+                offers or considering relocation, you need to look at real purchasing power, not just the number
                 on your paycheck.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Housing: The Biggest Factor</h3>
               <p>
-                Housing typically accounts for 25-35% of your budget and varies dramatically by location. In 
-                expensive cities like New York or San Francisco, housing can consume 40-50% of your income. 
+                Housing typically accounts for 25-35% of your budget and varies dramatically by location. In
+                expensive cities like New York or San Francisco, housing can consume 40-50% of your income.
                 This is why housing costs have the biggest impact on cost of living differences between cities.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Beyond the Numbers</h3>
               <p>
-                While our calculator focuses on financial factors, remember to consider quality of life elements: 
-                job opportunities, career growth, weather, culture, proximity to family, commute times, and 
-                lifestyle preferences. The "best" city is the one that balances financial and personal factors 
+                While our calculator focuses on financial factors, remember to consider quality of life elements:
+                job opportunities, career growth, weather, culture, proximity to family, commute times, and
+                lifestyle preferences. The "best" city is the one that balances financial and personal factors
                 for your unique situation.
               </p>
             </div>
@@ -155,7 +155,7 @@ export default function CostOfLivingCalculatorPage() {
               <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">1. Select Your Cities</h3>
                 <p className="text-gray-700">
-                  Choose your current city and the city you're considering moving to. We cover 26 major US cities 
+                  Choose your current city and the city you're considering moving to. We cover 26 major US cities
                   with accurate cost of living data.
                 </p>
               </div>
@@ -163,7 +163,7 @@ export default function CostOfLivingCalculatorPage() {
               <div className="bg-green-50 border-l-4 border-green-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">2. Enter Your Salary</h3>
                 <p className="text-gray-700">
-                  Input your current salary or the offer you're considering. The calculator will automatically 
+                  Input your current salary or the offer you're considering. The calculator will automatically
                   compute the equivalent salary in the new city.
                 </p>
               </div>
@@ -171,7 +171,7 @@ export default function CostOfLivingCalculatorPage() {
               <div className="bg-purple-50 border-l-4 border-purple-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">3. Review the Breakdown</h3>
                 <p className="text-gray-700">
-                  See detailed cost comparisons for housing, groceries, transportation, utilities, and healthcare. 
+                  See detailed cost comparisons for housing, groceries, transportation, utilities, and healthcare.
                   Understand exactly where your money goes in each city.
                 </p>
               </div>
@@ -179,7 +179,7 @@ export default function CostOfLivingCalculatorPage() {
               <div className="bg-amber-50 border-l-4 border-amber-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">4. Get Recommendations</h3>
                 <p className="text-gray-700">
-                  Our calculator analyzes your situation and provides a relocation recommendation based on real 
+                  Our calculator analyzes your situation and provides a relocation recommendation based on real
                   disposable income and cost differences.
                 </p>
               </div>
@@ -341,8 +341,8 @@ export default function CostOfLivingCalculatorPage() {
                   How accurate is the cost of living data?
                 </h3>
                 <p className="text-gray-700">
-                  Our data is based on aggregated sources including government statistics, real estate data, and 
-                  consumer price indices. While we strive for accuracy, actual costs vary by neighborhood, lifestyle, 
+                  Our data is based on aggregated sources including government statistics, real estate data, and
+                  consumer price indices. While we strive for accuracy, actual costs vary by neighborhood, lifestyle,
                   and personal spending habits. Use these figures as estimates for comparison purposes.
                 </p>
               </div>
@@ -352,8 +352,8 @@ export default function CostOfLivingCalculatorPage() {
                   Should I always choose the city with lower cost of living?
                 </h3>
                 <p className="text-gray-700">
-                  Not necessarily. Higher cost of living cities often offer higher salaries, better career opportunities, 
-                  and more amenities. Focus on disposable income (what's left after expenses) and quality of life factors 
+                  Not necessarily. Higher cost of living cities often offer higher salaries, better career opportunities,
+                  and more amenities. Focus on disposable income (what's left after expenses) and quality of life factors
                   rather than just the cost of living index.
                 </p>
               </div>
@@ -363,8 +363,8 @@ export default function CostOfLivingCalculatorPage() {
                   How do taxes affect cost of living?
                 </h3>
                 <p className="text-gray-700">
-                  State and local taxes significantly impact your take-home pay. States like Texas, Florida, and 
-                  Washington have no state income tax, while California and New York have high state taxes. Our 
+                  State and local taxes significantly impact your take-home pay. States like Texas, Florida, and
+                  Washington have no state income tax, while California and New York have high state taxes. Our
                   calculator focuses on living expenses, but you should also consider tax differences when comparing cities.
                 </p>
               </div>
@@ -374,8 +374,8 @@ export default function CostOfLivingCalculatorPage() {
                   What about remote work opportunities?
                 </h3>
                 <p className="text-gray-700">
-                  Remote work has changed the game. You can now earn a high-COL city salary while living in a 
-                  low-COL city. However, some companies adjust salaries based on location, so clarify this before 
+                  Remote work has changed the game. You can now earn a high-COL city salary while living in a
+                  low-COL city. However, some companies adjust salaries based on location, so clarify this before
                   relocating. Geographic arbitrage can significantly boost your savings and quality of life.
                 </p>
               </div>

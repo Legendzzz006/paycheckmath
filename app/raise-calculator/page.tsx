@@ -8,6 +8,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Raise Calculator | Calculate Salary Increase | PaycheckMath.com',
   description: 'Calculate your new salary after a raise. See how a percentage or dollar increase affects your annual, monthly, and hourly pay.',
+  alternates: {
+    canonical: '/raise-calculator',
+  },
   openGraph: {
     title: 'Raise Calculator | Calculate Salary Increase | PaycheckMath.com',
     description: 'Calculate your new salary after a raise. See how a percentage or dollar increase affects your annual, monthly, and hourly pay.',
@@ -25,7 +28,7 @@ export default function RaiseCalculatorPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight">
             Raise Calculator | Calculate Salary Increase
           </h1>
-          
+
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
             Calculate your new salary after a raise. See how a percentage or dollar increase affects your annual, monthly, and hourly pay.
           </p>

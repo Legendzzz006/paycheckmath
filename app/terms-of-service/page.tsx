@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Terms of Service | PaycheckMath',
   description: 'Terms of Service for PaycheckMath - Read our terms and conditions for using our salary calculators.',
+  alternates: {
+    canonical: '/terms-of-service',
+  },
 };
 
 export default function TermsOfServicePage() {
@@ -32,7 +35,7 @@ export default function TermsOfServicePage() {
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            Welcome to PaycheckMath. By accessing or using our website, you agree to be bound by 
+            Welcome to PaycheckMath. By accessing or using our website, you agree to be bound by
             these Terms of Service. Please read them carefully.
           </p>
 
@@ -40,8 +43,8 @@ export default function TermsOfServicePage() {
             1. Acceptance of Terms
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            By accessing and using PaycheckMath.com (the "Website"), you accept and agree to be 
-            bound by the terms and provision of this agreement. If you do not agree to these Terms 
+            By accessing and using PaycheckMath.com (the "Website"), you accept and agree to be
+            bound by the terms and provision of this agreement. If you do not agree to these Terms
             of Service, please do not use our Website.
           </p>
 
@@ -49,8 +52,8 @@ export default function TermsOfServicePage() {
             2. Use of Service
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            PaycheckMath provides free salary and wage calculation tools for informational and 
-            educational purposes. You agree to use the Website only for lawful purposes and in a 
+            PaycheckMath provides free salary and wage calculation tools for informational and
+            educational purposes. You agree to use the Website only for lawful purposes and in a
             way that does not infringe the rights of others or restrict their use of the Website.
           </p>
 
@@ -83,12 +86,12 @@ export default function TermsOfServicePage() {
             3. Intellectual Property Rights
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            The Website and its original content, features, and functionality are owned by 
-            PaycheckMath and are protected by international copyright, trademark, patent, trade 
+            The Website and its original content, features, and functionality are owned by
+            PaycheckMath and are protected by international copyright, trademark, patent, trade
             secret, and other intellectual property laws.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            You may not copy, modify, distribute, sell, or lease any part of our Website or 
+            You may not copy, modify, distribute, sell, or lease any part of our Website or
             included software without our express written permission.
           </p>
 
@@ -96,7 +99,7 @@ export default function TermsOfServicePage() {
             4. Disclaimer of Warranties
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            THE WEBSITE AND ALL INFORMATION, CONTENT, MATERIALS, AND SERVICES ARE PROVIDED "AS IS" 
+            THE WEBSITE AND ALL INFORMATION, CONTENT, MATERIALS, AND SERVICES ARE PROVIDED "AS IS"
             AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
@@ -113,13 +116,13 @@ export default function TermsOfServicePage() {
             5. Limitation of Liability
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            TO THE MAXIMUM EXTENT PERMITTED BY LAW, PAYCHECKMATH SHALL NOT BE LIABLE FOR ANY 
-            INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF 
-            PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, 
+            TO THE MAXIMUM EXTENT PERMITTED BY LAW, PAYCHECKMATH SHALL NOT BE LIABLE FOR ANY
+            INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF
+            PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA,
             USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            You acknowledge that you use the Website and its calculators at your own risk and that 
+            You acknowledge that you use the Website and its calculators at your own risk and that
             you should verify all calculations independently before making any financial decisions.
           </p>
 
@@ -127,13 +130,13 @@ export default function TermsOfServicePage() {
             6. Accuracy of Information
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            While we strive to provide accurate calculations, we make no representations or 
-            warranties about the accuracy, reliability, completeness, or timeliness of any 
+            While we strive to provide accurate calculations, we make no representations or
+            warranties about the accuracy, reliability, completeness, or timeliness of any
             information on the Website.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            All calculations are based on standard assumptions and may not reflect your specific 
-            situation. You should consult with qualified professionals for advice tailored to your 
+            All calculations are based on standard assumptions and may not reflect your specific
+            situation. You should consult with qualified professionals for advice tailored to your
             circumstances.
           </p>
 
@@ -141,8 +144,8 @@ export default function TermsOfServicePage() {
             7. Third-Party Links
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Our Website may contain links to third-party websites or services that are not owned 
-            or controlled by PaycheckMath. We have no control over and assume no responsibility 
+            Our Website may contain links to third-party websites or services that are not owned
+            or controlled by PaycheckMath. We have no control over and assume no responsibility
             for the content, privacy policies, or practices of any third-party websites or services.
           </p>
 
@@ -150,9 +153,9 @@ export default function TermsOfServicePage() {
             8. Advertising
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We may display third-party advertisements on our Website. These advertisers may use 
-            cookies and other tracking technologies to collect information about your visits to 
-            this and other websites to provide advertisements about goods and services of interest 
+            We may display third-party advertisements on our Website. These advertisers may use
+            cookies and other tracking technologies to collect information about your visits to
+            this and other websites to provide advertisements about goods and services of interest
             to you.
           </p>
 
@@ -160,8 +163,8 @@ export default function TermsOfServicePage() {
             9. Modifications to Service
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We reserve the right to modify or discontinue, temporarily or permanently, the Website 
-            or any features or portions thereof without prior notice. You agree that we will not 
+            We reserve the right to modify or discontinue, temporarily or permanently, the Website
+            or any features or portions thereof without prior notice. You agree that we will not
             be liable for any modification, suspension, or discontinuance of the Website.
           </p>
 
@@ -169,12 +172,12 @@ export default function TermsOfServicePage() {
             10. Changes to Terms
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We reserve the right to modify these Terms of Service at any time. We will notify 
-            users of any material changes by posting the new Terms of Service on this page and 
+            We reserve the right to modify these Terms of Service at any time. We will notify
+            users of any material changes by posting the new Terms of Service on this page and
             updating the "Last Updated" date.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Your continued use of the Website after any such changes constitutes your acceptance 
+            Your continued use of the Website after any such changes constitutes your acceptance
             of the new Terms of Service.
           </p>
 
@@ -182,7 +185,7 @@ export default function TermsOfServicePage() {
             11. Governing Law
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            These Terms shall be governed and construed in accordance with the laws of the United 
+            These Terms shall be governed and construed in accordance with the laws of the United
             States, without regard to its conflict of law provisions.
           </p>
 
@@ -207,8 +210,8 @@ export default function TermsOfServicePage() {
             13. Severability
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            If any provision of these Terms is found to be unenforceable or invalid, that provision 
-            will be limited or eliminated to the minimum extent necessary so that these Terms will 
+            If any provision of these Terms is found to be unenforceable or invalid, that provision
+            will be limited or eliminated to the minimum extent necessary so that these Terms will
             otherwise remain in full force and effect.
           </p>
 
@@ -216,7 +219,7 @@ export default function TermsOfServicePage() {
             14. Entire Agreement
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            These Terms of Service, together with our Privacy Policy and Disclaimer, constitute 
+            These Terms of Service, together with our Privacy Policy and Disclaimer, constitute
             the entire agreement between you and PaycheckMath regarding the use of the Website.
           </p>
         </div>

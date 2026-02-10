@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'PaycheckMath - Free Salary & Pay Calculators for the US',
   description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for overtime, take-home pay, raises, and more. Accurate US wage conversion tools.',
   keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter, overtime calculator, paycheck calculator',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function HomePage() {
@@ -29,10 +32,10 @@ export default function HomePage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
             Salary & Pay Calculators for the US
           </h1>
-          
+
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Calculate your hourly, daily, weekly, and monthly pay from your annual salary. 
-            Our free salary calculator helps you understand your true earning potential and 
+            Calculate your hourly, daily, weekly, and monthly pay from your annual salary.
+            Our free salary calculator helps you understand your true earning potential and
             compare job offers with confidence.
           </p>
         </div>
@@ -45,7 +48,7 @@ export default function HomePage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
             All Calculators
           </h2>
-          
+
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-gray-700 mb-4">Essential Calculators</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -172,12 +175,12 @@ export default function HomePage() {
           </h2>
           <div className="text-gray-700 space-y-4 leading-relaxed">
             <p>
-              Enter your annual salary to instantly see your hourly wage, daily pay, weekly income, 
-              and monthly earnings. The calculator uses standard US work hours (40 hours per week, 
+              Enter your annual salary to instantly see your hourly wage, daily pay, weekly income,
+              and monthly earnings. The calculator uses standard US work hours (40 hours per week,
               52 weeks per year) but you can adjust these values to match your specific situation.
             </p>
             <p>
-              If you have paid time off, enter the number of weeks to get a more accurate hourly 
+              If you have paid time off, enter the number of weeks to get a more accurate hourly
               rate calculation.
             </p>
           </div>
@@ -189,21 +192,21 @@ export default function HomePage() {
           </h2>
           <div className="prose prose-lg max-w-none space-y-6 text-gray-700 leading-relaxed">
             <p>
-              When evaluating a job offer or comparing salaries, it's essential to understand how 
-              your annual compensation translates to different pay periods. A salary that seems 
-              high annually might be less impressive when broken down to an hourly rate, especially 
+              When evaluating a job offer or comparing salaries, it's essential to understand how
+              your annual compensation translates to different pay periods. A salary that seems
+              high annually might be less impressive when broken down to an hourly rate, especially
               if the position requires long hours or extensive overtime.
             </p>
             <p>
-              The standard calculation assumes 2,080 working hours per year (40 hours × 52 weeks). 
-              However, most employees don't actually work every single week due to holidays, 
-              vacation time, and sick days. This is why understanding your effective hourly rate 
+              The standard calculation assumes 2,080 working hours per year (40 hours × 52 weeks).
+              However, most employees don't actually work every single week due to holidays,
+              vacation time, and sick days. This is why understanding your effective hourly rate
               after accounting for paid time off is valuable.
             </p>
             <p>
-              Remember that the figures shown are gross pay before taxes and deductions. Your 
-              actual take-home pay will be lower after federal income tax, state income tax, 
-              Social Security, Medicare, and any other deductions like health insurance or 
+              Remember that the figures shown are gross pay before taxes and deductions. Your
+              actual take-home pay will be lower after federal income tax, state income tax,
+              Social Security, Medicare, and any other deductions like health insurance or
               retirement contributions.
             </p>
           </div>
@@ -221,9 +224,9 @@ export default function HomePage() {
                 Important Disclaimer
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                This calculator provides estimates based on the information you enter. Actual take-home 
-                pay will vary based on federal and state taxes, deductions, and other factors. This tool 
-                is for informational purposes only and should not be considered financial or tax advice. 
+                This calculator provides estimates based on the information you enter. Actual take-home
+                pay will vary based on federal and state taxes, deductions, and other factors. This tool
+                is for informational purposes only and should not be considered financial or tax advice.
                 Consult with a qualified professional for personalized guidance.
               </p>
             </div>

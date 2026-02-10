@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Calculate your ideal counter offer with our salary negotiation calculator. Get personalized negotiation scripts, lifetime value analysis, and expert tips to maximize your salary.',
   keywords: 'salary negotiation calculator, counter offer calculator, salary negotiation tips, negotiation scripts, job offer negotiation',
   alternates: {
-    canonical: 'https://paycheckmath.com/negotiation-calculator',
+    canonical: '/negotiation-calculator',
   },
   openGraph: {
     title: 'Salary Negotiation Calculator - Maximize Your Offer',
@@ -85,15 +85,15 @@ export default function NegotiationCalculatorPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               Salary Negotiation Calculator
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mb-6">
-              Calculate your ideal counter offer, see the lifetime value of negotiating, and get personalized scripts 
+              Calculate your ideal counter offer, see the lifetime value of negotiating, and get personalized scripts
               to confidently negotiate your salary. Don't leave money on the table.
             </p>
 
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-4 max-w-3xl">
               <p className="text-blue-900 font-semibold">
-                💡 Did you know? 70% of employers expect candidates to negotiate, but only 37% actually do. 
+                💡 Did you know? 70% of employers expect candidates to negotiate, but only 37% actually do.
                 Those who negotiate earn an average of $5,000 more per year.
               </p>
             </div>
@@ -115,29 +115,29 @@ export default function NegotiationCalculatorPage() {
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">The Compound Effect</h3>
               <p>
-                Your starting salary isn't just about year one - it's the foundation for your entire career. Raises, 
-                bonuses, and future job offers are typically based on your current salary. A $5,000 increase today 
+                Your starting salary isn't just about year one - it's the foundation for your entire career. Raises,
+                bonuses, and future job offers are typically based on your current salary. A $5,000 increase today
                 could mean $50,000+ more over a decade when you factor in raises and compounding.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Employers Expect It</h3>
               <p>
-                Most employers build negotiation room into their initial offers. They expect candidates to counter 
-                and have already budgeted for it. By not negotiating, you're actually leaving money that was already 
+                Most employers build negotiation room into their initial offers. They expect candidates to counter
+                and have already budgeted for it. By not negotiating, you're actually leaving money that was already
                 allocated for you on the table.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">It Shows Confidence</h3>
               <p>
-                Negotiating professionally demonstrates that you know your worth and can advocate for yourself. 
-                These are valuable traits that employers respect. A well-handled negotiation can actually strengthen 
+                Negotiating professionally demonstrates that you know your worth and can advocate for yourself.
+                These are valuable traits that employers respect. A well-handled negotiation can actually strengthen
                 your relationship with your future employer.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">When to Negotiate</h3>
               <p>
-                The best time to negotiate is after you receive a written offer but before you accept. This is when 
-                you have maximum leverage - they've decided they want you, but you haven't committed yet. Never 
+                The best time to negotiate is after you receive a written offer but before you accept. This is when
+                you have maximum leverage - they've decided they want you, but you haven't committed yet. Never
                 negotiate before receiving an official offer.
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function NegotiationCalculatorPage() {
               <div className="bg-purple-50 border-l-4 border-purple-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">3. Research Market Rate</h3>
                 <p className="text-gray-700">
-                  Use Glassdoor, Levels.fyi, or Payscale to find the market rate for your role. This is your strongest 
+                  Use Glassdoor, Levels.fyi, or Payscale to find the market rate for your role. This is your strongest
                   negotiation leverage.
                 </p>
               </div>
@@ -174,7 +174,7 @@ export default function NegotiationCalculatorPage() {
               <div className="bg-amber-50 border-l-4 border-amber-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">4. Get Your Counter Offer</h3>
                 <p className="text-gray-700">
-                  Review the recommended counter offer and choose your approach. Use the provided scripts to 
+                  Review the recommended counter offer and choose your approach. Use the provided scripts to
                   communicate professionally.
                 </p>
               </div>

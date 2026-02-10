@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Privacy Policy | PaycheckMath',
   description: 'Privacy Policy for PaycheckMath - Learn how we collect, use, and protect your information.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -32,21 +35,21 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            At PaycheckMath, we are committed to protecting your privacy. This Privacy Policy 
-            explains how we collect, use, disclose, and safeguard your information when you visit 
+            At PaycheckMath, we are committed to protecting your privacy. This Privacy Policy
+            explains how we collect, use, disclose, and safeguard your information when you visit
             our website.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
             Information We Collect
           </h2>
-          
+
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">
             Information You Provide
           </h3>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Our calculators process the salary and wage information you enter directly in your 
-            browser. This information is not transmitted to our servers or stored in any way. 
+            Our calculators process the salary and wage information you enter directly in your
+            browser. This information is not transmitted to our servers or stored in any way.
             All calculations are performed locally on your device.
           </p>
 
@@ -54,7 +57,7 @@ export default function PrivacyPolicyPage() {
             Automatically Collected Information
           </h3>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            When you visit our website, we may automatically collect certain information about 
+            When you visit our website, we may automatically collect certain information about
             your device, including:
           </p>
           <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
@@ -85,27 +88,27 @@ export default function PrivacyPolicyPage() {
             Cookies and Tracking Technologies
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We may use cookies and similar tracking technologies to track activity on our website 
-            and store certain information. Cookies are files with a small amount of data that are 
+            We may use cookies and similar tracking technologies to track activity on our website
+            and store certain information. Cookies are files with a small amount of data that are
             sent to your browser from a website and stored on your device.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            You can instruct your browser to refuse all cookies or to indicate when a cookie is 
-            being sent. However, if you do not accept cookies, you may not be able to use some 
+            You can instruct your browser to refuse all cookies or to indicate when a cookie is
+            being sent. However, if you do not accept cookies, you may not be able to use some
             portions of our website.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
             Third-Party Services
           </h2>
-          
+
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">
             Google AdSense
           </h3>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We use Google AdSense to display advertisements on our website. Google AdSense uses 
-            cookies to serve ads based on your prior visits to our website or other websites. 
-            Google's use of advertising cookies enables it and its partners to serve ads based on 
+            We use Google AdSense to display advertisements on our website. Google AdSense uses
+            cookies to serve ads based on your prior visits to our website or other websites.
+            Google's use of advertising cookies enables it and its partners to serve ads based on
             your visit to our site and/or other sites on the Internet.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
@@ -119,8 +122,8 @@ export default function PrivacyPolicyPage() {
             Analytics
           </h3>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We may use third-party analytics services to monitor and analyze web traffic. These 
-            services may use cookies and similar technologies to collect information about your 
+            We may use third-party analytics services to monitor and analyze web traffic. These
+            services may use cookies and similar technologies to collect information about your
             use of our website.
           </p>
 
@@ -128,8 +131,8 @@ export default function PrivacyPolicyPage() {
             Data Security
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We implement appropriate technical and organizational security measures to protect 
-            your information. However, please note that no method of transmission over the Internet 
+            We implement appropriate technical and organizational security measures to protect
+            your information. However, please note that no method of transmission over the Internet
             or method of electronic storage is 100% secure.
           </p>
 
@@ -137,8 +140,8 @@ export default function PrivacyPolicyPage() {
             Children's Privacy
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Our website is not intended for children under the age of 13. We do not knowingly 
-            collect personal information from children under 13. If you are a parent or guardian 
+            Our website is not intended for children under the age of 13. We do not knowingly
+            collect personal information from children under 13. If you are a parent or guardian
             and believe your child has provided us with personal information, please contact us.
           </p>
 
@@ -146,7 +149,7 @@ export default function PrivacyPolicyPage() {
             Your Privacy Rights
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Depending on your location, you may have certain rights regarding your personal 
+            Depending on your location, you may have certain rights regarding your personal
             information, including:
           </p>
           <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
@@ -161,11 +164,11 @@ export default function PrivacyPolicyPage() {
             Changes to This Privacy Policy
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            We may update our Privacy Policy from time to time. We will notify you of any changes 
+            We may update our Privacy Policy from time to time. We will notify you of any changes
             by posting the new Privacy Policy on this page and updating the "Last Updated" date.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            You are advised to review this Privacy Policy periodically for any changes. Changes 
+            You are advised to review this Privacy Policy periodically for any changes. Changes
             to this Privacy Policy are effective when they are posted on this page.
           </p>
 

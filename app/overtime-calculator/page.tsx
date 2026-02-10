@@ -8,6 +8,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Overtime Pay Calculator | Calculate Time and a Half',
   description: 'Free overtime calculator to calculate your overtime pay. Supports time and a half, double time, and custom overtime rates. See your total earnings instantly.',
+  alternates: {
+    canonical: '/overtime-calculator',
+  },
   openGraph: {
     title: 'Overtime Pay Calculator | Calculate Time and a Half',
     description: 'Free overtime calculator to calculate your overtime pay. Supports time and a half, double time, and custom overtime rates. See your total earnings instantly.',
@@ -25,7 +28,7 @@ export default function OvertimeCalculatorPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight">
             Overtime Pay Calculator
           </h1>
-          
+
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
             Calculate your overtime pay with our free overtime calculator. Whether you work time and a half (1.5x) or double time (2x), see exactly how much you'll earn including regular and overtime hours.
           </p>

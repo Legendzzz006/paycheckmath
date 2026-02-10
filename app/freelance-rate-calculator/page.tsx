@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Calculate your freelance hourly rate based on desired salary, expenses, taxes, and benefits. See what you need to charge to match a W2 salary.',
   keywords: 'freelance rate calculator, hourly rate calculator, freelance pricing, contractor rate, self-employed rate calculator',
   alternates: {
-    canonical: 'https://paycheckmath.com/freelance-rate-calculator',
+    canonical: '/freelance-rate-calculator',
   },
   openGraph: {
     title: 'Freelance Rate Calculator - Know Your Worth',
@@ -85,15 +85,15 @@ export default function FreelanceRateCalculatorPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               Freelance Rate Calculator
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mb-6">
-              Calculate the hourly rate you need to charge as a freelancer or contractor to match your desired 
+              Calculate the hourly rate you need to charge as a freelancer or contractor to match your desired
               salary while covering taxes, benefits, expenses, and building in a profit margin.
             </p>
 
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-4 max-w-3xl">
               <p className="text-blue-900 font-semibold">
-                💡 Most freelancers undercharge! To match a $75,000 W2 salary, you typically need to charge 
+                💡 Most freelancers undercharge! To match a $75,000 W2 salary, you typically need to charge
                 $60-80/hour depending on your expenses and billable hours.
               </p>
             </div>
@@ -115,27 +115,27 @@ export default function FreelanceRateCalculatorPage() {
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">The Hidden Costs of Freelancing</h3>
               <p>
-                When you're a W2 employee, your employer pays half of your Social Security and Medicare taxes 
-                (7.65%), provides health insurance, contributes to retirement, and covers business expenses. 
+                When you're a W2 employee, your employer pays half of your Social Security and Medicare taxes
+                (7.65%), provides health insurance, contributes to retirement, and covers business expenses.
                 As a freelancer, you pay all of these costs yourself.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Self-Employment Tax</h3>
               <p>
-                Freelancers pay 15.3% self-employment tax (Social Security + Medicare) on top of regular income 
+                Freelancers pay 15.3% self-employment tax (Social Security + Medicare) on top of regular income
                 taxes. This alone means you need to charge significantly more than your desired take-home pay.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Billable vs Non-Billable Hours</h3>
               <p>
-                Not all your working hours are billable. You'll spend time on marketing, admin, invoicing, 
-                client communication, and professional development. If you work 40 hours per week, you might 
+                Not all your working hours are billable. You'll spend time on marketing, admin, invoicing,
+                client communication, and professional development. If you work 40 hours per week, you might
                 only bill 25-30 hours. This dramatically affects your effective hourly rate.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Benefits You Must Self-Fund</h3>
               <p>
-                Health insurance, retirement contributions, paid time off, and sick leave all come out of your 
+                Health insurance, retirement contributions, paid time off, and sick leave all come out of your
                 pocket. These benefits can easily cost $15,000-20,000 per year, which must be built into your rate.
               </p>
             </div>
@@ -150,7 +150,7 @@ export default function FreelanceRateCalculatorPage() {
               <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">Hourly Billing</h3>
                 <p className="text-gray-700 mb-3">
-                  Charge by the hour for ongoing work or projects with uncertain scope. Good for beginners 
+                  Charge by the hour for ongoing work or projects with uncertain scope. Good for beginners
                   and maintenance work.
                 </p>
                 <div className="text-sm text-gray-600">
@@ -162,7 +162,7 @@ export default function FreelanceRateCalculatorPage() {
               <div className="bg-green-50 border-l-4 border-green-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">Project-Based</h3>
                 <p className="text-gray-700 mb-3">
-                  Fixed price for defined deliverables. Better for experienced freelancers who can estimate 
+                  Fixed price for defined deliverables. Better for experienced freelancers who can estimate
                   accurately.
                 </p>
                 <div className="text-sm text-gray-600">
@@ -257,7 +257,7 @@ export default function FreelanceRateCalculatorPage() {
 
               <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                 <p className="text-sm text-blue-900">
-                  <strong>Typical Total:</strong> $10,000-15,000/year for essential expenses, $15,000-25,000/year 
+                  <strong>Typical Total:</strong> $10,000-15,000/year for essential expenses, $15,000-25,000/year
                   with optional expenses. These costs must be built into your hourly rate.
                 </p>
               </div>
@@ -275,8 +275,8 @@ export default function FreelanceRateCalculatorPage() {
                   How much should I charge as a beginner freelancer?
                 </h3>
                 <p className="text-gray-700">
-                  Start with your minimum rate (break-even) and gradually increase as you gain experience and 
-                  testimonials. Even beginners should charge enough to cover all costs. Don't undervalue yourself 
+                  Start with your minimum rate (break-even) and gradually increase as you gain experience and
+                  testimonials. Even beginners should charge enough to cover all costs. Don't undervalue yourself
                   - clients often associate low rates with low quality.
                 </p>
               </div>
@@ -286,8 +286,8 @@ export default function FreelanceRateCalculatorPage() {
                   Should I charge different rates for different clients?
                 </h3>
                 <p className="text-gray-700">
-                  Yes, it's common to have different rates based on project complexity, client budget, urgency, 
-                  and your relationship with the client. Premium clients who value your expertise should pay 
+                  Yes, it's common to have different rates based on project complexity, client budget, urgency,
+                  and your relationship with the client. Premium clients who value your expertise should pay
                   premium rates. Long-term retainer clients might get a small discount for commitment.
                 </p>
               </div>
@@ -297,8 +297,8 @@ export default function FreelanceRateCalculatorPage() {
                   How often should I raise my rates?
                 </h3>
                 <p className="text-gray-700">
-                  Review your rates every 6-12 months. Raise rates for new clients immediately, and give existing 
-                  clients 30-60 days notice. A 10-15% annual increase is reasonable as you gain experience. Your 
+                  Review your rates every 6-12 months. Raise rates for new clients immediately, and give existing
+                  clients 30-60 days notice. A 10-15% annual increase is reasonable as you gain experience. Your
                   rates should grow with your skills and market demand.
                 </p>
               </div>
@@ -308,8 +308,8 @@ export default function FreelanceRateCalculatorPage() {
                   What if clients say I'm too expensive?
                 </h3>
                 <p className="text-gray-700">
-                  Not every client is your ideal client. If they can't afford your rates, they're not a good fit. 
-                  Focus on finding clients who value quality and can pay professional rates. Competing on price 
+                  Not every client is your ideal client. If they can't afford your rates, they're not a good fit.
+                  Focus on finding clients who value quality and can pay professional rates. Competing on price
                   is a race to the bottom. Compete on value instead.
                 </p>
               </div>

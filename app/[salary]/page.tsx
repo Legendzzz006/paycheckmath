@@ -30,7 +30,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { salary: salaryParam } = await params;
   const salary = parseSalaryFromSlug(salaryParam);
-  
+
   if (!salary) {
     return {
       title: 'Salary Not Found | PaycheckMath',
@@ -41,13 +41,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `$${salary.toLocaleString()} a Year is How Much an Hour? | PaycheckMath`,
     description: `Convert $${salary.toLocaleString()} annual salary to hourly, monthly, weekly, and daily pay. See your exact take-home pay breakdown.`,
     alternates: {
-      canonical: `https://paycheckmath.com/${salaryParam}`,
+      canonical: `/${salaryParam}`,
     },
     openGraph: {
       title: `$${salary.toLocaleString()} a Year is How Much an Hour?`,
       description: `Convert $${salary.toLocaleString()} annual salary to hourly, monthly, weekly, and daily pay.`,
       type: 'website',
-      url: `https://paycheckmath.com/${salaryParam}`,
+      url: `/${salaryParam}`,
     },
   };
 }
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 function parseSalaryFromSlug(slug: string): number | null {
   const match = slug.match(/^(\d+)-a-year-is-how-much-an-hour$/);
   if (!match) return null;
-  
+
   const salary = parseInt(match[1], 10);
   return VALID_SALARIES.includes(salary) ? salary : null;
 }
@@ -88,7 +88,7 @@ export default async function SalaryPage({ params }: PageProps) {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
             {content.h1}
           </h1>
-          
+
           <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8">
             {content.intro}
           </p>

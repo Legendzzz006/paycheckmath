@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Contact Us | PaycheckMath',
   description: 'Get in touch with PaycheckMath. We welcome your questions, feedback, and suggestions.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {
@@ -28,8 +31,8 @@ export default function ContactPage() {
 
         <div className="prose prose-gray max-w-none">
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            We value your feedback and are here to help. Whether you have questions about our 
-            calculators, suggestions for improvements, or just want to say hello, we'd love to 
+            We value your feedback and are here to help. Whether you have questions about our
+            calculators, suggestions for improvements, or just want to say hello, we'd love to
             hear from you.
           </p>
 
@@ -48,15 +51,15 @@ export default function ContactPage() {
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
             Frequently Asked Questions
           </h2>
-          
+
           <div className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 How accurate are your calculations?
               </h3>
               <p className="text-gray-700">
-                Our calculations are based on standard formulas and assumptions (40-hour work week, 
-                52 weeks per year). While we strive for accuracy, actual pay may vary based on your 
+                Our calculations are based on standard formulas and assumptions (40-hour work week,
+                52 weeks per year). While we strive for accuracy, actual pay may vary based on your
                 specific employment situation, taxes, and deductions.
               </p>
             </div>
@@ -66,9 +69,9 @@ export default function ContactPage() {
                 Do you account for taxes?
               </h3>
               <p className="text-gray-700">
-                Currently, our calculators show gross pay before taxes and deductions. Your actual 
-                take-home pay will be lower after federal taxes, state taxes, FICA taxes, and other 
-                deductions. We recommend consulting with a tax professional or using a dedicated tax 
+                Currently, our calculators show gross pay before taxes and deductions. Your actual
+                take-home pay will be lower after federal taxes, state taxes, FICA taxes, and other
+                deductions. We recommend consulting with a tax professional or using a dedicated tax
                 calculator for accurate after-tax estimates.
               </p>
             </div>
@@ -78,7 +81,7 @@ export default function ContactPage() {
                 Can I suggest a new calculator or feature?
               </h3>
               <p className="text-gray-700">
-                Absolutely! We're always looking to improve and expand our tools. Send us an email 
+                Absolutely! We're always looking to improve and expand our tools. Send us an email
                 with your suggestions, and we'll consider them for future updates.
               </p>
             </div>
@@ -88,8 +91,8 @@ export default function ContactPage() {
                 Is this service really free?
               </h3>
               <p className="text-gray-700">
-                Yes, PaycheckMath is completely free to use with no hidden fees or registration 
-                required. We may display minimal advertising to support the site's operation, but 
+                Yes, PaycheckMath is completely free to use with no hidden fees or registration
+                required. We may display minimal advertising to support the site's operation, but
                 all calculators remain free and fully functional.
               </p>
             </div>

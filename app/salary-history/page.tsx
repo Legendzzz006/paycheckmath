@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Track your salary history over time, visualize career growth, calculate lifetime earnings, and export your data. Free salary tracking tool with no account required.',
   keywords: 'salary history tracker, career growth tracker, salary progression, lifetime earnings calculator, salary tracking',
   alternates: {
-    canonical: 'https://paycheckmath.com/salary-history',
+    canonical: '/salary-history',
   },
   openGraph: {
     title: 'Salary History Tracker - Track Your Career Growth',
@@ -85,9 +85,9 @@ export default function SalaryHistoryPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               Salary History Tracker
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mb-6">
-              Track your salary journey, visualize your career growth, and calculate your lifetime earnings. 
+              Track your salary journey, visualize your career growth, and calculate your lifetime earnings.
               All data is stored locally in your browser - no account required, completely private.
             </p>
 
@@ -115,7 +115,7 @@ export default function SalaryHistoryPage() {
               <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">📈 Visualize Your Growth</h3>
                 <p className="text-gray-700">
-                  See your career progression at a glance. Track how your salary has increased over time and 
+                  See your career progression at a glance. Track how your salary has increased over time and
                   identify patterns in your career growth.
                 </p>
               </div>
@@ -123,7 +123,7 @@ export default function SalaryHistoryPage() {
               <div className="bg-green-50 border-l-4 border-green-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">💰 Calculate Lifetime Earnings</h3>
                 <p className="text-gray-700">
-                  Understand your total career earnings. This helps with retirement planning, financial goal 
+                  Understand your total career earnings. This helps with retirement planning, financial goal
                   setting, and appreciating your career achievements.
                 </p>
               </div>
@@ -131,7 +131,7 @@ export default function SalaryHistoryPage() {
               <div className="bg-purple-50 border-l-4 border-purple-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">🎯 Negotiate Better</h3>
                 <p className="text-gray-700">
-                  Having a clear record of your salary history helps you negotiate raises and new job offers. 
+                  Having a clear record of your salary history helps you negotiate raises and new job offers.
                   Know your worth and track your market value over time.
                 </p>
               </div>
@@ -139,7 +139,7 @@ export default function SalaryHistoryPage() {
               <div className="bg-amber-50 border-l-4 border-amber-600 rounded-r-xl p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3">📊 Make Informed Decisions</h3>
                 <p className="text-gray-700">
-                  Use your salary data to make better career decisions. Identify when you've had the biggest 
+                  Use your salary data to make better career decisions. Identify when you've had the biggest
                   jumps and what led to them.
                 </p>
               </div>
@@ -154,8 +154,8 @@ export default function SalaryHistoryPage() {
             <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
               <h3 className="text-2xl font-bold text-gray-900">Adding Entries</h3>
               <p>
-                Click "Add Salary Entry" and fill in the details: date, salary, job title, company, and optional 
-                notes. Add an entry whenever you get a raise, change jobs, or receive a promotion. The more data 
+                Click "Add Salary Entry" and fill in the details: date, salary, job title, company, and optional
+                notes. Add an entry whenever you get a raise, change jobs, or receive a promotion. The more data
                 you track, the more insights you'll gain.
               </p>
 
@@ -172,14 +172,14 @@ export default function SalaryHistoryPage() {
 
               <h3 className="text-2xl font-bold text-gray-900">Exporting Your Data</h3>
               <p>
-                Export your salary history to CSV for backup or analysis in spreadsheet software. You can also 
+                Export your salary history to CSV for backup or analysis in spreadsheet software. You can also
                 import previously exported data to restore your history or transfer it to another device.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900">Privacy & Security</h3>
               <p>
-                All data is stored locally in your browser using localStorage. We never see, store, or transmit 
-                your salary information. Your data stays on your device and is completely private. However, 
+                All data is stored locally in your browser using localStorage. We never see, store, or transmit
+                your salary information. Your data stays on your device and is completely private. However,
                 clearing your browser data will delete your history, so export regularly as a backup.
               </p>
             </div>
@@ -234,7 +234,7 @@ export default function SalaryHistoryPage() {
 
                 <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-4">
                   <p className="text-blue-900 font-semibold">
-                    💡 Pro Tip: The biggest salary jumps typically come from changing companies, not internal 
+                    💡 Pro Tip: The biggest salary jumps typically come from changing companies, not internal
                     promotions. If your growth has stagnated, it might be time to explore external opportunities.
                   </p>
                 </div>
@@ -253,7 +253,7 @@ export default function SalaryHistoryPage() {
                   Is my salary data secure?
                 </h3>
                 <p className="text-gray-700">
-                  Yes! All data is stored locally in your browser using localStorage. We never see, collect, or 
+                  Yes! All data is stored locally in your browser using localStorage. We never see, collect, or
                   transmit your salary information. Your data never leaves your device.
                 </p>
               </div>
@@ -263,7 +263,7 @@ export default function SalaryHistoryPage() {
                   What happens if I clear my browser data?
                 </h3>
                 <p className="text-gray-700">
-                  Clearing your browser data will delete your salary history. We recommend exporting your data 
+                  Clearing your browser data will delete your salary history. We recommend exporting your data
                   to CSV regularly as a backup. You can then import it back if needed.
                 </p>
               </div>
@@ -273,7 +273,7 @@ export default function SalaryHistoryPage() {
                   Can I access my data on multiple devices?
                 </h3>
                 <p className="text-gray-700">
-                  Since data is stored locally, each device has its own separate history. To sync across devices, 
+                  Since data is stored locally, each device has its own separate history. To sync across devices,
                   export your data from one device and import it on another.
                 </p>
               </div>
@@ -283,7 +283,7 @@ export default function SalaryHistoryPage() {
                   How often should I update my salary history?
                 </h3>
                 <p className="text-gray-700">
-                  Add an entry whenever your salary changes - raises, promotions, job changes, or bonuses. 
+                  Add an entry whenever your salary changes - raises, promotions, job changes, or bonuses.
                   Even if your salary stays the same, you might add an entry annually to track your tenure.
                 </p>
               </div>
