@@ -7,11 +7,11 @@ export const dynamic = 'force-static';
 
 // Use a fixed date for lastModified to avoid changing on every build
 // Update this date manually when you make significant content changes
-const LAST_CONTENT_UPDATE = new Date('2026-02-03');
+const LAST_CONTENT_UPDATE = new Date('2026-02-13');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://paycheckmath.com';
-  
+
   const staticPages = [
     {
       url: `${baseUrl}/`,
@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/salary-to-hourly/`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/hourly-to-salary/`,
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
@@ -86,6 +92,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/inflation-calculator/`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/salary-history/`,
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'monthly' as const,
@@ -99,6 +111,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/salary-timeline/`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-negotiate-salary/`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/understanding-tax-brackets/`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/salary-vs-hourly/`,
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

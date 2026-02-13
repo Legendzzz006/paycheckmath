@@ -1,25 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Disclaimer | PaycheckMath',
   description: 'Important disclaimer and terms of use for PaycheckMath salary and wage calculators.',
+  alternates: { canonical: 'https://paycheckmath.com/disclaimer/' },
 };
 
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-6">
-          <Link href="/" className="inline-flex items-center gap-2 text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white text-lg font-bold">$</span>
-            </div>
-            PaycheckMath.com
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main className="max-w-4xl mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-6">

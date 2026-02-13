@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Compare cost of living between cities and calculate equivalent salaries. See housing, groceries, transport costs and get relocation recommendations.',
   keywords: 'cost of living calculator, city comparison, salary equivalence, relocation calculator, cost of living comparison',
   alternates: {
-    canonical: 'https://paycheckmath.com/cost-of-living-calculator',
+    canonical: 'https://paycheckmath.com/cost-of-living-calculator/',
   },
   openGraph: {
     title: 'Cost of Living Calculator - Compare Cities',

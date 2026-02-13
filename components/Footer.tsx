@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 mt-16 sm:mt-24">
+    <footer className="bg-white border-t border-gray-200 mt-16 sm:mt-24 no-print">
       <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
@@ -10,6 +10,7 @@ export default function Footer() {
             <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
               <li><Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Calculator</Link></li>
               <li><Link href="/salary-to-hourly/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary to Hourly</Link></li>
+              <li><Link href="/hourly-to-salary/" className="text-gray-600 hover:text-blue-600 transition-colors">Hourly to Salary</Link></li>
               <li><Link href="/overtime-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Overtime Calculator</Link></li>
               <li><Link href="/biweekly-paycheck-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Bi-Weekly Paycheck</Link></li>
               <li><Link href="/take-home-pay-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Take-Home Pay</Link></li>
@@ -24,6 +25,7 @@ export default function Footer() {
               <li><Link href="/raise-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Raise Calculator</Link></li>
               <li><Link href="/salary-timeline/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary Timeline</Link></li>
               <li><Link href="/salary-history/" className="text-gray-600 hover:text-blue-600 transition-colors">Salary History</Link></li>
+              <li><Link href="/inflation-calculator/" className="text-gray-600 hover:text-blue-600 transition-colors">Inflation Calculator</Link></li>
             </ul>
           </div>
           <div>
@@ -38,6 +40,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider">Resources</h4>
             <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+              <li><Link href="/blog/" className="text-gray-600 hover:text-blue-600 transition-colors">Blog</Link></li>
               <li><Link href="/about/" className="text-gray-600 hover:text-blue-600 transition-colors">About</Link></li>
               <li><Link href="/contact/" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</Link></li>
             </ul>
@@ -52,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-xs sm:text-sm text-gray-500 text-center pt-6 sm:pt-8 border-t border-gray-200">
-          © {new Date().getFullYear()} PaycheckMath.com. All rights reserved.
+          © 2024-2026 PaycheckMath.com. All rights reserved.
         </div>
       </div>
     </footer>

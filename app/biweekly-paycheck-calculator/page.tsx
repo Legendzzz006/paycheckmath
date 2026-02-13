@@ -8,10 +8,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Bi-Weekly Paycheck Calculator | Convert Salary to Bi-Weekly Pay',
   description: 'Calculate your bi-weekly paycheck from annual salary or hourly rate. See your pay every two weeks, monthly equivalent, and annual total.',
+  alternates: { canonical: 'https://paycheckmath.com/biweekly-paycheck-calculator/' },
   openGraph: {
     title: 'Bi-Weekly Paycheck Calculator | Convert Salary to Bi-Weekly Pay',
     description: 'Calculate your bi-weekly paycheck from annual salary or hourly rate. See your pay every two weeks, monthly equivalent, and annual total.',
     type: 'website',
+    images: ['/logo-1200x627.png'],
   },
 };
 

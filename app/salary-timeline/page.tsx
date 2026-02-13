@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Calculate your future salary with annual raises over time. See the compound effect of raises and compare against inflation. Plan your career growth.',
   keywords: 'salary timeline calculator, future salary calculator, raise calculator, salary projection, compound raises, inflation calculator',
   alternates: {
-    canonical: 'https://paycheckmath.com/salary-timeline',
+    canonical: 'https://paycheckmath.com/salary-timeline/',
   },
   openGraph: {
     title: 'Salary Timeline Calculator - Project Your Future Earnings',

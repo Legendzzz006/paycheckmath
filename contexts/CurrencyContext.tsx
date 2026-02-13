@@ -16,58 +16,29 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
   const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if user has a saved preference first
-    const savedCurrency = localStorage.getItem('preferredCurrency');
-    if (savedCurrency && CURRENCIES[savedCurrency]) {
-      setCurrencyState(CURRENCIES[savedCurrency]);
-      return;
-    }
-
-    // Detect location in background (non-blocking)
-    detectUserLocationInBackground();
-  }, []);
-
-  const detectUserLocationInBackground = async () => {
     try {
-      // Method 1: Try timezone-based detection first (fastest, synchronous)
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const countryFromTimezone = getCountryFromTimezone(timezone);
-      
-      if (countryFromTimezone) {
-        const detectedCurrency = getCurrencyByCountry(countryFromTimezone);
-        setDetectedCountry(countryFromTimezone);
-        // Only auto-switch if user hasn't manually selected a currency
-        if (!localStorage.getItem('preferredCurrency')) {
-          setCurrencyState(detectedCurrency);
-        }
+      const savedCurrency = localStorage.getItem('preferredCurrency');
+      if (savedCurrency && CURRENCIES[savedCurrency]) {
+        setCurrencyState(CURRENCIES[savedCurrency]);
         return;
       }
+    } catch { }
 
-      // Method 2: Try IP-based geolocation API (background only, don't block)
-      const response = await fetch('https://ipapi.co/json/', {
-        signal: AbortSignal.timeout(2000),
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        if (data.country_code) {
-          const detectedCurrency = getCurrencyByCountry(data.country_code);
-          setDetectedCountry(data.country_code);
-          // Only auto-switch if user hasn't manually selected a currency
-          if (!localStorage.getItem('preferredCurrency')) {
-            setCurrencyState(detectedCurrency);
-          }
-        }
+    // Detect location via timezone only (no external API calls)
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const country = getCountryFromTimezone(timezone);
+      if (country) {
+        const detected = getCurrencyByCountry(country);
+        setDetectedCountry(country);
+        setCurrencyState(detected);
       }
-    } catch (error) {
-      // Silent fail - user already has USD default
-      console.log('Background location detection failed, using USD');
-    }
-  };
+    } catch { }
+  }, []);
 
   const setCurrency = (newCurrency: CurrencyConfig) => {
     setCurrencyState(newCurrency);
-    localStorage.setItem('preferredCurrency', newCurrency.code);
+    try { localStorage.setItem('preferredCurrency', newCurrency.code); } catch { }
   };
 
   return (
@@ -85,43 +56,18 @@ export function useCurrency() {
   return context;
 }
 
-// Validate localStorage values before using
-function isValidCurrencyCode(code: string): boolean {
-  return code in CURRENCIES;
-}
-
-// Helper function to map timezone to country
 function getCountryFromTimezone(timezone: string): string | null {
   const timezoneMap: Record<string, string> = {
-    'America/New_York': 'US',
-    'America/Chicago': 'US',
-    'America/Denver': 'US',
-    'America/Los_Angeles': 'US',
-    'America/Phoenix': 'US',
-    'America/Toronto': 'CA',
-    'America/Vancouver': 'CA',
-    'Europe/London': 'GB',
-    'Europe/Berlin': 'DE',
-    'Europe/Paris': 'FR',
-    'Europe/Rome': 'IT',
-    'Europe/Madrid': 'ES',
-    'Europe/Amsterdam': 'NL',
-    'Europe/Brussels': 'BE',
-    'Europe/Vienna': 'AT',
-    'Europe/Lisbon': 'PT',
-    'Europe/Dublin': 'IE',
-    'Europe/Helsinki': 'FI',
-    'Europe/Athens': 'GR',
-    'Europe/Stockholm': 'SE',
-    'Europe/Oslo': 'NO',
-    'Europe/Copenhagen': 'DK',
-    'Europe/Zurich': 'CH',
-    'Asia/Tokyo': 'JP',
-    'Asia/Shanghai': 'CN',
-    'Asia/Kolkata': 'IN',
-    'Australia/Sydney': 'AU',
-    'Australia/Melbourne': 'AU',
+    'America/New_York': 'US', 'America/Chicago': 'US', 'America/Denver': 'US',
+    'America/Los_Angeles': 'US', 'America/Phoenix': 'US', 'America/Anchorage': 'US',
+    'Pacific/Honolulu': 'US', 'America/Toronto': 'CA', 'America/Vancouver': 'CA',
+    'Europe/London': 'GB', 'Europe/Berlin': 'DE', 'Europe/Paris': 'FR',
+    'Europe/Rome': 'IT', 'Europe/Madrid': 'ES', 'Europe/Amsterdam': 'NL',
+    'Europe/Brussels': 'BE', 'Europe/Vienna': 'AT', 'Europe/Lisbon': 'PT',
+    'Europe/Dublin': 'IE', 'Europe/Helsinki': 'FI', 'Europe/Athens': 'GR',
+    'Europe/Stockholm': 'SE', 'Europe/Oslo': 'NO', 'Europe/Copenhagen': 'DK',
+    'Europe/Zurich': 'CH', 'Asia/Tokyo': 'JP', 'Asia/Shanghai': 'CN',
+    'Asia/Kolkata': 'IN', 'Australia/Sydney': 'AU', 'Australia/Melbourne': 'AU',
   };
-
   return timezoneMap[timezone] || null;
 }

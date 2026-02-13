@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Track your salary history over time, visualize career growth, calculate lifetime earnings, and export your data. Free salary tracking tool with no account required.',
   keywords: 'salary history tracker, career growth tracker, salary progression, lifetime earnings calculator, salary tracking',
   alternates: {
-    canonical: 'https://paycheckmath.com/salary-history',
+    canonical: 'https://paycheckmath.com/salary-history/',
   },
   openGraph: {
     title: 'Salary History Tracker - Track Your Career Growth',

@@ -17,15 +17,16 @@ export interface CalculatorInputs {
 
 export function calculateSalaryBreakdown(inputs: CalculatorInputs): SalaryBreakdown {
   const { annualSalary, hoursPerWeek, weeksPerYear, paidTimeOffWeeks = 0 } = inputs;
-  
-  const workingWeeks = weeksPerYear - paidTimeOffWeeks;
+
+  const workingWeeks = Math.max(weeksPerYear - paidTimeOffWeeks, 0);
   const totalWorkingHours = workingWeeks * hoursPerWeek;
-  
-  const hourly = annualSalary / totalWorkingHours;
-  const daily = hourly * (hoursPerWeek / 5);
-  const weekly = annualSalary / weeksPerYear;
+
+  // Guard against division by zero
+  const hourly = totalWorkingHours > 0 ? annualSalary / totalWorkingHours : 0;
+  const daily = hoursPerWeek > 0 ? hourly * (hoursPerWeek / 5) : 0;
+  const weekly = weeksPerYear > 0 ? annualSalary / weeksPerYear : 0;
   const monthly = annualSalary / 12;
-  
+
   return {
     annual: annualSalary,
     hourly: Math.round(hourly * 100) / 100,

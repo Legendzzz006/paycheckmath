@@ -1,113 +1,121 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import AdUnit from '@/components/AdUnit';
 
 export const metadata: Metadata = {
-  title: 'About PaycheckMath | Free Salary & Wage Calculators',
-  description: 'Learn about PaycheckMath and our mission to provide accurate, free salary and wage conversion tools for US workers.',
+  title: 'About PaycheckMath - Our Mission & Team',
+  description: 'Learn about PaycheckMath, our mission to make salary information transparent, and the team behind the free salary calculators used by thousands.',
+  alternates: { canonical: 'https://paycheckmath.com/about/' },
+  openGraph: { title: 'About PaycheckMath', description: 'Our mission to make salary information transparent and accessible.', url: 'https://paycheckmath.com/about/', images: ['/logo-1200x627.png'] },
 };
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-6">
-          <Link href="/" className="inline-flex items-center gap-2 text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white text-lg font-bold">$</span>
+      <Header />
+      <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8 tracking-tight">About PaycheckMath</h1>
+
+        <div className="prose max-w-none text-gray-700 space-y-6">
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
+            <p>PaycheckMath was built with a simple mission: <strong>make salary information transparent, accessible, and easy to understand</strong>. We believe everyone deserves to know exactly what their time is worth — whether you&apos;re evaluating a job offer, negotiating a raise, or planning your finances.</p>
+            <p>Too many workers accept salaries without fully understanding their hourly rate, take-home pay, or how their compensation compares to market rates. Our free calculators empower you with the numbers you need to make informed career and financial decisions.</p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900">Why We Built This</h2>
+            <p>We noticed that most salary calculators online are either cluttered with ads, overly complicated, or require personal information to use. PaycheckMath takes a different approach:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>100% free</strong> — no premium tiers, no hidden features.</li>
+              <li><strong>No data collection</strong> — all calculations happen in your browser. We never see or store your salary information.</li>
+              <li><strong>Instant results</strong> — no forms to submit, no email required. Just enter a number and see the breakdown.</li>
+              <li><strong>Mobile-first design</strong> — works perfectly on phones, tablets, and desktops.</li>
+              <li><strong>Accurate calculations</strong> — our formulas account for work hours, PTO, overtime, and more.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900">About the Team</h2>
+            <p>PaycheckMath is created and maintained by a team of developers and financial enthusiasts based in the United States. Our team combines expertise in:</p>
+            <div className="grid sm:grid-cols-3 gap-4 my-6">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
+                <span className="text-3xl block mb-2" aria-hidden="true">💻</span>
+                <h3 className="font-bold text-gray-900">Web Development</h3>
+                <p className="text-sm text-gray-600 mt-1">Modern, fast, accessible web applications</p>
+              </div>
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-5 text-center">
+                <span className="text-3xl block mb-2" aria-hidden="true">📊</span>
+                <h3 className="font-bold text-gray-900">Financial Literacy</h3>
+                <p className="text-sm text-gray-600 mt-1">Making complex financial concepts simple</p>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
+                <span className="text-3xl block mb-2" aria-hidden="true">🎯</span>
+                <h3 className="font-bold text-gray-900">User Experience</h3>
+                <p className="text-sm text-gray-600 mt-1">Intuitive, beautiful, and useful tools</p>
+              </div>
             </div>
-            PaycheckMath.com
-          </Link>
-        </div>
-      </header>
+            <p>We&apos;re passionate about helping people understand their compensation and make better career decisions. Every calculator on this site was built with real-world use cases in mind, informed by feedback from thousands of users.</p>
+          </section>
+          <AdUnit format="horizontal" />
 
-      <main className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">
-          About PaycheckMath
-        </h1>
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900">What Makes Us Different</h2>
+            <div className="space-y-4">
+              <div className="flex gap-4 items-start">
+                <span className="text-2xl flex-shrink-0" aria-hidden="true">🔒</span>
+                <div>
+                  <h3 className="font-bold text-gray-900">Privacy First</h3>
+                  <p className="text-sm text-gray-600">Your salary data never leaves your device. We use client-side calculations — nothing is sent to any server.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <span className="text-2xl flex-shrink-0" aria-hidden="true">⚡</span>
+                <div>
+                  <h3 className="font-bold text-gray-900">Lightning Fast</h3>
+                  <p className="text-sm text-gray-600">Results update instantly as you type. No loading spinners, no waiting.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <span className="text-2xl flex-shrink-0" aria-hidden="true">🌍</span>
+                <div>
+                  <h3 className="font-bold text-gray-900">Multi-Currency Support</h3>
+                  <p className="text-sm text-gray-600">Auto-detects your location for currency settings, with support for multiple currencies.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <span className="text-2xl flex-shrink-0" aria-hidden="true">📱</span>
+                <div>
+                  <h3 className="font-bold text-gray-900">Works Everywhere</h3>
+                  <p className="text-sm text-gray-600">Responsive design that works perfectly on phones, tablets, and desktop computers. Also works offline as a Progressive Web App.</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-        <div className="prose prose-gray max-w-none">
-          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            PaycheckMath is a free resource designed to help US workers understand their
-            compensation by converting annual salaries to hourly, daily, weekly, and monthly pay.
-          </p>
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900">Our Content Standards</h2>
+            <p>Every article and tool on PaycheckMath is:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Researched:</strong> Built on data from the Bureau of Labor Statistics, IRS publications, and industry sources.</li>
+              <li><strong>Reviewed:</strong> Checked for accuracy by team members with financial expertise.</li>
+              <li><strong>Updated regularly:</strong> We keep tax brackets, inflation data, and cost of living figures current.</li>
+              <li><strong>Transparent:</strong> We clearly label all calculations as estimates and encourage users to consult professionals for personalized advice.</li>
+            </ul>
+          </section>
 
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-            Our Mission
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            We believe that understanding your compensation is fundamental to making informed
-            career decisions. Whether you're comparing job offers, negotiating salary, or simply
-            curious about your hourly rate, our calculators provide quick, accurate answers.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Our goal is to empower workers across the United States with the tools and knowledge
-            they need to understand their true earning potential. We've built a comprehensive suite
-            of calculators that go beyond simple conversions, helping you plan for raises, compare
-            job offers, and understand your take-home pay.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-            Why We Built This
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Many workers struggle to compare salaries across different pay structures. A job
-            offering $75,000 per year might sound great, but how does it compare to a position
-            paying $38 per hour? What about benefits, overtime potential, or part-time work?
-            Our tools make these comparisons simple and transparent.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            We created PaycheckMath because we saw a need for straightforward, honest salary
-            calculators that don't require sign-ups, don't sell your data, and don't hide behind
-            paywalls. Just clean, accurate calculations when you need them.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-            What Makes Us Different
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Unlike other salary calculators, we offer a complete suite of tools:
-          </p>
-          <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
-            <li><strong>9 Specialized Calculators:</strong> From basic salary conversions to advanced comparison tools</li>
-            <li><strong>No Registration Required:</strong> Use all our tools instantly without creating an account</li>
-            <li><strong>Mobile-Optimized:</strong> Calculate on any device, anywhere</li>
-            <li><strong>Real-Time Results:</strong> See your calculations update as you type</li>
-            <li><strong>Educational Content:</strong> Learn about salary structures, not just numbers</li>
-            <li><strong>Completely Free:</strong> All features available to everyone at no cost</li>
-          </ul>
-
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-            Accuracy and Transparency
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            All calculations are based on standard US work hours and clearly explained formulas.
-            We use 2,080 hours per year as the baseline (40 hours per week × 52 weeks), but our
-            calculators allow you to adjust these values to match your specific situation.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-            Free and Accessible
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            PaycheckMath is completely free to use with no registration required. We believe
-            financial tools should be accessible to everyone, and we're committed to keeping our
-            calculators free and ad-light.
-          </p>
-
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-            Contact Us
-          </h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Have questions, suggestions, or feedback? We'd love to hear from you. Visit our{' '}
-            <Link href="/contact/" className="text-blue-600 hover:text-blue-800 underline">
-              contact page
-            </Link>{' '}
-            to get in touch.
-          </p>
+          <section className="bg-gray-50 border border-gray-200 rounded-xl p-6 sm:p-8">
+            <h2 className="text-2xl font-bold text-gray-900">Get in Touch</h2>
+            <p>We love hearing from our users! Whether you have a suggestion for a new calculator, found an issue, or just want to say hello:</p>
+            <p className="mt-3">📧 Email us at <a href="mailto:paycheckmath@gmail.com" className="text-blue-600 font-semibold hover:underline">paycheckmath@gmail.com</a></p>
+            <p className="mt-2">Or visit our <Link href="/contact/" className="text-blue-600 font-semibold hover:underline">Contact Page</Link> to send us a message directly.</p>
+          </section>
         </div>
       </main>
-
       <Footer />
     </div>
   );

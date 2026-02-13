@@ -3,12 +3,10 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import { CurrencyProvider } from '@/contexts/CurrencyContext';
+import { DarkModeProvider } from '@/contexts/DarkModeContext';
+import CookieConsent from '@/components/CookieConsent';
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://paycheckmath.com'),
@@ -31,10 +29,7 @@ export const metadata: Metadata = {
       { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     shortcut: '/favicon.png',
-    apple: [
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-    ],
-    other: [],
+    apple: [{ url: '/icon-192.png', sizes: '192x192', type: 'image/png' }],
   },
   robots: {
     index: true,
@@ -54,28 +49,25 @@ export const metadata: Metadata = {
     siteName: 'PaycheckMath',
     title: 'PaycheckMath - Free Salary & Pay Calculators',
     description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for overtime, take-home pay, raises, and more.',
-    images: [
-      {
-        url: '/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: 'PaycheckMath - Salary & Pay Calculators',
-      },
-    ],
+    images: [{
+      url: '/logo-1200x627.png',
+      width: 1200,
+      height: 627,
+      alt: 'PaycheckMath - Salary & Pay Calculators',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'PaycheckMath - Free Salary & Pay Calculators',
     description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for the US.',
-    images: ['/og-image.svg'],
+    images: ['/logo-1200x627.png'],
+  },
+  alternates: {
+    canonical: 'https://paycheckmath.com/',
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -87,17 +79,7 @@ export default function RootLayout({
       '@type': 'Organization',
       name: 'PaycheckMath',
       url: 'https://paycheckmath.com',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://paycheckmath.com/logo-1200x627.png',
-        width: 1200,
-        height: 627,
-      },
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://paycheckmath.com/?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
+      logo: { '@type': 'ImageObject', url: 'https://paycheckmath.com/logo-1200x627.png', width: 1200, height: 627 },
     },
   };
 
@@ -106,63 +88,35 @@ export default function RootLayout({
     '@type': 'Organization',
     name: 'PaycheckMath',
     url: 'https://paycheckmath.com',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://paycheckmath.com/logo-1200x627.png',
-      width: 1200,
-      height: 627,
-    },
-    sameAs: [
-      'https://paycheckmath.com',
-    ],
+    logo: { '@type': 'ImageObject', url: 'https://paycheckmath.com/logo-1200x627.png', width: 1200, height: 627 },
+    contactPoint: { '@type': 'ContactPoint', email: 'paycheckmath@gmail.com', contactType: 'customer service' },
+    sameAs: ['https://paycheckmath.com'],
   };
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Essential Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0b5cff" />
         <meta name="google-adsense-account" content="ca-pub-8628108609340604" />
-
-        {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
-
-        {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" href="/icon-192.png" />
-
-        {/* Google AdSense */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8628108609340604" crossOrigin="anonymous"></script>
-
-        {/* Structured Data - Website */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
-        {/* Structured Data - Organization */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       </head>
       <body className="font-sans antialiased">
-        {/* Google Analytics - Loaded after interactive */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}');
-          `}
-        </Script>
+        {/* Google Analytics */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}');`}</Script>
+        {/* Google AdSense - loaded after interactive */}
+        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8628108609340604" strategy="afterInteractive" crossOrigin="anonymous" />
 
-        <CurrencyProvider>
-          {children}
-        </CurrencyProvider>
+        <DarkModeProvider>
+          <CurrencyProvider>
+            {children}
+            <CookieConsent />
+          </CurrencyProvider>
+        </DarkModeProvider>
       </body>
     </html>
   );

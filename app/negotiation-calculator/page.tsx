@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Calculate your ideal counter offer with our salary negotiation calculator. Get personalized negotiation scripts, lifetime value analysis, and expert tips to maximize your salary.',
   keywords: 'salary negotiation calculator, counter offer calculator, salary negotiation tips, negotiation scripts, job offer negotiation',
   alternates: {
-    canonical: 'https://paycheckmath.com/negotiation-calculator',
+    canonical: 'https://paycheckmath.com/negotiation-calculator/',
   },
   openGraph: {
     title: 'Salary Negotiation Calculator - Maximize Your Offer',

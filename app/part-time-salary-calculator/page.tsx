@@ -8,10 +8,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Part-Time Salary Calculator | PaycheckMath.com',
   description: 'Calculate income from part-time work or multiple jobs. See your total earnings from all part-time positions combined.',
+  alternates: { canonical: 'https://paycheckmath.com/part-time-salary-calculator/' },
   openGraph: {
     title: 'Part-Time Salary Calculator | PaycheckMath.com',
     description: 'Calculate income from part-time work or multiple jobs. See your total earnings from all part-time positions combined.',
     type: 'website',
+    images: ['/logo-1200x627.png'],
   },
 };
 

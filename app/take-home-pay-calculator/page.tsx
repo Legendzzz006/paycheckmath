@@ -8,10 +8,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Take-Home Pay Calculator | Calculate Net Pay After Taxes',
   description: 'Calculate your take-home pay after federal taxes, state taxes, FICA, and other deductions. See your net pay and understand where your money goes.',
+  alternates: { canonical: 'https://paycheckmath.com/take-home-pay-calculator/' },
   openGraph: {
     title: 'Take-Home Pay Calculator | Calculate Net Pay After Taxes',
     description: 'Calculate your take-home pay after federal taxes, state taxes, FICA, and other deductions. See your net pay and understand where your money goes.',
     type: 'website',
+    images: ['/logo-1200x627.png'],
   },
 };
 
