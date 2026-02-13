@@ -5,9 +5,6 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Terms of Service | PaycheckMath',
   description: 'Terms of Service for PaycheckMath - Read our terms and conditions for using our salary calculators.',
-  alternates: {
-    canonical: '/terms-of-service',
-  },
 };
 
 export default function TermsOfServicePage() {

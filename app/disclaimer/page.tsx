@@ -5,9 +5,6 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Disclaimer | PaycheckMath',
   description: 'Important disclaimer and terms of use for PaycheckMath salary and wage calculators.',
-  alternates: {
-    canonical: '/disclaimer',
-  },
 };
 
 export default function DisclaimerPage() {

@@ -5,9 +5,6 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Privacy Policy | PaycheckMath',
   description: 'Privacy Policy for PaycheckMath - Learn how we collect, use, and protect your information.',
-  alternates: {
-    canonical: '/privacy-policy',
-  },
 };
 
 export default function PrivacyPolicyPage() {

@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ professio
     description,
     keywords: `${profession.title} salary, ${profession.title} pay, ${profession.title} hourly rate, ${profession.title} income, ${profession.category.toLowerCase()} salary`,
     alternates: {
-      canonical: `/salary/${professionSlug}`,
+      canonical: `https://paycheckmath.com/salary/${professionSlug}`,
     },
     openGraph: {
       title,

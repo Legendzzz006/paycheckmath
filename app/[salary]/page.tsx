@@ -41,13 +41,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `$${salary.toLocaleString()} a Year is How Much an Hour? | PaycheckMath`,
     description: `Convert $${salary.toLocaleString()} annual salary to hourly, monthly, weekly, and daily pay. See your exact take-home pay breakdown.`,
     alternates: {
-      canonical: `/${salaryParam}`,
+      canonical: `https://paycheckmath.com/${salaryParam}`,
     },
     openGraph: {
       title: `$${salary.toLocaleString()} a Year is How Much an Hour?`,
       description: `Convert $${salary.toLocaleString()} annual salary to hourly, monthly, weekly, and daily pay.`,
       type: 'website',
-      url: `/${salaryParam}`,
+      url: `https://paycheckmath.com/${salaryParam}`,
     },
   };
 }

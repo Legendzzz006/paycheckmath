@@ -5,9 +5,6 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'About PaycheckMath | Free Salary & Wage Calculators',
   description: 'Learn about PaycheckMath and our mission to provide accurate, free salary and wage conversion tools for US workers.',
-  alternates: {
-    canonical: '/about',
-  },
 };
 
 export default function AboutPage() {

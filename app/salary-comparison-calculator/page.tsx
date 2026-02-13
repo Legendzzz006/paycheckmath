@@ -8,9 +8,6 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Salary vs Hourly Comparison Calculator | PaycheckMath.com',
   description: 'Compare salary and hourly job offers side by side. Factor in benefits to see which position pays more.',
-  alternates: {
-    canonical: '/salary-comparison-calculator',
-  },
   openGraph: {
     title: 'Salary vs Hourly Comparison Calculator | PaycheckMath.com',
     description: 'Compare salary and hourly job offers side by side. Factor in benefits to see which position pays more.',

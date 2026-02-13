@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Compare multiple job offers side-by-side including salary, bonuses, equity, PTO, 401k match, and benefits. Share your comparison or save it for later.',
   keywords: 'job offer comparison, salary comparison, compare job offers, total compensation calculator, benefits comparison',
   alternates: {
-    canonical: '/compare',
+    canonical: 'https://paycheckmath.com/compare',
   },
   openGraph: {
     title: 'Compare Job Offers - Total Compensation Calculator',

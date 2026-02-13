@@ -8,9 +8,6 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Monthly Income Calculator | PaycheckMath.com',
   description: 'Calculate your monthly income from annual salary, hourly rate, or weekly pay. Convert between all pay periods instantly.',
-  alternates: {
-    canonical: '/monthly-income-calculator',
-  },
   openGraph: {
     title: 'Monthly Income Calculator | PaycheckMath.com',
     description: 'Calculate your monthly income from annual salary, hourly rate, or weekly pay. Convert between all pay periods instantly.',

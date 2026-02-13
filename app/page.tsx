@@ -8,9 +8,6 @@ export const metadata: Metadata = {
   title: 'PaycheckMath - Free Salary & Pay Calculators for the US',
   description: 'Calculate your hourly, weekly, monthly, and yearly pay instantly. Free salary calculators for overtime, take-home pay, raises, and more. Accurate US wage conversion tools.',
   keywords: 'salary calculator, hourly wage calculator, annual salary to hourly, pay calculator, wage converter, overtime calculator, paycheck calculator',
-  alternates: {
-    canonical: '/',
-  },
 };
 
 export default function HomePage() {

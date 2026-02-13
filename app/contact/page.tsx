@@ -5,9 +5,6 @@ import Footer from '@/components/Footer';
 export const metadata: Metadata = {
   title: 'Contact Us | PaycheckMath',
   description: 'Get in touch with PaycheckMath. We welcome your questions, feedback, and suggestions.',
-  alternates: {
-    canonical: '/contact',
-  },
 };
 
 export default function ContactPage() {

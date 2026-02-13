@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const content = generateStatePageContent(parsed.salary, parsed.state);
   if (!content) return { title: 'Salary Not Found' };
 
-  const canonical = `/salary-in/${location}`;
+  const canonical = `https://paycheckmath.com/salary-in/${location}`;
 
   return {
     title: content.title,

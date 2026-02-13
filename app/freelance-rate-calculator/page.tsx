@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Calculate your freelance hourly rate based on desired salary, expenses, taxes, and benefits. See what you need to charge to match a W2 salary.',
   keywords: 'freelance rate calculator, hourly rate calculator, freelance pricing, contractor rate, self-employed rate calculator',
   alternates: {
-    canonical: '/freelance-rate-calculator',
+    canonical: 'https://paycheckmath.com/freelance-rate-calculator',
   },
   openGraph: {
     title: 'Freelance Rate Calculator - Know Your Worth',

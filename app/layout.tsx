@@ -4,7 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import { CurrencyProvider } from '@/contexts/CurrencyContext';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
@@ -35,9 +35,6 @@ export const metadata: Metadata = {
       { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
     other: [],
-  },
-  alternates: {
-    canonical: '/',
   },
   robots: {
     index: true,
@@ -127,16 +124,16 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0b5cff" />
         <meta name="google-adsense-account" content="ca-pub-8628108609340604" />
-        
+
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        
+
         {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" href="/icon-192.png" />
-        
+
         {/* Google AdSense */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8628108609340604" crossOrigin="anonymous"></script>
-        
+
         {/* Structured Data - Website */}
         <script
           type="application/ld+json"
@@ -162,7 +159,7 @@ export default function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GA_ID || 'G-SWX479KPBR'}');
           `}
         </Script>
-        
+
         <CurrencyProvider>
           {children}
         </CurrencyProvider>
