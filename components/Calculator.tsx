@@ -81,6 +81,18 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
     }));
   }, [currency]);
 
+  // Listen for salary changes from RecentCalculations clicks
+  useEffect(() => {
+    const handleSetSalary = (e: Event) => {
+      const salary = (e as CustomEvent).detail;
+      if (typeof salary === 'number' && salary > 0) {
+        setInputs(prev => ({ ...prev, annualSalary: salary }));
+      }
+    };
+    window.addEventListener('set-salary', handleSetSalary);
+    return () => window.removeEventListener('set-salary', handleSetSalary);
+  }, []);
+
   const handleInputChange = (field: keyof CalculatorInputs, value: string) => {
     const numValue = parseFloat(value) || 0;
     if (field === 'annualSalary' && (numValue < 0 || numValue > 10000000)) return;

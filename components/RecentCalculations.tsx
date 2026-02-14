@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 
 interface RecentCalc {
     salary: number;
@@ -20,6 +19,16 @@ export default function RecentCalculations() {
 
     if (recents.length === 0) return null;
 
+    const handleClick = (salary: number) => {
+        window.dispatchEvent(new CustomEvent('set-salary', { detail: salary }));
+        // Scroll calculator into view smoothly
+        const calcEl = document.getElementById('annualSalary');
+        if (calcEl) {
+            calcEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            calcEl.focus();
+        }
+    };
+
     return (
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-5 no-print">
             <h3 className="text-sm font-bold text-gray-700 uppercase tracking-wider mb-3 flex items-center gap-2">
@@ -28,10 +37,15 @@ export default function RecentCalculations() {
             </h3>
             <div className="space-y-2">
                 {recents.map((calc, i) => (
-                    <Link key={i} href={`/${calc.salary}-a-year-is-how-much-an-hour/`} className="flex items-center justify-between px-3 py-2 bg-white border border-gray-100 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all text-sm group">
+                    <button
+                        key={i}
+                        onClick={() => handleClick(calc.salary)}
+                        className="w-full flex items-center justify-between px-3 py-2 bg-white border border-gray-100 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all text-sm group cursor-pointer"
+                        aria-label={`Load salary calculation for $${calc.salary.toLocaleString()} per year`}
+                    >
                         <span className="font-medium text-gray-900 group-hover:text-blue-600">${calc.salary.toLocaleString()}/yr</span>
                         <span className="text-gray-500">{calc.hourly}/hr</span>
-                    </Link>
+                    </button>
                 ))}
             </div>
         </div>
