@@ -162,12 +162,24 @@ export default function Calculator({ initialSalary = 75000 }: CalculatorProps) {
         </div>
         <div className="flex flex-wrap gap-2 mt-6">
           <ShareResults title="Salary Breakdown" text={`Salary: ${formatCurrency(breakdown.annual, currency)}/year`} data={{ 'Annual': formatCurrency(breakdown.annual, currency), 'Hourly': formatCurrency(breakdown.hourly, currency), 'Daily': formatCurrency(breakdown.daily, currency), 'Weekly': formatCurrency(breakdown.weekly, currency), 'Monthly': formatCurrency(breakdown.monthly, currency) }} />
-          <PDFExport title="Salary Breakdown" />
+          <PDFExport
+            title="Salary Breakdown Report"
+            subtitle={`Annual salary of ${formatCurrency(breakdown.annual, currency)} broken down by pay period`}
+            inputs={{
+              'Annual Salary': `${currency.symbol}${inputs.annualSalary.toLocaleString()}`,
+              'Hours / Week': `${inputs.hoursPerWeek}`,
+              'Weeks / Year': `${inputs.weeksPerYear}`,
+              'PTO Weeks': `${inputs.paidTimeOffWeeks}`,
+            }}
+            data={{
+              'Hourly Rate': formatCurrency(breakdown.hourly, currency),
+              'Daily Pay': formatCurrency(breakdown.daily, currency),
+              'Weekly Pay': formatCurrency(breakdown.weekly, currency),
+              'Monthly Pay': formatCurrency(breakdown.monthly, currency),
+              'Annual Salary': formatCurrency(breakdown.annual, currency),
+            }}
+          />
         </div>
-      </div>
-      <div className="print-watermark">
-        <p>📊 Calculated using <strong>PaycheckMath.com</strong> — Free Salary &amp; Pay Calculators</p>
-        <p>Visit: https://paycheckmath.com</p>
       </div>
     </div>
   );

@@ -70,7 +70,22 @@ export default function HourlyToSalaryCalculator() {
                 </div>
                 <div className="flex flex-wrap gap-2 mt-6">
                     <ShareResults title="Hourly to Salary" text="My salary conversion" data={{ 'Hourly Rate': formatCurrency(inputs.hourlyRate, currency), 'Annual Salary': formatCurrency(result.annual, currency), 'Monthly': formatCurrency(result.monthly, currency) }} />
-                    <PDFExport title="Hourly to Salary" />
+                    <PDFExport
+                        title="Hourly to Salary Conversion"
+                        subtitle={`Converting ${currency.symbol}${inputs.hourlyRate}/hr to annual salary equivalents`}
+                        accentColor="#16a34a"
+                        inputs={{
+                            'Hourly Rate': `${currency.symbol}${inputs.hourlyRate}`,
+                            'Hours / Week': `${inputs.hoursPerWeek}`,
+                            'Weeks / Year': `${inputs.weeksPerYear}`,
+                        }}
+                        data={{
+                            'Annual Salary': formatCurrency(result.annual, currency),
+                            'Monthly Pay': formatCurrency(result.monthly, currency),
+                            'Bi-Weekly Pay': formatCurrency(result.biweekly, currency),
+                            'Daily Pay': formatCurrency(result.daily, currency),
+                        }}
+                    />
                 </div>
             </div>
         </div>

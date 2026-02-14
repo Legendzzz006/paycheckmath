@@ -98,7 +98,32 @@ export default function InflationCalculator() {
                 )}
                 <div className="flex flex-wrap gap-2 mt-6">
                     <ShareResults title="Inflation Calculator" text="Salary inflation analysis" data={{ 'Current Salary': formatCurrency(inputs.salary, currency), [`After ${inputs.years} years (nominal)`]: formatCurrency(result.nominalSalary, currency), 'Real Value': formatCurrency(result.realValue, currency) }} />
-                    <PDFExport title="Inflation Calculator" />
+                    <PDFExport
+                        title="Inflation-Adjusted Salary Report"
+                        subtitle={`${inputs.years}-year projection with ${inputs.inflationRate}% inflation and ${inputs.raiseRate}% annual raises`}
+                        accentColor="#ea580c"
+                        inputs={{
+                            'Current Salary': `${currency.symbol}${inputs.salary.toLocaleString()}`,
+                            'Time Period': `${inputs.years} years`,
+                            'Inflation Rate': `${inputs.inflationRate}%`,
+                            'Annual Raise': `${inputs.raiseRate}%`,
+                        }}
+                        data={{
+                            'Nominal Salary': formatCurrency(result.nominalSalary, currency),
+                            'Real Value': formatCurrency(result.realValue, currency),
+                            'Purchasing Power Loss': `${result.purchasingPowerLoss}%`,
+                            'Real Gain/Loss': `${isLoss ? '-' : '+'}${formatCurrency(Math.abs(result.realGainOrLoss), currency)}`,
+                        }}
+                        tableData={result.yearByYear.length > 0 ? {
+                            headers: ['Year', 'Nominal Salary', 'Real Value', 'Cum. Inflation'],
+                            rows: result.yearByYear.map(row => [
+                                `Year ${row.year}`,
+                                formatCurrency(row.nominal, currency),
+                                formatCurrency(row.real, currency),
+                                `${row.cumInflation}%`,
+                            ]),
+                        } : undefined}
+                    />
                 </div>
             </div>
         </div>
